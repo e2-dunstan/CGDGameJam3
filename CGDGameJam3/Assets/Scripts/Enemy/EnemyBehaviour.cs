@@ -46,6 +46,8 @@ public class EnemyBehaviour : MonoBehaviour
 
     private void FixedUpdate()
     {
+        enemyRigidbody.angularVelocity = Vector3.zero;
+
         enemyPosition.Set(transform.position.x, transform.position.z);
         playerPosition.Set(playerTransform.position.x, playerTransform.position.z);
 
