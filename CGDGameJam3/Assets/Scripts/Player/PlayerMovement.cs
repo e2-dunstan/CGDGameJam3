@@ -35,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         col = GetComponent<CapsuleCollider>();
         previousPosition = transform.position;
+        VFXManager.Instance.CreateParticleSystemForObject(VFXManager.Instance.runningPS, VFXManager.Instance.runningListPS);
     }
 
     private void Update()
@@ -56,6 +57,7 @@ public class PlayerMovement : MonoBehaviour
             float zAddtion = zOffset * Time.deltaTime * speedMultiplier;
             newPos.z += InputHandler.Instance().GetSprintHold() ? zAddtion * sprintMultiplier : zAddtion;
 
+            VFXManager.Instance.PlayParticleSystemOnGameObject(gameObject, VFXManager.Instance.runningListPS);
             rb.MovePosition(newPos);
             RotateToMovement();
         }

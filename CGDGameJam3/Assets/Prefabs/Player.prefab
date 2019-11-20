@@ -79,6 +79,7 @@ MonoBehaviour:
   model: {fileID: 8451108559297039815}
   speedMultiplier: 5
   sprintMultiplier: 1.35
+  rotationDampening: 10
   horizontalInputAxis: 0
   verticalInputAxis: 1
 --- !u!1 &8451108559297039815
