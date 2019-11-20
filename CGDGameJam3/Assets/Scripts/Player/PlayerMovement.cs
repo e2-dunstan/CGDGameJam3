@@ -11,13 +11,15 @@ public class PlayerMovement : MonoBehaviour
         Z
     }
 
+    [Header("References")]
+    [SerializeField] private GameObject model;
+
     [Header("Settings")]
     [SerializeField] private float speedMultiplier = 5.0f;
     [SerializeField] private float sprintMultiplier = 1.5f;
     [SerializeField] private float rotationDampening = 10.0f;
     [SerializeField] private MovementAxis horizontalInputAxis = MovementAxis.X;
     [SerializeField] private MovementAxis verticalInputAxis = MovementAxis.Z;
-    //[SerializeField] private ForceMode rigidbodyForceMode = ForceMode.Force;
 
 
     private Rigidbody rb;
@@ -55,6 +57,7 @@ public class PlayerMovement : MonoBehaviour
             float zAddtion = zOffset * Time.deltaTime * speedMultiplier;
             newPos.z += InputHandler.Instance().GetSprintHold() ? zAddtion * sprintMultiplier : zAddtion;
 
+            VFXManager.Instance.PlayParticleSystemOnGameObject(gameObject, VFXManager.Instance.runningListPS);
             rb.MovePosition(newPos);
             RotateToMovement();
         }
