@@ -7,7 +7,10 @@ public class VFXManager : MonoBehaviour
     public static VFXManager Instance;
 
     public ParticleSystem torchPS;
-    public List<PartSys> torchPSList;
+    public List<PartSys> torchPSList = new List<PartSys>();
+
+    public ParticleSystem runningPS;
+    public List<PartSys> runningListPS = new List<PartSys>();
 
     public class PartSys
     {
