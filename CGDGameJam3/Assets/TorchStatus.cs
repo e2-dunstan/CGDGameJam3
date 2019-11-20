@@ -23,7 +23,26 @@ public class TorchStatus : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown("p"))
+        Vector2 scroll = Input.mouseScrollDelta;
+        Debug.Log(scroll);
+        
+
+        if ((flashLight.spotAngle + (scroll.y / 2)) > 35 && (flashLight.spotAngle + (scroll.y / 2)) < 74)
+        {
+            flashLight.spotAngle += scroll.y;
+
+            if (flashLight.range + (scroll.y / 2) < 12 && flashLight.range + (scroll.y / 2) > 6)
+            {
+                flashLight.range += (scroll.y / 2);
+            }
+
+            if (flashLight.intensity - (scroll.y) > 2 && flashLight.intensity - scroll.y < 10)
+            {
+                flashLight.intensity -= scroll.y;
+            }
+        }
+       
+        if (Input.GetKeyDown("p"))
         {
             if(!isFlashing)
             {
