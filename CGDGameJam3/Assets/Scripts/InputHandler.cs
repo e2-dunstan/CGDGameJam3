@@ -30,6 +30,21 @@ public class InputHandler : MonoBehaviour
         return Input.GetAxisRaw("Vertical");
     }
 
+    public bool GetSprintDown()
+    {
+        return GetKeyDown(KeyCode.LeftShift) || GetKeyDown(KeyCode.RightShift);
+    }
+
+    public bool GetSprintUp()
+    {
+        return GetKeyUp(KeyCode.LeftShift) || GetKeyUp(KeyCode.RightShift);
+    }
+
+    public bool GetSprintHold()
+    {
+        return GetKeyHold(KeyCode.LeftShift) || GetKeyHold(KeyCode.RightShift);
+    }
+
     public bool GetKeyDown(KeyCode key)
     {
         return Input.GetKeyDown(key);
