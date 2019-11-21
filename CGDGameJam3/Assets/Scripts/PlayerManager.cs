@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class PlayerManager : MonoBehaviour
 {
 
-    [HideInInspector] int numberOfPlayers = 0;
+    [HideInInspector] int numberOfPlayers = 1;
     public GameObject playerPrefab;
     List<GameObject> players = new List<GameObject>();
     public GameObject spawnPosParent;
