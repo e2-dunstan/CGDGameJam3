@@ -34,6 +34,9 @@ public class TouchLights : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        for (int i = 0; i < lights.Length; ++i)
+        {
+            lights[i].GetComponent<Light>().intensity -= Time.deltaTime * 0.01f;
+        }
     }
 }

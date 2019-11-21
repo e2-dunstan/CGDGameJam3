@@ -20,7 +20,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float rotationDampening = 10.0f;
     [SerializeField] private MovementAxis horizontalInputAxis = MovementAxis.X;
     [SerializeField] private MovementAxis verticalInputAxis = MovementAxis.Z;
-
+    [SerializeField] private Vector3 velocity = new Vector3(0.0f, 0.0f, 0.0f);
+    [HideInInspector] public int playerNum = 1;
 
     private Rigidbody rb;
     private CapsuleCollider col;
@@ -40,13 +41,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        horizontalInput = InputHandler.Instance().GetHorizontalInput();
-        verticalInput = InputHandler.Instance().GetVerticalInput();
+        horizontalInput = InputHandler.Instance().GetHorizontalInput(playerNum);
+        verticalInput = InputHandler.Instance().GetVerticalInput(playerNum);
     }
 
     private void FixedUpdate()
     {
-        if(horizontalInput != 0 || verticalInput != 0)
+        if (horizontalInput != 0 || verticalInput != 0)
         {
             Vector3 newPos = transform.position;
             float xOffset = horizontalInputAxis == MovementAxis.X ? horizontalInput : verticalInput;
@@ -61,6 +62,7 @@ public class PlayerMovement : MonoBehaviour
             rb.MovePosition(newPos);
             RotateToMovement();
         }
+
     }
 
     private void RotateToMovement()

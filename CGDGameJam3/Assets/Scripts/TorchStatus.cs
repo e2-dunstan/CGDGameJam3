@@ -24,7 +24,7 @@ public class TorchStatus : MonoBehaviour
     void Update()
     {
         Vector2 scroll = Input.mouseScrollDelta;
-        Debug.Log(scroll);
+        //Debug.Log(scroll);
         
 
         if ((flashLight.spotAngle + (scroll.y / 2)) > 35 && (flashLight.spotAngle + (scroll.y / 2)) < 74)

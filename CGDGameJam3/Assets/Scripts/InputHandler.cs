@@ -5,6 +5,9 @@ using UnityEngine;
 public class InputHandler : MonoBehaviour
 {
     private static InputHandler _instance = null;
+    [HideInInspector] public enum ActiveInput { MOUSE, CONTROLLER};
+
+    ActiveInput activeInput = ActiveInput.MOUSE;
 
     private void Awake()
     {
@@ -20,14 +23,24 @@ public class InputHandler : MonoBehaviour
         return _instance;
     }
 
-    public float GetHorizontalInput()
+    public float GetHorizontalInput(int playerNum)
     {
-        return Input.GetAxisRaw("Horizontal");
+        return Input.GetAxisRaw("Horizontal" + playerNum);
     }
 
-    public float GetVerticalInput()
+    public float GetVerticalInput(int playerNum)
     {
-        return Input.GetAxisRaw("Vertical");
+        return Input.GetAxisRaw("Vertical" + playerNum);
+    }
+
+    public float GetHorizontal2Input(int playerNum)
+    {
+        return Input.GetAxisRaw("RightStickX" + playerNum);
+    }
+
+    public float GetVertical2Input(int playerNum)
+    {
+        return Input.GetAxisRaw("RightStickY" + playerNum);
     }
 
     public bool GetSprintDown()
@@ -113,5 +126,32 @@ public class InputHandler : MonoBehaviour
     public bool GetMiddleMouseButtonHold()
     {
         return Input.GetMouseButton(2);
+    }
+
+    public void EnableMouse(ActiveInput input)
+    {
+        activeInput = input;
+        if(activeInput == ActiveInput.CONTROLLER)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+    }
+
+    public void MouseActive()
+    {
+        if(Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            EnableMouse(ActiveInput.MOUSE);
+        }
+    }
+    public ActiveInput GetActiveInput()
+    {
+        return activeInput;
     }
 }
