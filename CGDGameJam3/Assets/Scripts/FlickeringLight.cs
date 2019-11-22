@@ -25,7 +25,7 @@ public class FlickeringLight : MonoBehaviour
         {
             StartCoroutine(AdjustIntensity());
             timeElapsed = 0;
-            timeBetweenFlickers = Random.Range(0.05f, 0.1f);
+            timeBetweenFlickers = Random.Range(0.15f, 0.2f);
         }
         else
         {

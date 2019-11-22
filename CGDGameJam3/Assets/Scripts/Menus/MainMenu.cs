@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
+    [SerializeField] private Transform options;
+    private int currentSelectedOption = 0;
+
     [SerializeField] private Text title;
     private Color defaultTitleColour;
     private Vector3 defaultTitlePos;
@@ -12,6 +15,8 @@ public class MainMenu : MonoBehaviour
     private float timeElapsed = 0;
     private float flashDelay = 1;
 
+    private bool disableInput = false;
+    private float timeSinceLastInput = 0;
 
     private void Start()
     {
@@ -30,6 +35,20 @@ public class MainMenu : MonoBehaviour
             flashDelay = Random.Range(1f, 5f);
         }
         else timeElapsed += Time.deltaTime;
+
+        //GetInputs();
+
+        for (int i = 0; i < options.childCount; i++)
+        {
+            if (i == currentSelectedOption)
+            {
+                options.GetChild(i).GetComponentInChildren<Text>().color = Color.red;
+            }
+            else
+            {
+                options.GetChild(i).GetComponentInChildren<Text>().color = Color.white;
+            }
+        }
     }
 
     private IEnumerator GlitchTitle()
