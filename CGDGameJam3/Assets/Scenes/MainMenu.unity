@@ -519,7 +519,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b1b9918c0678914a9464d92e54f93ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  options: {fileID: 0}
+  options: {fileID: 404204667}
   title: {fileID: 1592012021}
 --- !u!4 &377270961
 Transform:
