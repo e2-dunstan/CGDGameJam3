@@ -6,6 +6,9 @@ TagManager:
   tags:
   - EnemyNode
   - Wall
+  - Coin
+  - Floor
+  - Enemy
   layers:
   - Default
   - TransparentFX

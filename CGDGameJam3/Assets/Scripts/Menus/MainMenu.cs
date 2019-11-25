@@ -73,20 +73,20 @@ public class MainMenu : MonoBehaviour
 
     private bool VerticalInputDetected()
     {
-        if (axisHeld && (inputHandler.GetVerticalInput(1) > 0.5f || inputHandler.GetVerticalInput(1) < -0.5f)
-            && inputHandler.GetVerticalInput(1) != 0)
+        if (axisHeld && (inputHandler.GetLeftStickY(1) > 0.5f || inputHandler.GetLeftStickY(1) < -0.5f)
+            && inputHandler.GetLeftStickY(1) != 0)
         {
             return false;
         }
         axisHeld = false;
-        if (inputHandler.GetVerticalInput(1) == 0) return false;
+        if (inputHandler.GetLeftStickY(1) == 0) return false;
 
-        if (inputHandler.GetVerticalInput(1) > 0)
+        if (inputHandler.GetLeftStickY(1) > 0)
         {
             axisHeld = true;
             currentSelectedOption++;
         }
-        else if (inputHandler.GetVerticalInput(1) < 0)
+        else if (inputHandler.GetLeftStickY(1) < 0)
         {
             axisHeld = true;
             currentSelectedOption--;

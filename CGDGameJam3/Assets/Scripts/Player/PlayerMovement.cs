@@ -41,8 +41,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        horizontalInput = InputHandler.Instance().GetHorizontalInput(playerNum);
-        verticalInput = InputHandler.Instance().GetVerticalInput(playerNum);
+        horizontalInput = InputHandler.Instance().GetLeftStickX(playerNum);
+        verticalInput = InputHandler.Instance().GetLeftStickY(playerNum);
     }
 
     private void FixedUpdate()

@@ -23,24 +23,25 @@ public class InputHandler : MonoBehaviour
         return _instance;
     }
 
-    public float GetHorizontalInput(int playerNum)
+    //Left stick also refers to wasd for when not using a controller
+    public float GetLeftStickX(int playerNum = 1)
     {
-        return Input.GetAxisRaw("Horizontal" + playerNum);
+        return Input.GetAxisRaw("Player" + playerNum + "LeftStickX");
     }
 
-    public float GetVerticalInput(int playerNum)
+    public float GetLeftStickY(int playerNum = 1)
     {
-        return Input.GetAxisRaw("Vertical" + playerNum);
+        return Input.GetAxisRaw("Player" + playerNum + "LeftStickY");
     }
 
-    public float GetHorizontal2Input(int playerNum)
+    public float GetRightStickX(int playerNum = 1)
     {
-        return Input.GetAxisRaw("RightStickX" + playerNum);
+        return Input.GetAxisRaw("Player" + playerNum + "RightStickX");
     }
 
-    public float GetVertical2Input(int playerNum)
+    public float GetRightStickY(int playerNum = 1)
     {
-        return Input.GetAxisRaw("RightStickY" + playerNum);
+        return Input.GetAxisRaw("Player" + playerNum + "RightStickY");
     }
 
     public bool GetSprintDown()
