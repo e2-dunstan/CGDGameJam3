@@ -61,8 +61,6 @@ public class PlayerMovement : MonoBehaviour
             }
             anim.SetFloat("Speed", animSpeed);
         }
-
-        Debug.Log(animSpeed);
     }
 
     private void FixedUpdate()
@@ -88,7 +86,6 @@ public class PlayerMovement : MonoBehaviour
     {
         animSpeed += Time.deltaTime * 4;
         animSpeed = Mathf.Clamp(animSpeed, 0.0f, 1.0f);
-
         anim.SetBool("Naruto", sprintActive);
         anim.SetFloat("Speed", animSpeed);
     }

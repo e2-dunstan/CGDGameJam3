@@ -277,6 +277,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.2
       objectReference: {fileID: 0}
+    - target: {fileID: 1827431934, guid: f07d8d9cfb392974e88e1dada4241179, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f07d8d9cfb392974e88e1dada4241179, type: 3}
 --- !u!1 &4266978317375453023 stripped
@@ -388,6 +392,11 @@ PrefabInstance:
       propertyPath: m_Shadows.m_Resolution
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4516722152283804570, guid: bad549620354048ae830998722f8dcab,
+        type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 166397387}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bad549620354048ae830998722f8dcab, type: 3}
 --- !u!1 &4917462914702539358 stripped
