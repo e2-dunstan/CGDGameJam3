@@ -18,15 +18,18 @@ public class LightTrigger : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        emission = particleSystem.emission;
-        emission.rateOverTime = 0.0f;
+        if (particleSystem != null)
+        {
+            emission = particleSystem.emission;
+            emission.rateOverTime = 0.0f;
+        }
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!hasBeenCompleted)
+        if (!hasBeenCompleted && particleSystem != null)
         {
             if (currentIntensity - (decreaseProgressSpeed * Time.deltaTime) > 0.0f)
             {
@@ -38,16 +41,19 @@ public class LightTrigger : MonoBehaviour
 
     public void LightIsFixatedUpon(float lightIntensity)
     {
-        if(currentIntensity + (lightIntensity / 10) < maxIntensity)
+        if (particleSystem != null)
         {
-            currentIntensity += lightIntensity / 10;
-            emission.rateOverTime = currentIntensity + (lightIntensity / 10);
-        }
-        else
-        {
-            hasBeenCompleted = true;
+            if (currentIntensity + (lightIntensity / 10) < maxIntensity)
+            {
+                currentIntensity += lightIntensity / 10;
+                emission.rateOverTime = currentIntensity + (lightIntensity / 10);
+            }
+            else
+            {
+                hasBeenCompleted = true;
 
 
+            }
         }
     }
 }

@@ -24,7 +24,6 @@ public class TorchInteraction : MonoBehaviour
             if(hit.transform.gameObject.CompareTag("LightTrigger"))
             {
                 hit.transform.gameObject.GetComponent<LightTrigger>().LightIsFixatedUpon(torchStatus.GetCurrentIntensity());
-                Debug.Log("Hit light trigger");
             }
 
         }
