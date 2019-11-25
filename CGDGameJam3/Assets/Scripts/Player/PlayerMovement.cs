@@ -36,13 +36,24 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         col = GetComponent<CapsuleCollider>();
         previousPosition = transform.position;
-        VFXManager.Instance().CreateParticleSystemForObject(VFXManager.Instance().runningPS, VFXManager.Instance().runningListPS);
+        VFXManager.Instance().CreateParticleSystemForObject(VFXManager.Instance().runningPS, VFXManager.Instance().runningPSList);
+        VFXManager.Instance().CreateParticleSystemForObject(VFXManager.Instance().sprintingPS, VFXManager.Instance().sprintingPSList);
     }
 
     private void Update()
     {
         horizontalInput = InputHandler.Instance().GetLeftStickX(playerNum);
         verticalInput = InputHandler.Instance().GetLeftStickY(playerNum);
+            if (InputHandler.Instance().GetSprintHold())
+            {
+                //StopEffect(VFXManager.Instance().runningPSList);
+                PlayEffect(VFXManager.Instance().sprintingPSList);
+            }
+            else
+            {
+               // StopEffect(VFXManager.Instance().sprintingPSList);
+                PlayEffect(VFXManager.Instance().runningPSList);
+            }
     }
 
     private void FixedUpdate()
@@ -58,7 +69,6 @@ public class PlayerMovement : MonoBehaviour
             float zAddtion = zOffset * Time.deltaTime * speedMultiplier;
             newPos.z += InputHandler.Instance().GetSprintHold() ? zAddtion * sprintMultiplier : zAddtion;
 
-            VFXManager.Instance().PlayParticleSystemOnGameObject(gameObject, VFXManager.Instance().runningListPS);
             rb.MovePosition(newPos);
             RotateToMovement();
         }
@@ -72,5 +82,20 @@ public class PlayerMovement : MonoBehaviour
         previousPosition = transform.position;
         Quaternion dersiredRotation = Quaternion.LookRotation(new Vector3(localDirection.x, 0f, localDirection.z));
         model.transform.localRotation = Quaternion.Lerp(model.transform.localRotation, dersiredRotation, Time.deltaTime * rotationDampening);
+    }
+
+
+    //For particle systems
+    public void StopEffect(List<VFXManager.PartSys> _particleSystemList)
+    {
+        VFXManager.Instance().StopParticleSystemOnGameObject(gameObject, _particleSystemList);
+    }
+    public void PlayEffect(List<VFXManager.PartSys> _particleSystemList)
+    {
+        VFXManager.Instance().PlayParticleSystemOnGameObject(gameObject, _particleSystemList);
+    }
+    public void PlayEffect(List<VFXManager.PartSys> _particleSystemList, Vector3 offset)
+    {
+        VFXManager.Instance().PlayParticleSystemOnGameObject(gameObject, _particleSystemList, offset);
     }
 }
