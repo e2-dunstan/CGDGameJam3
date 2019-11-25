@@ -25,9 +25,12 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody rb;
     private CapsuleCollider col;
+    private Animator anim;
 
     private float horizontalInput = 0.0f;
     private float verticalInput = 0.0f;
+    private bool sprintActive = false;
+    private float animSpeed = 0.0f;
     private Vector3 previousPosition;
 
 
@@ -35,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         col = GetComponent<CapsuleCollider>();
+        anim = model.GetComponent<Animator>();
         previousPosition = transform.position;
         VFXManager.Instance().CreateParticleSystemForObject(VFXManager.Instance().runningPS, VFXManager.Instance().runningListPS);
     }
@@ -43,26 +47,55 @@ public class PlayerMovement : MonoBehaviour
     {
         horizontalInput = InputHandler.Instance().GetLeftStickX(playerNum);
         verticalInput = InputHandler.Instance().GetLeftStickY(playerNum);
+        sprintActive = InputHandler.Instance().GetSprintHold();
+
+        if ((horizontalInput != 0 || verticalInput != 0) && AnimatorCanMove()){
+            SetAnimatorSpeed();
+        }
+        else
+        {
+            if(animSpeed > 0)
+            {
+                animSpeed -= Time.deltaTime * 4;
+                animSpeed = animSpeed < 0 ? 0 : animSpeed;
+            }
+            anim.SetFloat("Speed", animSpeed);
+        }
+
+        Debug.Log(animSpeed);
     }
 
     private void FixedUpdate()
     {
-        if (horizontalInput != 0 || verticalInput != 0)
+        if ((horizontalInput != 0 || verticalInput != 0) && AnimatorCanMove())
         {
             Vector3 newPos = transform.position;
             float xOffset = horizontalInputAxis == MovementAxis.X ? horizontalInput : verticalInput;
             float xAddition = xOffset * Time.deltaTime * speedMultiplier;
-            newPos.x += InputHandler.Instance().GetSprintHold() ? xAddition * sprintMultiplier : xAddition;
+            newPos.x += sprintActive ? xAddition * sprintMultiplier : xAddition;
 
             float zOffset = horizontalInputAxis == MovementAxis.Z ? horizontalInput : verticalInput;
             float zAddtion = zOffset * Time.deltaTime * speedMultiplier;
-            newPos.z += InputHandler.Instance().GetSprintHold() ? zAddtion * sprintMultiplier : zAddtion;
+            newPos.z += sprintActive ? zAddtion * sprintMultiplier : zAddtion;
 
             VFXManager.Instance().PlayParticleSystemOnGameObject(gameObject, VFXManager.Instance().runningListPS);
             rb.MovePosition(newPos);
             RotateToMovement();
         }
+    }
 
+    private void SetAnimatorSpeed()
+    {
+        animSpeed += Time.deltaTime * 4;
+        animSpeed = Mathf.Clamp(animSpeed, 0.0f, 1.0f);
+
+        anim.SetBool("Naruto", sprintActive);
+        anim.SetFloat("Speed", animSpeed);
+    }
+
+    private bool AnimatorCanMove()
+    {
+        return anim.GetCurrentAnimatorStateInfo(0).IsName("Locomotion") || anim.GetCurrentAnimatorStateInfo(0).IsName("Locomotion Injured") || anim.GetCurrentAnimatorStateInfo(0).IsName("Naruto");
     }
 
     private void RotateToMovement()
