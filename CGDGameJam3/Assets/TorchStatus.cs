@@ -13,11 +13,25 @@ public class TorchStatus : MonoBehaviour
     private bool isFlashing = false;
 
     public float dt = 0.0f;
-    
+
+    public float minLightAngle = 35;
+    public float maxLightAngle = 75;
+
+    public float maxLightRange = 12;
+    public float minLightRange = 6;
+
+    public float minLightIntensity = 2;
+    public float maxLightIntensity = 10;
+
+    public GameObject lightStart;
+    public GameObject lightEnd;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        flashLight.intensity = minLightIntensity;
+        flashLight.range = minLightRange;
+        flashLight.spotAngle = minLightAngle;
     }
 
     // Update is called once per frame
@@ -27,16 +41,16 @@ public class TorchStatus : MonoBehaviour
         Debug.Log(scroll);
         
 
-        if ((flashLight.spotAngle + (scroll.y / 2)) > 35 && (flashLight.spotAngle + (scroll.y / 2)) < 74)
+        if ((flashLight.spotAngle + (scroll.y / 2)) > minLightAngle && (flashLight.spotAngle + (scroll.y / 2)) < maxLightAngle)
         {
             flashLight.spotAngle += scroll.y;
 
-            if (flashLight.range + (scroll.y / 2) < 12 && flashLight.range + (scroll.y / 2) > 6)
+            if (flashLight.range + (scroll.y / 2) < maxLightRange && flashLight.range + (scroll.y / 2) > minLightRange)
             {
                 flashLight.range += (scroll.y / 2);
             }
 
-            if (flashLight.intensity - (scroll.y) > 2 && flashLight.intensity - scroll.y < 10)
+            if (flashLight.intensity - (scroll.y) > minLightIntensity && flashLight.intensity - scroll.y < maxLightIntensity)
             {
                 flashLight.intensity -= scroll.y;
             }
@@ -107,5 +121,10 @@ public class TorchStatus : MonoBehaviour
         }
 
         yield return 0;
+    }
+
+    public float GetCurrentIntensity()
+    {
+        return flashLight.intensity;
     }
 }
