@@ -10,6 +10,8 @@ public class KeysUI : MonoBehaviour
     public bool key1Held;
     public bool key2Held;
     public bool key3Held;
+    public bool key4Held;
+
     private void Awake()
     {
         keyImages = GetComponentsInChildren<Image>();
@@ -32,5 +34,7 @@ public class KeysUI : MonoBehaviour
             keyImages[1].enabled = true;
         if (key3Held)
             keyImages[2].enabled = true;
+        if (key4Held)
+            keyImages[3].enabled = true;
     }
 }
