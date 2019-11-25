@@ -2,11 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
     [SerializeField] private Transform options;
+    [SerializeField] private string nextScene;
     private int currentSelectedOption = 0;
+
+    private InputHandler inputHandler;
 
     [SerializeField] private Text title;
     private Color defaultTitleColour;
@@ -15,13 +19,16 @@ public class MainMenu : MonoBehaviour
     private float timeElapsed = 0;
     private float flashDelay = 1;
 
-    private bool disableInput = false;
-    private float timeSinceLastInput = 0;
+    private bool axisHeld = false;
+
 
     private void Start()
     {
         defaultTitleColour = title.color;
         defaultTitlePos = title.transform.position;
+
+        inputHandler = InputHandler.Instance();
+        UpdateOptions();
     }
 
 
@@ -36,8 +43,18 @@ public class MainMenu : MonoBehaviour
         }
         else timeElapsed += Time.deltaTime;
 
-        //GetInputs();
 
+        if (VerticalInputDetected()) UpdateOptions();
+
+        if (inputHandler.GetKeyUp(KeyCode.Return) || inputHandler.GetKeyUp(KeyCode.Space))
+        {
+            if (currentSelectedOption == 0) SceneManager.LoadScene(nextScene);
+            else if (currentSelectedOption == 1) Application.Quit();
+        }
+    }
+
+    private void UpdateOptions()
+    {
         for (int i = 0; i < options.childCount; i++)
         {
             if (i == currentSelectedOption)
@@ -49,6 +66,32 @@ public class MainMenu : MonoBehaviour
                 options.GetChild(i).GetComponentInChildren<Text>().color = Color.white;
             }
         }
+    }
+
+    private bool VerticalInputDetected()
+    {
+        if (axisHeld && (inputHandler.GetVerticalInput(1) > 0.5f || inputHandler.GetVerticalInput(1) < -0.5f)
+            && inputHandler.GetVerticalInput(1) != 0)
+        {
+            return false;
+        }
+        axisHeld = false;
+        if (inputHandler.GetVerticalInput(1) == 0) return false;
+
+        if (inputHandler.GetVerticalInput(1) > 0)
+        {
+            axisHeld = true;
+            currentSelectedOption++;
+        }
+        else if (inputHandler.GetVerticalInput(1) < 0)
+        {
+            axisHeld = true;
+            currentSelectedOption--;
+        }
+        if (currentSelectedOption >= options.childCount - 1) currentSelectedOption = 0;
+        else if (currentSelectedOption <= 0) currentSelectedOption = options.childCount - 1;
+
+        return true;
     }
 
     private IEnumerator GlitchTitle()
