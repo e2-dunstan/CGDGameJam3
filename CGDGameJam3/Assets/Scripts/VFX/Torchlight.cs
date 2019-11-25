@@ -20,11 +20,17 @@ public class Torchlight : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //For testing
         if (InputHandler.Instance().GetSprintHold())
         {
             KillTorch();
         }
+        if (InputHandler.Instance().GetSprintUp())
+        {
+            ReviveTorch();
+        }
 
+        //Add an instance of the torch particle systems to the pool
         if (!initialised)
         {
             VFXManager.Instance().CreateParticleSystemForObject(
@@ -41,20 +47,47 @@ public class Torchlight : MonoBehaviour
         {
             if (_active)
             {
-                VFXManager.Instance().PlayParticleSystemOnGameObject(gameObject, VFXManager.Instance().torchPSList, new Vector3(
+                PlayEffect(VFXManager.Instance().torchPSList, new Vector3(
                     0, 0.25f, 0));
             }
-
         }
     }
     public void KillTorch()
     {
         if (_active)
         {
-            VFXManager.Instance().StopParticleSystemOnGameObject(gameObject, VFXManager.Instance().torchPSList);
-            VFXManager.Instance().PlayParticleSystemOnGameObject(gameObject, VFXManager.Instance().torchDeathPSList, new Vector3(
+            StopEffect(VFXManager.Instance().torchDeathPSList);
+            StopEffect(VFXManager.Instance().torchPSList);
+
+            PlayEffect(VFXManager.Instance().torchDeathPSList, new Vector3(
                 0, 0.25f, 0));
         }
         _active = false;
+    }
+
+    public void ReviveTorch()
+    {
+        if (!_active)
+        {
+            StopEffect(VFXManager.Instance().torchDeathPSList);
+
+            PlayEffect(VFXManager.Instance().torchDeathPSList, new Vector3(
+                0, 0.25f, 0));
+        }
+        _active = true;
+    }
+
+    public void StopEffect(List<VFXManager.PartSys> _particleSystemList)
+    {
+        VFXManager.Instance().StopParticleSystemOnGameObject(gameObject, _particleSystemList);
+    }
+
+    public void PlayEffect(List<VFXManager.PartSys> _particleSystemList)
+    {
+        VFXManager.Instance().PlayParticleSystemOnGameObject(gameObject, _particleSystemList);
+    }
+    public void PlayEffect(List<VFXManager.PartSys> _particleSystemList, Vector3 offset)
+    {
+        VFXManager.Instance().PlayParticleSystemOnGameObject(gameObject, _particleSystemList, offset);
     }
 }
