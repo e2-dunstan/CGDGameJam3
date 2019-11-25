@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - EnemyNode
+  - Wall
+  - Coin
+  - Floor
+  - Enemy
   layers:
   - Default
   - TransparentFX
