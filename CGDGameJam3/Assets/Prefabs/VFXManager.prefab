@@ -46,5 +46,7 @@ MonoBehaviour:
   torchPS: {fileID: 290173660001467911, guid: b2808653230b66342a03332457feedd2, type: 3}
   torchDeathPS: {fileID: 6207389919504203360, guid: e712bf48a95bc87478dbc0dd09709ce6,
     type: 3}
-  runningPS: {fileID: 3370849144291517768, guid: 3eb93dade41a1ba4f8d0789cddfe9a15,
+  runningPS: {fileID: 3370849144291517768, guid: e6441dd81ae8f0f4cba3fa6e5128bd1b,
+    type: 3}
+  sprintingPS: {fileID: 3370849144291517768, guid: 1b550ceaa3ec51843ba8b61974f8d380,
     type: 3}
