@@ -11,10 +11,11 @@ public class VFXManager : MonoBehaviour
     public ParticleSystem torchDeathPS;
     public List<PartSys> torchDeathPSList = new List<PartSys>();
 
-
     public ParticleSystem runningPS;
-    public List<PartSys> runningListPS = new List<PartSys>();
+    public List<PartSys> runningPSList = new List<PartSys>();
 
+    public ParticleSystem sprintingPS;
+    public List<PartSys> sprintingPSList = new List<PartSys>();
 
     public class PartSys
     {
@@ -120,6 +121,4 @@ public class VFXManager : MonoBehaviour
         }
         return false;
     }
-
-
 }
