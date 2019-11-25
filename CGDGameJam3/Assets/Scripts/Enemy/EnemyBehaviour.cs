@@ -46,6 +46,8 @@ public class EnemyBehaviour : MonoBehaviour
         previousPosition = this.transform.position;
         
         playerTransform = EnemyManager.instance.GetPlayerTransform();
+
+        VFXManager.Instance().CreateParticleSystemForObject(VFXManager.Instance().enemyWalkPS, VFXManager.Instance().enemyWalkPSList);
     }
 
     private void FixedUpdate()
@@ -136,6 +138,7 @@ public class EnemyBehaviour : MonoBehaviour
         moveVector.Normalize();
 
         enemyRigidbody.MovePosition(this.transform.position + moveVector * speed * Time.deltaTime);
+        VFXManager.Instance().PlayParticleSystemOnGameObject(gameObject, VFXManager.Instance().enemyWalkPSList);
     }
 
     public void MoveTowardsPlayer()
