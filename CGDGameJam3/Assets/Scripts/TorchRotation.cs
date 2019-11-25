@@ -48,13 +48,13 @@ public class TorchRotation : MonoBehaviour
 
     private void rotateWithController()
     {
-        if (inputHandler.GetHorizontal2Input(1) != 0.0f || inputHandler.GetVertical2Input(1) != 0.0f)
+        if (inputHandler.GetRightStickX(1) != 0.0f || inputHandler.GetRightStickY(1) != 0.0f)
         {
 
             Vector3 targetPoint;
 
-            var x = transform.position.x + inputHandler.GetHorizontal2Input(player.playerNum);
-            var z = transform.position.z + inputHandler.GetVertical2Input(player.playerNum);
+            var x = transform.position.x + inputHandler.GetRightStickX(player.playerNum);
+            var z = transform.position.z + inputHandler.GetRightStickY(player.playerNum);
             targetPoint = new Vector3(x, transform.position.y, z);
 
             var targetRotation = Quaternion.LookRotation(targetPoint - transform.position);
