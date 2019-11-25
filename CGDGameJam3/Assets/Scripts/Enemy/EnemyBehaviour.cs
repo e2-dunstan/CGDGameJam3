@@ -7,7 +7,8 @@ public class EnemyBehaviour : MonoBehaviour
     enum EnemyState
     {
         FollowNodes,
-        Chase
+        Chase,
+        LookAround
     };
 
     EnemyState currentState = EnemyState.FollowNodes;
@@ -15,14 +16,19 @@ public class EnemyBehaviour : MonoBehaviour
     [Header("Model Attributes")]
     public Transform model;
     public float rotationDamping = 10;
+    public bool changeNodeIfStuck = false;
+    public float idleTime;
+    
 
     [Header("Enemy Attributes")]
     public float speed = 2;
     public float chaseSpeed = 4;
+    public float dectectionRange = 3;
     public float chaseRange = 5;
     public float nodeRange = 0.1f;
 
     Rigidbody enemyRigidbody;
+    Animator enemyAnimator;
 
     Transform playerTransform;
 
@@ -30,12 +36,21 @@ public class EnemyBehaviour : MonoBehaviour
     Vector2 enemyPosition;
     Vector3 previousPosition;
 
+    float stuckTimer;
+    float idleTimer;
+
+    bool freezeModelRotation = false;
+
+
     EnemyNode currentNode;
 
     // Start is called before the first frame update
     private void Start()
     {
         enemyRigidbody = this.GetComponent<Rigidbody>();
+        enemyRigidbody.freezeRotation = true;
+
+        enemyAnimator = this.GetComponentInChildren<Animator>();
 
         currentNode = EnemyManager.instance.FindNearestNode(this.transform);
 
@@ -46,18 +61,15 @@ public class EnemyBehaviour : MonoBehaviour
 
     private void FixedUpdate()
     {
-        enemyRigidbody.angularVelocity = Vector3.zero;
+        enemyRigidbody.velocity = Vector3.zero;
 
         enemyPosition.Set(transform.position.x, transform.position.z);
         playerPosition.Set(playerTransform.position.x, playerTransform.position.z);
 
         if (PlayerInRange())
         {
+            ExitLookAroundState();
             currentState = EnemyState.Chase;
-        }
-        else
-        {
-            currentState = EnemyState.FollowNodes;
         }
 
         switch (currentState)
@@ -68,6 +80,10 @@ public class EnemyBehaviour : MonoBehaviour
                 
             case EnemyState.Chase:
                 ChaseState();
+                break;
+
+            case EnemyState.LookAround:
+                LookAroundState();
                 break;
         }
 
@@ -83,24 +99,64 @@ public class EnemyBehaviour : MonoBehaviour
 
         if (NodeInRange())
         {
-            EnemyNode newNode = currentNode.GetNextRandomNode();
-
-            if(newNode == null)
-            {
-                Debug.LogError("Connecting Nodes missing from EnemyNode");
-            }
-            else
-            {
-                currentNode = newNode;
-            }
+            ChangeNode();
         }
 
         MoveTowardsNode();
     }
 
+    private void ChangeNode()
+    {
+        EnemyNode newNode = currentNode.GetNextRandomNode();
+
+        if (newNode == null)
+        {
+            Debug.LogError("Connecting Nodes missing from EnemyNode");
+        }
+        else
+        {
+            currentNode = newNode;
+        }
+    }
+
     private void ChaseState()
     {
+        if (!PlayerInRange())
+        {
+            EnterLookAroundState();
+            return;
+        }
+
         MoveTowardsPlayer();
+    }
+
+    private void EnterLookAroundState()
+    {
+        idleTimer = 0f;
+        enemyAnimator.SetBool("LookAround", true);
+        freezeModelRotation = true;
+        currentState = EnemyState.LookAround;
+    }
+
+    private void LookAroundState()
+    {
+        if (idleTimer < idleTime)
+        {
+            idleTimer += Time.deltaTime;
+            if (idleTimer >= idleTime)
+            {
+                ExitLookAroundState();
+            }
+        }
+    }
+
+    private void ExitLookAroundState()
+    {
+        idleTimer = 0f;
+        enemyAnimator.SetBool("LookAround", false);
+        freezeModelRotation = false;
+        currentNode = EnemyManager.instance.FindNearestNode(this.transform);
+        currentState = EnemyState.FollowNodes;
     }
 
     private bool NodeInRange()
@@ -116,7 +172,8 @@ public class EnemyBehaviour : MonoBehaviour
     {
         float distance = Vector2.Distance(playerPosition, enemyPosition);
 
-        return distance < chaseRange;
+        //When in chase state, use chase range instead of dectection range
+        return distance < (currentState == EnemyState.Chase ? chaseRange : dectectionRange);
     }
 
     public void MoveTowardsNode()
@@ -142,11 +199,57 @@ public class EnemyBehaviour : MonoBehaviour
     private void RotateToMovement()
     {
         Vector3 direction = this.transform.position - previousPosition;
+        float velocity = direction.magnitude / Time.fixedDeltaTime;
+
+        enemyAnimator.SetFloat("Speed", velocity);
+
+        /*
+        if (velocity < 1.9f)
+        {
+            stuckTime += Time.fixedDeltaTime;
+
+            if (stuckTime > 0.5f)
+            {
+                currentNode = EnemyManager.instance.FindNearestNode(this.transform);
+                ChangeNode();
+            }
+        }
+        else
+        {
+            stuckTime = 0f;
+        }
+        */
+
+        if (freezeModelRotation) return;
+
         Vector3 localDirection = transform.InverseTransformDirection(direction);
         previousPosition = transform.position;
 
         Quaternion dersiredRotation = Quaternion.LookRotation(new Vector3(localDirection.x, 0f, localDirection.z));
         model.localRotation = Quaternion.Lerp(model.localRotation, dersiredRotation, Time.deltaTime * rotationDamping);
+    }
+    private void OnCollisionStay(Collision collision)
+    {
+        if(changeNodeIfStuck)
+        {
+            if (collision.transform.CompareTag("Enemy"))
+            {
+                stuckTimer += Time.fixedDeltaTime;
+
+                if (stuckTimer > 0.5f)
+                {
+                    stuckTimer = 0;
+                    currentNode = EnemyManager.instance.FindNearestNode(this.transform);
+
+                    ChangeNode();
+                }
+            }
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        stuckTimer = 0;
     }
 }
 
