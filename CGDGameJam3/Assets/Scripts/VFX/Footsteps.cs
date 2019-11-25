@@ -24,16 +24,16 @@ public class Footsteps : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(lastEmit, transform.position) > delta)
-        {
-            selectedSystem = this;
-            var pos = transform.position + (player.transform.right * gap * dir);
-            dir *= -1;
-            ParticleSystem.EmitParams ep = new ParticleSystem.EmitParams();
-            ep.position = pos;
-            ep.rotation = player.transform.rotation.eulerAngles.y;
-            system.Emit(ep, 1);
-            lastEmit = transform.position;
-        }
+        //if (Vector3.Distance(lastEmit, transform.position) > delta)
+        //{
+        //    selectedSystem = this;
+        //    var pos = transform.position + (player.transform.right * gap * dir);
+        //    dir *= -1;
+        //    ParticleSystem.EmitParams ep = new ParticleSystem.EmitParams();
+        //    ep.position = pos;
+        //    ep.rotation = player.transform.rotation.eulerAngles.y;
+        //    system.Emit(ep, 1);
+        //    lastEmit = transform.position;
+        //}
     }
 }
