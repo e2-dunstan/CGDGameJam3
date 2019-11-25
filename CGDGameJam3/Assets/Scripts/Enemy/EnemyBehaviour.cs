@@ -15,6 +15,7 @@ public class EnemyBehaviour : MonoBehaviour
     [Header("Model Attributes")]
     public Transform model;
     public float rotationDamping = 10;
+    public bool changeNodeIfStuck = false;
 
     [Header("Enemy Attributes")]
     public float speed = 2;
@@ -30,12 +31,15 @@ public class EnemyBehaviour : MonoBehaviour
     Vector2 enemyPosition;
     Vector3 previousPosition;
 
+    float stuckTime;
+
     EnemyNode currentNode;
 
     // Start is called before the first frame update
     private void Start()
     {
         enemyRigidbody = this.GetComponent<Rigidbody>();
+        enemyRigidbody.freezeRotation = true;
 
         currentNode = EnemyManager.instance.FindNearestNode(this.transform);
 
@@ -46,7 +50,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     private void FixedUpdate()
     {
-        enemyRigidbody.angularVelocity = Vector3.zero;
+        enemyRigidbody.velocity = Vector3.zero;
 
         enemyPosition.Set(transform.position.x, transform.position.z);
         playerPosition.Set(playerTransform.position.x, playerTransform.position.z);
@@ -83,19 +87,24 @@ public class EnemyBehaviour : MonoBehaviour
 
         if (NodeInRange())
         {
-            EnemyNode newNode = currentNode.GetNextRandomNode();
-
-            if(newNode == null)
-            {
-                Debug.LogError("Connecting Nodes missing from EnemyNode");
-            }
-            else
-            {
-                currentNode = newNode;
-            }
+            ChangeNode();
         }
 
         MoveTowardsNode();
+    }
+
+    private void ChangeNode()
+    {
+        EnemyNode newNode = currentNode.GetNextRandomNode();
+
+        if (newNode == null)
+        {
+            Debug.LogError("Connecting Nodes missing from EnemyNode");
+        }
+        else
+        {
+            currentNode = newNode;
+        }
     }
 
     private void ChaseState()
@@ -142,11 +151,52 @@ public class EnemyBehaviour : MonoBehaviour
     private void RotateToMovement()
     {
         Vector3 direction = this.transform.position - previousPosition;
+        float velocity = direction.magnitude / Time.fixedDeltaTime;
+
+        /*
+        if (velocity < 1.9f)
+        {
+            stuckTime += Time.fixedDeltaTime;
+
+            if (stuckTime > 0.5f)
+            {
+                currentNode = EnemyManager.instance.FindNearestNode(this.transform);
+                ChangeNode();
+            }
+        }
+        else
+        {
+            stuckTime = 0f;
+        }
+        */
+
         Vector3 localDirection = transform.InverseTransformDirection(direction);
         previousPosition = transform.position;
 
         Quaternion dersiredRotation = Quaternion.LookRotation(new Vector3(localDirection.x, 0f, localDirection.z));
         model.localRotation = Quaternion.Lerp(model.localRotation, dersiredRotation, Time.deltaTime * rotationDamping);
+    }
+    private void OnCollisionStay(Collision collision)
+    {
+        if(changeNodeIfStuck)
+        {
+            if (collision.other.CompareTag("Enemy"))
+            {
+                stuckTime += Time.fixedDeltaTime;
+
+                if (stuckTime > 0.5f)
+                {
+                    stuckTime = 0;
+                    currentNode = EnemyManager.instance.FindNearestNode(this.transform);
+                    ChangeNode();
+                }
+            }
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        stuckTime = 0;
     }
 }
 

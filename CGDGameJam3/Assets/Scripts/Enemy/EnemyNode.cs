@@ -23,6 +23,15 @@ public class EnemyNode : MonoBehaviour
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, 0.25f);
+
+        foreach (EnemyNode node in connectingNodes)
+        {
+            Vector3 heading = node.transform.position - this.transform.position;
+            float distance = heading.magnitude;
+            Vector3 direction = heading / distance;
+
+            Debug.DrawRay(transform.position, direction, Color.blue);
+        }
     }
 
     void OnDrawGizmosSelected()
