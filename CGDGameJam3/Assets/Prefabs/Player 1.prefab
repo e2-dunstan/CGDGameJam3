@@ -275,6 +275,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &405784272837804516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4917462914702539358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0589ae545337a470fb6b5df1db8adec9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8831779503874501056
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -282,11 +294,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1141828390968716064}
     m_Modifications:
-    - target: {fileID: 4516722152283804574, guid: bad549620354048ae830998722f8dcab,
-        type: 3}
-      propertyPath: m_Name
-      value: Flashlight v0.01
-      objectReference: {fileID: 0}
     - target: {fileID: 4516722152283804575, guid: bad549620354048ae830998722f8dcab,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -295,7 +302,7 @@ PrefabInstance:
     - target: {fileID: 4516722152283804575, guid: bad549620354048ae830998722f8dcab,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 4516722152283804575, guid: bad549620354048ae830998722f8dcab,
         type: 3}
@@ -342,6 +349,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4516722152283804574, guid: bad549620354048ae830998722f8dcab,
+        type: 3}
+      propertyPath: m_Name
+      value: Flashlight v0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 4516722152283804568, guid: bad549620354048ae830998722f8dcab,
         type: 3}
       propertyPath: m_Intensity
@@ -374,6 +386,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bad549620354048ae830998722f8dcab, type: 3}
+--- !u!1 &4917462914702539358 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4516722152283804574, guid: bad549620354048ae830998722f8dcab,
+    type: 3}
+  m_PrefabInstance: {fileID: 8831779503874501056}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4917462914702539359 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4516722152283804575, guid: bad549620354048ae830998722f8dcab,
