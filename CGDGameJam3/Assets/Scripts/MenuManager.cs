@@ -36,8 +36,8 @@ public class MenuManager : MonoBehaviour
                 //}
             }
 
-            float j = InputHandler.Instance().GetHorizontalInput(1);
-            float k = InputHandler.Instance().GetVerticalInput(1);
+            float j = InputHandler.Instance().GetLeftStickX(1);
+            float k = InputHandler.Instance().GetLeftStickY(1);
             float l = Input.GetAxis("JoystickA");
             if (j > 0.5f || k > 0.5f || l > 0.5f)
             {
@@ -60,20 +60,20 @@ public class MenuManager : MonoBehaviour
             colour.normalColor = new Color(0.0f, 1.0f, 0.0f);
             menuObjects[playerCount - 1].colors = colour;
 
-            if (InputHandler.Instance().GetVerticalInput(1) > 0.5f && joystickCentred)
+            if (InputHandler.Instance().GetLeftStickY(1) > 0.5f && joystickCentred)
             {
                 joystickCentred = false;
                 playerCount--;
                 if (playerCount < 1) { playerCount = 2; }
             }
-            else if (InputHandler.Instance().GetVerticalInput(1) < -0.5f && joystickCentred)
+            else if (InputHandler.Instance().GetLeftStickY(1) < -0.5f && joystickCentred)
             {
                 joystickCentred = false;
                 playerCount++;
                 if (playerCount > 2) { playerCount = 1; }
             }
-            else if (InputHandler.Instance().GetVerticalInput(1) < 0.2f &&
-                InputHandler.Instance().GetVerticalInput(1) > -0.2f)
+            else if (InputHandler.Instance().GetLeftStickY(1) < 0.2f &&
+                InputHandler.Instance().GetLeftStickY(1) > -0.2f)
             {
                 joystickCentred = true;
             }

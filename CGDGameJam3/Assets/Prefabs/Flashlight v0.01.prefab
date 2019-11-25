@@ -121,3 +121,11 @@ MonoBehaviour:
   flashLight: {fileID: 4516722152283804568}
   flashyTime: 3
   dt: 0
+  minLightAngle: 35
+  maxLightAngle: 75
+  maxLightRange: 12
+  minLightRange: 6
+  minLightIntensity: 2
+  maxLightIntensity: 10
+  lightStart: {fileID: 0}
+  lightEnd: {fileID: 0}
