@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8451108558180628359}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -82,6 +82,8 @@ MonoBehaviour:
   rotationDampening: 10
   horizontalInputAxis: 0
   verticalInputAxis: 1
+  velocity: {x: 0, y: 0, z: 0}
+  playerNum: 1
 --- !u!1 &8451108559297039815
 GameObject:
   m_ObjectHideFlags: 0

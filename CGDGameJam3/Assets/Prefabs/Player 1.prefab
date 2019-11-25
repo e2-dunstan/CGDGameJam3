@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: 1141828390968716065}
   m_Layer: 0
   m_Name: Player 1
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -282,11 +282,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1141828390968716064}
     m_Modifications:
-    - target: {fileID: 4516722152283804574, guid: bad549620354048ae830998722f8dcab,
-        type: 3}
-      propertyPath: m_Name
-      value: Flashlight v0.01
-      objectReference: {fileID: 0}
     - target: {fileID: 4516722152283804575, guid: bad549620354048ae830998722f8dcab,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -341,6 +336,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4516722152283804574, guid: bad549620354048ae830998722f8dcab,
+        type: 3}
+      propertyPath: m_Name
+      value: Flashlight v0.01
       objectReference: {fileID: 0}
     - target: {fileID: 4516722152283804568, guid: bad549620354048ae830998722f8dcab,
         type: 3}
