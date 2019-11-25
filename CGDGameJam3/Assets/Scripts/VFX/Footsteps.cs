@@ -20,7 +20,7 @@ public class Footsteps : MonoBehaviour
         lastEmit = transform.position;
         selectedSystem = this;
         player = PlayerManager.Instance().players[0];
-        playerModel = player.transform.Find("Model").gameObject;
+        playerModel = player.transform.Find("Megan").gameObject;
     }
 
     // Update is called once per frame
