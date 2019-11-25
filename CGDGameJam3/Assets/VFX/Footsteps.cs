@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class Footsteps : MonoBehaviour
 {
@@ -28,7 +27,7 @@ public class Footsteps : MonoBehaviour
         if (Vector3.Distance(lastEmit, transform.position) > delta)
         {
             selectedSystem = this;
-            var pos = player.transform.position + (player.transform.right * gap * dir);
+            var pos = transform.position + (player.transform.right * gap * dir);
             dir *= -1;
             ParticleSystem.EmitParams ep = new ParticleSystem.EmitParams();
             ep.position = pos;
