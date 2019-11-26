@@ -34,14 +34,17 @@ public class MainMenu : MonoBehaviour
 
     private void Update()
     {
-        if (timeElapsed >= flashDelay)
+        if (title != null)
         {
-            StartCoroutine(GlitchTitle());
+            if (timeElapsed >= flashDelay)
+            {
+                StartCoroutine(GlitchTitle());
 
-            timeElapsed = 0;
-            flashDelay = Random.Range(1f, 5f);
+                timeElapsed = 0;
+                flashDelay = Random.Range(1f, 5f);
+            }
+            else timeElapsed += Time.deltaTime;
         }
-        else timeElapsed += Time.deltaTime;
 
 
         if (VerticalInputDetected()) UpdateOptions();
