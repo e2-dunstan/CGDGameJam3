@@ -50,3 +50,5 @@ MonoBehaviour:
     type: 3}
   sprintingPS: {fileID: 3370849144291517768, guid: 1b550ceaa3ec51843ba8b61974f8d380,
     type: 3}
+  enemyWalkPS: {fileID: 3370849144291517768, guid: 0e64439c0da37924889c0cbd032ad219,
+    type: 3}

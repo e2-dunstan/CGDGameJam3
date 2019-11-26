@@ -186,7 +186,7 @@ public class EnemyBehaviour : MonoBehaviour
         moveVector.Normalize();
 
         enemyRigidbody.MovePosition(this.transform.position + moveVector * speed * Time.deltaTime);
-        VFXManager.Instance().PlayParticleSystemOnGameObject(gameObject, VFXManager.Instance().enemyWalkPSList);
+        VFXManager.Instance().PlayParticleSystemOnGameObject(gameObject, VFXManager.Instance().enemyWalkPSList, new Vector3(0, 0.25f, 0));
     }
 
     public void MoveTowardsPlayer()
@@ -197,6 +197,8 @@ public class EnemyBehaviour : MonoBehaviour
         moveVector.Normalize();
 
         enemyRigidbody.MovePosition(this.transform.position + moveVector * chaseSpeed * Time.deltaTime);
+        VFXManager.Instance().PlayParticleSystemOnGameObject(gameObject, VFXManager.Instance().enemyWalkPSList, new Vector3(0, 0.5f, 0));
+
     }
 
     private void RotateToMovement()
