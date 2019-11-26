@@ -8,7 +8,7 @@ public class PlayerManager : MonoBehaviour
 
     [HideInInspector] int numberOfPlayers = 1;
     public GameObject playerPrefab;
-    /*Made public for sol's script! */public List<GameObject> players = new List<GameObject>();
+    public List<GameObject> players = new List<GameObject>();
     public GameObject spawnPosParent;
     static PlayerManager instance;
 

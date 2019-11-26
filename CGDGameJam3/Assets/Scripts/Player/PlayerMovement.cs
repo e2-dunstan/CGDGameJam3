@@ -11,8 +11,8 @@ public class PlayerMovement : MonoBehaviour
         Z
     }
 
-    [Header("References")]
-    [SerializeField] private GameObject model;
+    [Header("References")] //Made public for footsteps FX
+    /*[SerializeField]*/ public GameObject model;
 
     [Header("Settings")]
     [SerializeField] private float speedMultiplier = 5.0f;
