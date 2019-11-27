@@ -31,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
     private float horizontalInput = 0.0f;
     private float verticalInput = 0.0f;
     private bool sprintActive = false;
+    private bool isMoving = false;
     private float animSpeed = 0.0f;
     private Vector3 previousPosition;
 
@@ -52,8 +53,9 @@ public class PlayerMovement : MonoBehaviour
         horizontalInput = InputHandler.Instance().GetLeftStickX(playerNum);
         verticalInput = InputHandler.Instance().GetLeftStickY(playerNum);
         sprintActive = InputHandler.Instance().GetSprintHold();
+        isMoving = (horizontalInput != 0 || verticalInput != 0);
 
-        if ((horizontalInput != 0 || verticalInput != 0) && AnimatorCanMove()){
+        if (isMoving && AnimatorCanMove()){
             SetAnimatorSpeed();
         }
         else
@@ -64,6 +66,7 @@ public class PlayerMovement : MonoBehaviour
                 animSpeed = animSpeed < 0 ? 0 : animSpeed;
             }
             anim.SetFloat("Speed", animSpeed);
+            anim.SetBool("Naruto", sprintActive && isMoving);
         }
             if (InputHandler.Instance().GetSprintHold())
             {
