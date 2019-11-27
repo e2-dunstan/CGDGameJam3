@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private MovementAxis verticalInputAxis = MovementAxis.Z;
     [SerializeField] private Vector3 velocity = new Vector3(0.0f, 0.0f, 0.0f);
     [HideInInspector] public int playerNum = 1;
+    [HideInInspector] public bool walkForward = false;
 
     private Rigidbody rb;
     private CapsuleCollider col;
@@ -32,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
     private bool sprintActive = false;
     private float animSpeed = 0.0f;
     private Vector3 previousPosition;
+
 
 
     private void Start()
@@ -46,9 +48,17 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        horizontalInput = InputHandler.Instance().GetLeftStickX(playerNum);
-        verticalInput = InputHandler.Instance().GetLeftStickY(playerNum);
-        sprintActive = InputHandler.Instance().GetSprintHold();
+        if (!walkForward)
+        {
+            horizontalInput = InputHandler.Instance().GetLeftStickX(playerNum);
+            verticalInput = InputHandler.Instance().GetLeftStickY(playerNum);
+            sprintActive = InputHandler.Instance().GetSprintHold();
+        }
+        else
+        {
+            verticalInput = 1.0f;
+            horizontalInput = 0.0f;
+        }
 
         if ((horizontalInput != 0 || verticalInput != 0) && AnimatorCanMove()){
             SetAnimatorSpeed();
@@ -90,6 +100,7 @@ public class PlayerMovement : MonoBehaviour
             rb.MovePosition(newPos);
             RotateToMovement();
         }
+
     }
 
     private void SetAnimatorSpeed()
