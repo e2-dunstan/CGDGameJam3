@@ -1,9 +1,3 @@
 # CGDGameJam3
 
-Top down
-Maze
-Avoid monsters - break line of sight
-Only see where your torch is shining
-2.5D (3D in Unity)
-Camera view: player is the centre, quite tight but with a wider world
-Spatial sound ignoring rotation
+The player is trapped in a dark maze filled with monsters. They need to navigate to the exit, whilst solving simple puzzles to progress to the next sections. All they have is a torch. Plays in a top down perspective.
