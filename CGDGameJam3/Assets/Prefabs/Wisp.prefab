@@ -4766,5 +4766,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 197829d56a3a8f545b35e7597815f341, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  follow: {fileID: 0}
+  torch: {fileID: 0}
   followSpeed: 10
