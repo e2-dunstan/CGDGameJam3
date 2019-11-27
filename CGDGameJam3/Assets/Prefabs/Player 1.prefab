@@ -281,6 +281,36 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1585575981297697522, guid: f07d8d9cfb392974e88e1dada4241179,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1571701843634883183, guid: f07d8d9cfb392974e88e1dada4241179,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2250553469719655239, guid: f07d8d9cfb392974e88e1dada4241179,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7197438525123162749, guid: f07d8d9cfb392974e88e1dada4241179,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8074942829906865635, guid: f07d8d9cfb392974e88e1dada4241179,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6626051429367390782, guid: f07d8d9cfb392974e88e1dada4241179,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 3175223079097880985, guid: f07d8d9cfb392974e88e1dada4241179,
         type: 3}
       propertyPath: m_CastShadows
@@ -445,12 +475,17 @@ PrefabInstance:
     - target: {fileID: 4516722152283804568, guid: bad549620354048ae830998722f8dcab,
         type: 3}
       propertyPath: m_Shadows.m_Type
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4516722152283804568, guid: bad549620354048ae830998722f8dcab,
         type: 3}
       propertyPath: m_Shadows.m_Resolution
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4516722152283804568, guid: bad549620354048ae830998722f8dcab,
+        type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 55
       objectReference: {fileID: 0}
     - target: {fileID: 4516722152283804570, guid: bad549620354048ae830998722f8dcab,
         type: 3}
