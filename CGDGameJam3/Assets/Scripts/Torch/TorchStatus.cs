@@ -26,6 +26,8 @@ public class TorchStatus : MonoBehaviour
     public GameObject lightStart;
     public GameObject lightEnd;
 
+    private bool isFlickering = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,21 +40,22 @@ public class TorchStatus : MonoBehaviour
     void Update()
     {
         Vector2 scroll = Input.mouseScrollDelta;
+
         //Debug.Log(scroll);
-        
+        float scrollAmount = Mathf.Clamp(scroll.y, -1.0f, 1.0f);
 
-        if ((flashLight.spotAngle + (scroll.y / 2)) > minLightAngle && (flashLight.spotAngle + (scroll.y / 2)) < maxLightAngle)
+        if (flashLight.spotAngle + scrollAmount > minLightAngle && (flashLight.spotAngle + scrollAmount) < maxLightAngle)
         {
-            flashLight.spotAngle += scroll.y;
+            flashLight.spotAngle += scrollAmount;
 
-            if (flashLight.range + (scroll.y / 2) < maxLightRange && flashLight.range + (scroll.y / 2) > minLightRange)
+            if (flashLight.range + scrollAmount < maxLightRange && flashLight.range + scrollAmount > minLightRange)
             {
-                flashLight.range += (scroll.y / 2);
+                flashLight.range += scrollAmount;
             }
 
-            if (flashLight.intensity - (scroll.y) > minLightIntensity && flashLight.intensity - scroll.y < maxLightIntensity)
+            if (flashLight.intensity - scrollAmount > minLightIntensity && flashLight.intensity - scrollAmount < maxLightIntensity)
             {
-                flashLight.intensity -= scroll.y;
+                flashLight.intensity -= scrollAmount;
             }
         }
        
@@ -67,7 +70,11 @@ public class TorchStatus : MonoBehaviour
 
     public void promptLightFlicker()
     {
-        StartCoroutine(flickerLight());
+        if (!isFlickering)
+        {
+            isFlickering = true;
+            StartCoroutine(flickerLight());
+        }
     }
 
     IEnumerator flickerLight()
@@ -108,6 +115,7 @@ public class TorchStatus : MonoBehaviour
             if(dt3 > flashDuration || timeBetweenFlashes.Count <= 0)
             {
                 Debug.Log("Flash over");
+                isFlickering = false;
                 isFlashing = false;
                 isLightOn = true;
                 flashLight.enabled = true;
