@@ -41,8 +41,7 @@ public class Torchlight : MonoBehaviour
         {
             if (_active)
             {
-                PlayEffect(VFXManager.Instance().torchPSList, new Vector3(
-                    0, 0.25f, 0));
+                PlayEffect(VFXManager.Instance().torchPSList);
             }
         }
 
