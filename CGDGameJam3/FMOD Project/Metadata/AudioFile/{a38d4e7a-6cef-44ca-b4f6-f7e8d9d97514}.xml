@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="AudioFile" id="{a38d4e7a-6cef-44ca-b4f6-f7e8d9d97514}">
+        <property name="assetPath">
+            <value>Sub Bass Drop Run Out.wav</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>48</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>2.048</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{bbf3cf9b-31f1-43ce-9198-0dd1496d626f}</destination>
+        </relationship>
+    </object>
+</objects>
