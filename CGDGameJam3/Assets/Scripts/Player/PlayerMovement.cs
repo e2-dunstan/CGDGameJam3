@@ -100,7 +100,7 @@ public class PlayerMovement : MonoBehaviour
     private void SetAnimatorSpeed()
     {
         animSpeed += Time.deltaTime * 4;
-        animSpeed = Mathf.Clamp(animSpeed, 0.0f, 1.0f);
+        animSpeed = Mathf.Clamp(animSpeed, 0.0f, sprintActive ? 1.0f : 0.5f);
         anim.SetBool("Naruto", sprintActive);
         anim.SetFloat("Speed", animSpeed);
     }

@@ -43,6 +43,8 @@ public class EnemyBehaviour : MonoBehaviour
     float stuckTimer = 0;
     float idleTimer = 0;
 
+    float scaleRange = 1.25f;
+
     float lineOfSightTimer = 0;
 
     bool freezeModelRotation = false;
@@ -77,7 +79,7 @@ public class EnemyBehaviour : MonoBehaviour
         enemyPosition.Set(transform.position.x, transform.position.z);
         playerPosition.Set(playerTransform.position.x, playerTransform.position.z);
 
-        if (PlayerInRange() || agrovateEnemy)
+        if (PlayerInRange() || aggravateEnemy)
         {
             ExitLookAroundState();
 
@@ -133,7 +135,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     private void ChaseState()
     {
-        if (!PlayerInRange() && !agrovateEnemy)
+        if (!PlayerInRange() && !aggravateEnemy)
         {
             EnterLookAroundState();
             return;
@@ -186,9 +188,15 @@ public class EnemyBehaviour : MonoBehaviour
 
         //When in chase state, use chase range instead of dectection range
 
-        bool inRange = distance < (currentState == EnemyState.Chase ? chaseRange : dectectionRange);
+        bool playerSprinting = InputHandler.Instance().GetSprintHold();
 
-        if(inRange)
+        float range = currentState == EnemyState.Chase ? chaseRange : dectectionRange;
+
+        bool inRange = distance < range * (playerSprinting ? scaleRange : 1.0f);
+
+        
+
+        if (inRange)
         {
             if(PlayerInSight())
             {
