@@ -70,12 +70,10 @@ public class PlayerMovement : MonoBehaviour
         }
             if (InputHandler.Instance().GetSprintHold())
             {
-                //StopEffect(VFXManager.Instance().runningPSList);
                 PlayEffect(VFXManager.Instance().sprintingPSList);
             }
             else
             {
-               // StopEffect(VFXManager.Instance().sprintingPSList);
                 PlayEffect(VFXManager.Instance().runningPSList);
             }
     }
