@@ -290,8 +290,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 184ef9ef2a61cb84ebe9212fda680d2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialised: 0
-  _active: 0
+  lightSource: {fileID: 729569507013473658}
+  torchColour: {r: 0, g: 0, b: 0, a: 0}
+  lightColour: {r: 0, g: 0, b: 0, a: 0}
+  bothHaveSameColour: 0
+  disable: 0
 --- !u!1 &8319974201220119160
 GameObject:
   m_ObjectHideFlags: 0
