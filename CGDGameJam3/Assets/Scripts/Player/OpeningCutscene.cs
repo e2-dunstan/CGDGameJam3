@@ -17,7 +17,10 @@ public class OpeningCutscene : MonoBehaviour
 
     private Camera defaultCamera;
     private Camera cutsceneCamera;
+
+    [SerializeField] private GameObject torch;
     [SerializeField] private Animator playerAnim;
+    private PlayerMovement playerMovement;
 
     void Start()
     {
@@ -29,6 +32,10 @@ public class OpeningCutscene : MonoBehaviour
         timeToUseThisPosition = cutscenePositions[currentPosition].time;
         cutsceneCamera.transform.localPosition = cutscenePositions[currentPosition].position;
         cutsceneCamera.transform.localEulerAngles = cutscenePositions[currentPosition].rotation;
+
+        playerMovement = playerAnim.GetComponentInParent<PlayerMovement>();
+        playerMovement.disableInput = true;
+        torch.SetActive(false);
 
         StartCoroutine(Coroutine());
     }
@@ -45,6 +52,9 @@ public class OpeningCutscene : MonoBehaviour
         yield return new WaitForSeconds(1);
         cutsceneCamera.enabled = false;
         defaultCamera.enabled = true;
+
+        playerMovement.disableInput = false;
+        torch.SetActive(true);
 
         Destroy(gameObject, 1.0f);
     }
