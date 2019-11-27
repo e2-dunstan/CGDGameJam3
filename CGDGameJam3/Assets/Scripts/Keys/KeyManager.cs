@@ -7,7 +7,7 @@ public class KeyManager : MonoBehaviour
     [Header("Object References")]
     public KeyPickup[] keys;
     public LightPost[] lightPosts;
-
+    public KeysUI keysUI;
 
     private int keysUncollected;
 
@@ -32,6 +32,7 @@ public class KeyManager : MonoBehaviour
         {
             if(_key == keys[i])
             {
+                keysUI.ShowKeyUI(_key);
                 _key.KeyActive(false);
                 lightPosts[i].SetLightActive(true);
                 keysUncollected--;
