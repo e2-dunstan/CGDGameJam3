@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3519970538947756111}
+  - component: {fileID: 1773596541279172760}
   m_Layer: 0
   m_Name: WallTorch
   m_TagString: Untagged
@@ -31,6 +32,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &1773596541279172760
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8251429152856710225}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.18
+  m_Height: 2.5729916
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.7864958, z: -0.13}
 --- !u!1001 &4545873162601595892
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -97,6 +112,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5116478898904402842, guid: f0963dca2395a9a4cb17bdd759ba7f92,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.586
+      objectReference: {fileID: 0}
+    - target: {fileID: 5116478898904402842, guid: f0963dca2395a9a4cb17bdd759ba7f92,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.003
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0963dca2395a9a4cb17bdd759ba7f92, type: 3}
