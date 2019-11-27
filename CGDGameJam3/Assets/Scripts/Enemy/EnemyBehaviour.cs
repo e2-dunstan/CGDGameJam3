@@ -18,7 +18,6 @@ public class EnemyBehaviour : MonoBehaviour
     public float rotationDamping = 10;
     public bool changeNodeIfStuck = false;
     public float idleTime;
-    
 
     [Header("Enemy Attributes")]
     public float speed = 2;
@@ -26,6 +25,11 @@ public class EnemyBehaviour : MonoBehaviour
     public float dectectionRange = 3;
     public float chaseRange = 5;
     public float nodeRange = 0.1f;
+    public float lineOfSightTime = 2f;
+    public bool debug = false;
+
+    [HideInInspector] 
+    public bool aggravateEnemy = false;
 
     Rigidbody enemyRigidbody;
     Animator enemyAnimator;
@@ -36,13 +40,16 @@ public class EnemyBehaviour : MonoBehaviour
     Vector2 enemyPosition;
     Vector3 previousPosition;
 
-    float stuckTimer;
-    float idleTimer;
+    float stuckTimer = 0;
+    float idleTimer = 0;
+
+    float lineOfSightTimer = 0;
 
     bool freezeModelRotation = false;
+    bool followPlayer = false;
 
 
-    EnemyNode currentNode;
+    public EnemyNode currentNode;
 
     // Start is called before the first frame update
     private void Start()
@@ -54,9 +61,11 @@ public class EnemyBehaviour : MonoBehaviour
 
         currentNode = EnemyManager.instance.FindNearestNode(this.transform);
 
+        EnemyManager.instance.AddEnemyToScene(this);
+
         previousPosition = this.transform.position;
-        
-        playerTransform = EnemyManager.instance.GetPlayerTransform();
+
+        playerTransform = PlayerManager.Instance().players[0].transform;
 
         VFXManager.Instance().CreateParticleSystemForObject(VFXManager.Instance().enemyWalkPS, VFXManager.Instance().enemyWalkPSList);
     }
@@ -68,9 +77,10 @@ public class EnemyBehaviour : MonoBehaviour
         enemyPosition.Set(transform.position.x, transform.position.z);
         playerPosition.Set(playerTransform.position.x, playerTransform.position.z);
 
-        if (PlayerInRange())
+        if (PlayerInRange() || agrovateEnemy)
         {
             ExitLookAroundState();
+
             currentState = EnemyState.Chase;
         }
 
@@ -123,7 +133,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     private void ChaseState()
     {
-        if (!PlayerInRange())
+        if (!PlayerInRange() && !agrovateEnemy)
         {
             EnterLookAroundState();
             return;
@@ -175,7 +185,57 @@ public class EnemyBehaviour : MonoBehaviour
         float distance = Vector2.Distance(playerPosition, enemyPosition);
 
         //When in chase state, use chase range instead of dectection range
-        return distance < (currentState == EnemyState.Chase ? chaseRange : dectectionRange);
+
+        bool inRange = distance < (currentState == EnemyState.Chase ? chaseRange : dectectionRange);
+
+        if(inRange)
+        {
+            if(PlayerInSight())
+            {
+                followPlayer = true;
+                lineOfSightTimer = 0;
+            }
+            else
+            {
+                if (followPlayer)
+                {
+                    if (lineOfSightTimer < lineOfSightTime)
+                    {
+                        lineOfSightTimer += Time.deltaTime;
+                        if (lineOfSightTimer >= lineOfSightTime)
+                        {
+                            followPlayer = false;
+                        }
+                    }
+                }
+            }
+        }
+
+        return followPlayer;
+    }
+
+    public bool PlayerInSight()
+    {
+        RaycastHit hit;
+
+        Vector3 playerSight = playerTransform.position + Vector3.up;
+        Vector3 enemySight = this.transform.position + Vector3.up;
+
+        if (Physics.Linecast(enemySight, playerSight, out hit))
+        {
+            if(hit.transform == playerTransform)
+            {
+                Debug.DrawLine(enemySight, playerSight, Color.green);
+                return true;
+            }
+            else
+            {
+                Debug.DrawLine(enemySight, playerSight, Color.red);
+                return false;
+            }
+        }
+
+        return false;
     }
 
     public void MoveTowardsNode()

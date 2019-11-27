@@ -9,6 +9,8 @@ public class EnemyManager : MonoBehaviour
     public EnemyNode[] allNodes;
     public GameObject player;
 
+    public List<EnemyBehaviour> enemies;
+
     private void Awake()
     {
         if (instance == null)
@@ -40,7 +42,7 @@ public class EnemyManager : MonoBehaviour
         {
             float distance = Vector2.Distance(node.position, enemyPosition);
 
-            if (distance < shortestDistance)
+            if (distance < shortestDistance && NodeInSight(enemy, node.transform))
             {
                 shortestDistance = distance;
 
@@ -49,6 +51,33 @@ public class EnemyManager : MonoBehaviour
         }
 
         return nearestNode;
+    }
+
+    public bool NodeInSight(Transform enemy, Transform node)
+    {
+        RaycastHit hit;
+
+        Vector3 enemySight = enemy.position + Vector3.up;
+        Vector3 nodeSight = node.position + Vector3.up;
+
+        if (Physics.Linecast(enemySight, nodeSight, out hit))
+        {
+            if (hit.transform.CompareTag("Wall"))
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        return true;
+    }
+
+    public void AddEnemyToScene(EnemyBehaviour enemy)
+    {
+        enemies.Add(enemy);
     }
 
     public Transform GetPlayerTransform()
