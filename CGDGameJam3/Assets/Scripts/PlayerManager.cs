@@ -8,14 +8,20 @@ public class PlayerManager : MonoBehaviour
 
     [HideInInspector] int numberOfPlayers = 1;
     public GameObject playerPrefab;
-    List<GameObject> players = new List<GameObject>();
+
+    public List<GameObject> players = new List<GameObject>(); //Made public for sol's script!
+
     public GameObject spawnPosParent;
+
+    public EnemyManager enemyManager;
+
     static PlayerManager instance;
 
     private void Awake()
     {
         if (instance == null) instance = this;
         DontDestroyOnLoad(this);
+        InitialisePlayer();
     }
 
     public static PlayerManager Instance()
@@ -25,30 +31,29 @@ public class PlayerManager : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
+    void InitialisePlayer()
     {
-        if(SceneManager.GetActiveScene().name == "LewisScene")
+        List<Transform> spawnPoints = new List<Transform>(spawnPosParent.GetComponentsInChildren<Transform>());
+
+        spawnPoints.RemoveAt(0);
+        for (int i = 0; i < numberOfPlayers; ++i)
         {
+            var player = Instantiate(playerPrefab, spawnPoints[i].position, Quaternion.identity);
 
-            List<Transform> spawnPoints = new List<Transform>(spawnPosParent.GetComponentsInChildren<Transform>());
+            enemyManager.player = player;
 
-            spawnPoints.RemoveAt(0);
-            for (int i = 0; i < numberOfPlayers; ++i)
+            players.Add(player);
+            players[i].GetComponent<PlayerMovement>().playerNum = i + 1;
+            players[i].gameObject.name = "Player" + (i + 1).ToString();
+            if (numberOfPlayers > 1)
             {
-                var player = Instantiate(playerPrefab, spawnPoints[i].position, Quaternion.identity);
-                players.Add(player);
-                players[i].GetComponent<PlayerMovement>().playerNum = i + 1;
-                players[i].gameObject.name = "Player" + (i + 1).ToString();
-                if (numberOfPlayers > 1)
+                if (i == 0)
                 {
-                    if (i == 0)
-                    {
-                        players[i].GetComponentInChildren<Camera>().rect = new Rect(new Vector2(0.0f, 0.0f), new Vector2(0.5f, 1.0f));
-                    }
-                    else if (i == 1)
-                    {
-                        players[i].GetComponentInChildren<Camera>().rect = new Rect(new Vector2(0.5f, 0.0f), new Vector2(0.5f, 1.0f));
-                    }
+                    players[i].GetComponentInChildren<Camera>().rect = new Rect(new Vector2(0.0f, 0.0f), new Vector2(0.5f, 1.0f));
+                }
+                else if (i == 1)
+                {
+                    players[i].GetComponentInChildren<Camera>().rect = new Rect(new Vector2(0.5f, 0.0f), new Vector2(0.5f, 1.0f));
                 }
             }
         }

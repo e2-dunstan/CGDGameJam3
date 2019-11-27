@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Skinny
+  m_Controller: {fileID: 9100000, guid: 2ef9dc0c0038cc94a844062fa2b9c5c0, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 318fd1f2b2398e54e9d66f3085029ae5, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 2f66ee61362c03e48bd5adab81e86d33, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: c0c0a4607c3aa3f43a9f30e83b352e48, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 001016338f3c943499e2a222de25af7a, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: fe97f34345fd68e49af89a49858eae7b, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 001016338f3c943499e2a222de25af7a, type: 2}

@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6353211260882155764}
   - component: {fileID: 6353211260882155767}
-  - component: {fileID: 6353211260882155766}
   - component: {fileID: 6353211260882155721}
   - component: {fileID: 6353211260882155720}
   - component: {fileID: 6353211260882155723}
@@ -55,14 +54,6 @@ MonoBehaviour:
   chaseSpeed: 2
   chaseRange: 10
   nodeRange: 0.5
---- !u!33 &6353211260882155766
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6353211260882155722}
-  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &6353211260882155721
 MeshRenderer:
   m_ObjectHideFlags: 0

@@ -17,6 +17,9 @@ public class VFXManager : MonoBehaviour
     public ParticleSystem sprintingPS;
     public List<PartSys> sprintingPSList = new List<PartSys>();
 
+    public ParticleSystem enemyWalkPS;
+    public List<PartSys> enemyWalkPSList = new List<PartSys>();
+
     public class PartSys
     {
         public GameObject instance;

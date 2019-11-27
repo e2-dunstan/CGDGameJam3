@@ -7,6 +7,7 @@ public class TorchRotation : MonoBehaviour
 
     InputHandler inputHandler = InputHandler.Instance();
     public float moveSpeed = 5.0f;
+    public Camera cam;
     PlayerMovement player;
 
     // Start is called before the first frame update
@@ -32,7 +33,7 @@ public class TorchRotation : MonoBehaviour
     {
         var playerPlane = new Plane(Vector3.up, transform.position);
 
-        var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        var ray = cam.ScreenPointToRay(inputHandler.GetMousePosVec3());
 
         float hitdist = 0.0f;
 

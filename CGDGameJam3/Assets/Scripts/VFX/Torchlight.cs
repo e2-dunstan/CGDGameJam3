@@ -6,11 +6,15 @@ public class Torchlight : MonoBehaviour
 {
     [SerializeField] private bool initialised;
     public bool _active;
+    bool shutDown;
+
     // Start is called before the first frame update
     void Start()
     {
         initialised = false;
         _active = true;
+        shutDown = false;
+
     }
     private void OnEnable()
     {
@@ -20,16 +24,6 @@ public class Torchlight : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //For testing
-        if (InputHandler.Instance().GetSprintHold())
-        {
-            KillTorch();
-        }
-        if (InputHandler.Instance().GetSprintUp())
-        {
-            ReviveTorch();
-        }
-
         //Add an instance of the torch particle systems to the pool
         if (!initialised)
         {
@@ -47,16 +41,35 @@ public class Torchlight : MonoBehaviour
         {
             if (_active)
             {
-                PlayEffect(VFXManager.Instance().torchPSList, new Vector3(
-                    0, 0.25f, 0));
+                PlayEffect(VFXManager.Instance().torchPSList);
+            }
+        }
+
+        if (DistanceManager.Instance().PlayerDistance(15, transform.position))
+        {
+            KillTorch();
+            shutDown = true;
+        }
+        else
+        {
+            ReviveTorch();
+            shutDown = false;
+        }
+        for (int i = 0; i < DistanceManager.Instance().enemies.Count; i++)
+        {
+            if (DistanceManager.Instance().EnemyDistance(7, i, transform.position)
+                && !shutDown)
+            {
+                KillTorch();
             }
         }
     }
+
+
     public void KillTorch()
     {
         if (_active)
         {
-            StopEffect(VFXManager.Instance().torchDeathPSList);
             StopEffect(VFXManager.Instance().torchPSList);
 
             PlayEffect(VFXManager.Instance().torchDeathPSList, new Vector3(
@@ -67,14 +80,15 @@ public class Torchlight : MonoBehaviour
 
     public void ReviveTorch()
     {
-        if (!_active)
+        if (!DistanceManager.Instance().EnemyDistance(7, 2, transform.position))
         {
-            StopEffect(VFXManager.Instance().torchDeathPSList);
-
-            PlayEffect(VFXManager.Instance().torchDeathPSList, new Vector3(
-                0, 0.25f, 0));
+            if (!_active)
+            {
+                //PlayEffect(VFXManager.Instance().torchDeathPSList, new Vector3(
+                // 0, 0.25f, 0));
+            }
+            _active = true;
         }
-        _active = true;
     }
 
     public void StopEffect(List<VFXManager.PartSys> _particleSystemList)

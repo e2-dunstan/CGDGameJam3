@@ -7,7 +7,8 @@ public class EnemyBehaviour : MonoBehaviour
     enum EnemyState
     {
         FollowNodes,
-        Chase
+        Chase,
+        LookAround
     };
 
     EnemyState currentState = EnemyState.FollowNodes;
@@ -16,14 +17,18 @@ public class EnemyBehaviour : MonoBehaviour
     public Transform model;
     public float rotationDamping = 10;
     public bool changeNodeIfStuck = false;
+    public float idleTime;
+    
 
     [Header("Enemy Attributes")]
     public float speed = 2;
     public float chaseSpeed = 4;
+    public float dectectionRange = 3;
     public float chaseRange = 5;
     public float nodeRange = 0.1f;
 
     Rigidbody enemyRigidbody;
+    Animator enemyAnimator;
 
     Transform playerTransform;
 
@@ -31,7 +36,11 @@ public class EnemyBehaviour : MonoBehaviour
     Vector2 enemyPosition;
     Vector3 previousPosition;
 
-    float stuckTime;
+    float stuckTimer;
+    float idleTimer;
+
+    bool freezeModelRotation = false;
+
 
     EnemyNode currentNode;
 
@@ -41,11 +50,15 @@ public class EnemyBehaviour : MonoBehaviour
         enemyRigidbody = this.GetComponent<Rigidbody>();
         enemyRigidbody.freezeRotation = true;
 
+        enemyAnimator = this.GetComponentInChildren<Animator>();
+
         currentNode = EnemyManager.instance.FindNearestNode(this.transform);
 
         previousPosition = this.transform.position;
         
         playerTransform = EnemyManager.instance.GetPlayerTransform();
+
+        VFXManager.Instance().CreateParticleSystemForObject(VFXManager.Instance().enemyWalkPS, VFXManager.Instance().enemyWalkPSList);
     }
 
     private void FixedUpdate()
@@ -57,11 +70,8 @@ public class EnemyBehaviour : MonoBehaviour
 
         if (PlayerInRange())
         {
+            ExitLookAroundState();
             currentState = EnemyState.Chase;
-        }
-        else
-        {
-            currentState = EnemyState.FollowNodes;
         }
 
         switch (currentState)
@@ -72,6 +82,10 @@ public class EnemyBehaviour : MonoBehaviour
                 
             case EnemyState.Chase:
                 ChaseState();
+                break;
+
+            case EnemyState.LookAround:
+                LookAroundState();
                 break;
         }
 
@@ -109,7 +123,42 @@ public class EnemyBehaviour : MonoBehaviour
 
     private void ChaseState()
     {
+        if (!PlayerInRange())
+        {
+            EnterLookAroundState();
+            return;
+        }
+
         MoveTowardsPlayer();
+    }
+
+    private void EnterLookAroundState()
+    {
+        idleTimer = 0f;
+        enemyAnimator.SetBool("LookAround", true);
+        freezeModelRotation = true;
+        currentState = EnemyState.LookAround;
+    }
+
+    private void LookAroundState()
+    {
+        if (idleTimer < idleTime)
+        {
+            idleTimer += Time.deltaTime;
+            if (idleTimer >= idleTime)
+            {
+                ExitLookAroundState();
+            }
+        }
+    }
+
+    private void ExitLookAroundState()
+    {
+        idleTimer = 0f;
+        enemyAnimator.SetBool("LookAround", false);
+        freezeModelRotation = false;
+        currentNode = EnemyManager.instance.FindNearestNode(this.transform);
+        currentState = EnemyState.FollowNodes;
     }
 
     private bool NodeInRange()
@@ -125,7 +174,8 @@ public class EnemyBehaviour : MonoBehaviour
     {
         float distance = Vector2.Distance(playerPosition, enemyPosition);
 
-        return distance < chaseRange;
+        //When in chase state, use chase range instead of dectection range
+        return distance < (currentState == EnemyState.Chase ? chaseRange : dectectionRange);
     }
 
     public void MoveTowardsNode()
@@ -136,6 +186,7 @@ public class EnemyBehaviour : MonoBehaviour
         moveVector.Normalize();
 
         enemyRigidbody.MovePosition(this.transform.position + moveVector * speed * Time.deltaTime);
+        VFXManager.Instance().PlayParticleSystemOnGameObject(gameObject, VFXManager.Instance().enemyWalkPSList, new Vector3(0, 0.25f, 0));
     }
 
     public void MoveTowardsPlayer()
@@ -146,12 +197,16 @@ public class EnemyBehaviour : MonoBehaviour
         moveVector.Normalize();
 
         enemyRigidbody.MovePosition(this.transform.position + moveVector * chaseSpeed * Time.deltaTime);
+        VFXManager.Instance().PlayParticleSystemOnGameObject(gameObject, VFXManager.Instance().enemyWalkPSList, new Vector3(0, 0.5f, 0));
+
     }
 
     private void RotateToMovement()
     {
         Vector3 direction = this.transform.position - previousPosition;
         float velocity = direction.magnitude / Time.fixedDeltaTime;
+
+        enemyAnimator.SetFloat("Speed", velocity);
 
         /*
         if (velocity < 1.9f)
@@ -170,6 +225,8 @@ public class EnemyBehaviour : MonoBehaviour
         }
         */
 
+        if (freezeModelRotation) return;
+
         Vector3 localDirection = transform.InverseTransformDirection(direction);
         previousPosition = transform.position;
 
@@ -180,14 +237,15 @@ public class EnemyBehaviour : MonoBehaviour
     {
         if(changeNodeIfStuck)
         {
-            if (collision.other.CompareTag("Enemy"))
+            if (collision.transform.CompareTag("Enemy"))
             {
-                stuckTime += Time.fixedDeltaTime;
+                stuckTimer += Time.fixedDeltaTime;
 
-                if (stuckTime > 0.5f)
+                if (stuckTimer > 0.5f)
                 {
-                    stuckTime = 0;
+                    stuckTimer = 0;
                     currentNode = EnemyManager.instance.FindNearestNode(this.transform);
+
                     ChangeNode();
                 }
             }
@@ -196,7 +254,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     private void OnCollisionExit(Collision collision)
     {
-        stuckTime = 0;
+        stuckTimer = 0;
     }
 }
 

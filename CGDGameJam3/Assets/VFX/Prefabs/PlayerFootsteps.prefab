@@ -46,8 +46,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   system: {fileID: 3370849144291517768}
-  delta: 1
-  gap: 0.5
+  delta: 1.85
+  gap: 0.12
 --- !u!198 &3370849144291517768
 ParticleSystem:
   m_ObjectHideFlags: 0
