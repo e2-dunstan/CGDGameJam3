@@ -26,10 +26,6 @@ public class OpeningCutscene : MonoBehaviour
         cutsceneCamera = GetComponentInChildren<Camera>();
         cutsceneCamera.enabled = true;
 
-        //playerOriginPos = player.position;
-        //playerOriginRot = player.eulerAngles;
-        //playerAnim = player.GetComponent<Animator>();
-
         timeToUseThisPosition = cutscenePositions[currentPosition].time;
         cutsceneCamera.transform.localPosition = cutscenePositions[currentPosition].position;
         cutsceneCamera.transform.localEulerAngles = cutscenePositions[currentPosition].rotation;
