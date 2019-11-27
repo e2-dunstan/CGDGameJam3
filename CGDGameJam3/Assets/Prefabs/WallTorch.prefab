@@ -128,11 +128,53 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Light
       objectReference: {fileID: 0}
+    - target: {fileID: 1027609845, guid: f0963dca2395a9a4cb17bdd759ba7f92, type: 3}
+      propertyPath: lightSource
+      value: 
+      objectReference: {fileID: 8653470958828587119}
+    - target: {fileID: 1027609845, guid: f0963dca2395a9a4cb17bdd759ba7f92, type: 3}
+      propertyPath: torchColour.r
+      value: 0.9339623
+      objectReference: {fileID: 0}
+    - target: {fileID: 1027609845, guid: f0963dca2395a9a4cb17bdd759ba7f92, type: 3}
+      propertyPath: torchColour.g
+      value: 0.38833928
+      objectReference: {fileID: 0}
+    - target: {fileID: 1027609845, guid: f0963dca2395a9a4cb17bdd759ba7f92, type: 3}
+      propertyPath: torchColour.b
+      value: 0.118948035
+      objectReference: {fileID: 0}
+    - target: {fileID: 1027609845, guid: f0963dca2395a9a4cb17bdd759ba7f92, type: 3}
+      propertyPath: lightSharesTorchColour
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1027609845, guid: f0963dca2395a9a4cb17bdd759ba7f92, type: 3}
+      propertyPath: bothHaveSameColour
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1027609845, guid: f0963dca2395a9a4cb17bdd759ba7f92, type: 3}
+      propertyPath: lightColour.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1027609845, guid: f0963dca2395a9a4cb17bdd759ba7f92, type: 3}
+      propertyPath: lightColour.g
+      value: 0.707973
+      objectReference: {fileID: 0}
+    - target: {fileID: 1027609845, guid: f0963dca2395a9a4cb17bdd759ba7f92, type: 3}
+      propertyPath: lightColour.b
+      value: 0.495283
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0963dca2395a9a4cb17bdd759ba7f92, type: 3}
 --- !u!4 &3183050745110289314 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1385516900264368214, guid: f0963dca2395a9a4cb17bdd759ba7f92,
+    type: 3}
+  m_PrefabInstance: {fileID: 4545873162601595892}
+  m_PrefabAsset: {fileID: 0}
+--- !u!108 &8653470958828587119 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 5116478898904402843, guid: f0963dca2395a9a4cb17bdd759ba7f92,
     type: 3}
   m_PrefabInstance: {fileID: 4545873162601595892}
   m_PrefabAsset: {fileID: 0}
