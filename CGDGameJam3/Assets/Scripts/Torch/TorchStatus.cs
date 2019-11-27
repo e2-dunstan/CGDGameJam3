@@ -5,7 +5,7 @@ using System.Linq;
 
 public class TorchStatus : MonoBehaviour
 {
-    [SerializeField] private Light flashLight;
+    public Light flashLight;
 
     private bool isLightOn = true;
 

@@ -13,8 +13,6 @@ public class PlayerManager : MonoBehaviour
 
     public GameObject spawnPosParent;
 
-    public EnemyManager enemyManager;
-
     static PlayerManager instance;
 
     private void Awake()
@@ -39,8 +37,6 @@ public class PlayerManager : MonoBehaviour
         for (int i = 0; i < numberOfPlayers; ++i)
         {
             var player = Instantiate(playerPrefab, spawnPoints[i].position, Quaternion.identity);
-
-            enemyManager.player = player;
 
             players.Add(player);
             players[i].GetComponent<PlayerMovement>().playerNum = i + 1;
