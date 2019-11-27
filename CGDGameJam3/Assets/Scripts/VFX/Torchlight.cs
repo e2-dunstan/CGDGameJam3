@@ -33,6 +33,13 @@ public class Torchlight : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(lightSource.intensity == 0)
+        {
+            KillTorch();
+            return;
+        }
+
+
         if (!disable)
         {
             shutDown = DistanceManager.Instance().PlayerDistance(15, transform.position);

@@ -34,12 +34,18 @@ public class LightManager : MonoBehaviour
         }
     }
 
+    public void KeyCollected(float percentageDim)
+    {
+        print(percentageDim);
+        StartCoroutine(DarknessThenRelight(percentageDim));
+    }
+
     IEnumerator DarknessThenRelight(float percentageDim)
     {
         SetSceneLightsIntensity(0);
         yield return new WaitForSeconds(shutoffDuration);
         SetSceneLightsColourLerp(percentageDim);
-        SetSceneLightsIntensity(lightIntensity * percentageDim);
+        SetSceneLightsIntensity(Mathf.Lerp(0, lightIntensity, percentageDim));
     }
 
 

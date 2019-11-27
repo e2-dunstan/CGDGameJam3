@@ -8,8 +8,10 @@ public class KeyManager : MonoBehaviour
     public KeyPickup[] keys;
     public LightPost[] lightPosts;
     public KeysUI keysUI;
+    public LightManager lightManager;
 
     private int keysUncollected;
+    private int startKeys;
 
     void Start()
     {
@@ -23,7 +25,7 @@ public class KeyManager : MonoBehaviour
             light.SetLightActive(false);
         }
 
-        keysUncollected = keys.Length;
+        keysUncollected = startKeys = keys.Length;
     }
 
     public void KeyCollected(KeyPickup _key)
@@ -36,6 +38,8 @@ public class KeyManager : MonoBehaviour
                 _key.KeyActive(false);
                 lightPosts[i].SetLightActive(true);
                 keysUncollected--;
+                float percentage = (float)keysUncollected / (float)startKeys;
+                lightManager.KeyCollected(percentage);
 
                 if(keysUncollected == 0)
                 {
