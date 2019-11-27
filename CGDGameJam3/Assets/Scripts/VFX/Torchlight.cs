@@ -6,6 +6,7 @@ public class Torchlight : MonoBehaviour
 {
     [SerializeField] private bool initialised;
     public bool _active;
+    //Shutdown is for optimisation
     bool shutDown;
 
     // Start is called before the first frame update
@@ -24,6 +25,7 @@ public class Torchlight : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        shutDown = DistanceManager.Instance().PlayerDistance(15, transform.position);
         //Add an instance of the torch particle systems to the pool
         if (!initialised)
         {
@@ -45,15 +47,13 @@ public class Torchlight : MonoBehaviour
             }
         }
 
-        if (DistanceManager.Instance().PlayerDistance(15, transform.position))
+        if (shutDown)
         {
             KillTorch();
-            shutDown = true;
         }
         else
         {
             ReviveTorch();
-            shutDown = false;
         }
         for (int i = 0; i < DistanceManager.Instance().enemies.Count; i++)
         {
@@ -71,9 +71,13 @@ public class Torchlight : MonoBehaviour
         if (_active)
         {
             StopEffect(VFXManager.Instance().torchPSList);
+            StopEffect(VFXManager.Instance().torchDeathPSList);
 
-            PlayEffect(VFXManager.Instance().torchDeathPSList, new Vector3(
-                0, 0.25f, 0));
+            if (!shutDown)
+            {
+                PlayEffect(VFXManager.Instance().torchDeathPSList, new Vector3(
+                    0, -0.25f, 0));
+            }
         }
         _active = false;
     }
@@ -84,8 +88,7 @@ public class Torchlight : MonoBehaviour
         {
             if (!_active)
             {
-                //PlayEffect(VFXManager.Instance().torchDeathPSList, new Vector3(
-                // 0, 0.25f, 0));
+                StopEffect(VFXManager.Instance().torchDeathPSList);
             }
             _active = true;
         }
