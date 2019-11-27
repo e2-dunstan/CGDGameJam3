@@ -10,7 +10,7 @@ public class Footsteps : MonoBehaviour
     GameObject player;
     GameObject playerModel;
     public float delta = 1;
-    public float gap = 0.5f;
+    public float gap = -0.5f;
     int dir = 1;
 
     void OnEnable()
