@@ -17,16 +17,17 @@ public class Footsteps : MonoBehaviour
     // Start is called before the first frame update
     void OnEnable()
     {
-        lastEmit = transform.position;
         selectedSystem = this;
         player = PlayerManager.Instance().players[0];
         playerModel = player.GetComponent<PlayerMovement>().model;
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        if (Vector3.Distance(lastEmit, transform.position) > delta)
+        print(Vector3.Distance(lastEmit, playerModel.transform.position));
+
+        if (Vector3.Distance(lastEmit, player.transform.position) > delta)
         {
             selectedSystem = this;
             var pos = transform.position + (playerModel.transform.right * gap * dir);
@@ -35,7 +36,7 @@ public class Footsteps : MonoBehaviour
             ep.position = pos;
             ep.rotation = playerModel.transform.rotation.eulerAngles.y;
             system.Emit(ep, 1);
-            lastEmit = transform.position;
+            lastEmit = player.transform.position;
         }
     }
 }
