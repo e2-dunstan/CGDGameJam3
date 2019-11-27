@@ -44,8 +44,6 @@ public class TorchStatus : MonoBehaviour
         //Debug.Log(scroll);
         float scrollAmount = Mathf.Clamp(scroll.y, -1.0f, 1.0f);
 
-        Debug.Log("Scroll : " + scroll + "   Clamped : " + scrollAmount);
-
         if (flashLight.spotAngle + scrollAmount > minLightAngle && (flashLight.spotAngle + scrollAmount) < maxLightAngle)
         {
             flashLight.spotAngle += scrollAmount;
