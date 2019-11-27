@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class EndCutscene : MonoBehaviour
 {
-
+    KeyManager keyManager;
     Camera[] camera;
     GameObject player;
     GameObject gate;
@@ -36,7 +36,7 @@ public class EndCutscene : MonoBehaviour
 
             camera = FindObjectsOfType<Camera>();
             player = GameObject.FindGameObjectWithTag("Player");
-            
+            keyManager = FindObjectOfType<KeyManager>();
         }
 
     }
@@ -63,7 +63,6 @@ public class EndCutscene : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space))
         {
             player.transform.rotation = new Quaternion(0.0f, 0.0f, 0.0f, 1.0f);
-           // player.GetComponentInChildren<Transform>().rotation = new Quaternion(0.0f, 0.0f, 0.0f, 1.0f);
             StartCoroutine(FadeOut());
         }
         
@@ -72,7 +71,7 @@ public class EndCutscene : MonoBehaviour
     IEnumerator Walk()
     {
         float time = 0.0f;
-        while (time < 2.0f)
+        while (time < 4.0f)
         {
             time += Time.deltaTime;
             yield return null;
@@ -121,13 +120,6 @@ public class EndCutscene : MonoBehaviour
         float time = 0.0f;
         while (time < 1.0f)
         {
-            //var rot = gates[0].transform.rotation;
-            //rot.eulerAngles = new Vector3(0.0f, rot.eulerAngles.y + Time.deltaTime, 0.0f); //Time.deltaTime;
-            ////gates[0].transform.rotation.eulerAngles = new Vector3(0.0f, gates[0].transform.rotation.y + Time.deltaTime, 0.0f);
-            //rot = gates[1].transform.rotation;
-            //rot.eulerAngles = new Vector3(0.0f, rot.eulerAngles.y - Time.deltaTime, 0.0f);
-            //gates[0].transform.rotation = new Quaternion(0.0f, gates[0].transform.rotation.y + Time.deltaTime, 0.0f, 1.0f);
-            //gates[1].transform.rotation = new Quaternion(0.0f, gates[1].transform.rotation.y  -Time.deltaTime, 0.0f, 1.0f);
             time += Time.deltaTime;
             gates[0].eulerAngles = Vector3.Lerp(startRot, endRot, time);
             gates[1].eulerAngles = Vector3.Lerp(startRot, -endRot, time);
@@ -146,7 +138,7 @@ public class EndCutscene : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player")
+        if(other.tag == "Player" && keyManager.AllKeysCollected())
         {
             StartCoroutine(FadeOut());
         }

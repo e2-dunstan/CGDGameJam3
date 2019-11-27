@@ -41,16 +41,17 @@ public class KeyManager : MonoBehaviour
                 float percentage = (float)keysUncollected / (float)startKeys;
                 lightManager.KeyCollected(percentage);
 
-                if(keysUncollected == 0)
-                {
-                    AllKeysCollected();
-                }
+                //if(keysUncollected == 0)
+                //{
+                //    AllKeysCollected();
+                //}
             }
         }
     }
 
-    private void AllKeysCollected()
+    public bool AllKeysCollected()
     {
-        Debug.Log("All keys collected. Do something here to finish the game");
+        //Debug.Log("All keys collected. Do something here to finish the game");
+        return keysUncollected == 0 ? true : false;
     }
 }

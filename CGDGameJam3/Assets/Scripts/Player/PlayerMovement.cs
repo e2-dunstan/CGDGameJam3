@@ -52,9 +52,9 @@ public class PlayerMovement : MonoBehaviour
     {
         if (disableInput) return;
 
-        horizontalInput = InputHandler.Instance().GetLeftStickX(playerNum);
-        verticalInput = InputHandler.Instance().GetLeftStickY(playerNum);
-        sprintActive = InputHandler.Instance().GetSprintHold();
+        //horizontalInput = InputHandler.Instance().GetLeftStickX(playerNum);
+        //verticalInput = InputHandler.Instance().GetLeftStickY(playerNum);
+        //sprintActive = InputHandler.Instance().GetSprintHold();
         isMoving = (horizontalInput != 0 || verticalInput != 0);
         if (!walkForward)
         {
