@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [HideInInspector] public bool disableInput = false;
 
     enum MovementAxis
     {
@@ -31,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
     private float horizontalInput = 0.0f;
     private float verticalInput = 0.0f;
     private bool sprintActive = false;
+    private bool isMoving = false;
     private float animSpeed = 0.0f;
     private Vector3 previousPosition;
 
@@ -48,6 +50,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        if (disableInput) return;
+
+        horizontalInput = InputHandler.Instance().GetLeftStickX(playerNum);
+        verticalInput = InputHandler.Instance().GetLeftStickY(playerNum);
+        sprintActive = InputHandler.Instance().GetSprintHold();
+        isMoving = (horizontalInput != 0 || verticalInput != 0);
         if (!walkForward)
         {
             horizontalInput = InputHandler.Instance().GetLeftStickX(playerNum);
@@ -60,7 +68,7 @@ public class PlayerMovement : MonoBehaviour
             horizontalInput = 0.0f;
         }
 
-        if ((horizontalInput != 0 || verticalInput != 0) && AnimatorCanMove()){
+        if (isMoving && AnimatorCanMove()){
             SetAnimatorSpeed();
         }
         else
@@ -71,21 +79,22 @@ public class PlayerMovement : MonoBehaviour
                 animSpeed = animSpeed < 0 ? 0 : animSpeed;
             }
             anim.SetFloat("Speed", animSpeed);
+            anim.SetBool("Naruto", sprintActive && isMoving);
         }
             if (InputHandler.Instance().GetSprintHold())
             {
-                //StopEffect(VFXManager.Instance().runningPSList);
                 PlayEffect(VFXManager.Instance().sprintingPSList);
             }
             else
             {
-               // StopEffect(VFXManager.Instance().sprintingPSList);
                 PlayEffect(VFXManager.Instance().runningPSList);
             }
     }
 
     private void FixedUpdate()
     {
+        if (disableInput) return;
+
         if ((horizontalInput != 0 || verticalInput != 0) && AnimatorCanMove())
         {
             Vector3 newPos = transform.position;
@@ -106,7 +115,7 @@ public class PlayerMovement : MonoBehaviour
     private void SetAnimatorSpeed()
     {
         animSpeed += Time.deltaTime * 4;
-        animSpeed = Mathf.Clamp(animSpeed, 0.0f, 1.0f);
+        animSpeed = Mathf.Clamp(animSpeed, 0.0f, sprintActive ? 1.0f : 0.5f);
         anim.SetBool("Naruto", sprintActive);
         anim.SetFloat("Speed", animSpeed);
     }

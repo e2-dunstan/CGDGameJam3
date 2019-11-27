@@ -10,32 +10,35 @@ public class Footsteps : MonoBehaviour
     GameObject player;
     GameObject playerModel;
     public float delta = 1;
-    public float gap = 0.5f;
+    public float gap = -0.5f;
     int dir = 1;
-    static Footsteps selectedSystem;
 
-    // Start is called before the first frame update
     void OnEnable()
     {
-        lastEmit = transform.position;
-        selectedSystem = this;
         player = PlayerManager.Instance().players[0];
         playerModel = player.GetComponent<PlayerMovement>().model;
+        lastEmit = player.transform.position;
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        if (Vector3.Distance(lastEmit, transform.position) > delta)
+        if (!InputHandler.Instance().GetSprintHold())
         {
-            selectedSystem = this;
-            var pos = transform.position + (playerModel.transform.right * gap * dir);
-            dir *= -1;
-            ParticleSystem.EmitParams ep = new ParticleSystem.EmitParams();
-            ep.position = pos;
-            ep.rotation = playerModel.transform.rotation.eulerAngles.y;
-            system.Emit(ep, 1);
-            lastEmit = transform.position;
+            if (Vector3.Distance(lastEmit, player.transform.position) > delta)
+            {
+                var pos = transform.position + (playerModel.transform.right * gap * dir);
+                dir *= -1;
+                ParticleSystem.EmitParams ep = new ParticleSystem.EmitParams();
+                ep.position = pos;
+                ep.rotation = playerModel.transform.rotation.eulerAngles.y;
+                system.Emit(ep, 1);
+                lastEmit = player.transform.position;
+            }
+        }
+        else
+        {
+            lastEmit = player.transform.position;
         }
     }
 }

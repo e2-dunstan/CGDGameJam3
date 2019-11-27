@@ -5,11 +5,15 @@ using UnityEngine;
 public class KeyPickup : MonoBehaviour
 {
     private KeyManager keyManager;
+    public enum KeyLocation { TOPLEFT, TOPRIGHT, BOTTOMLEFT, BOTTOMRIGHT};
+
+    public KeyLocation keyLocation = KeyLocation.BOTTOMLEFT;
 
     public void SetManagerReference(KeyManager _manager)
     {
         keyManager = _manager;
     }
+
 
     public void KeyActive(bool isActive)
     {

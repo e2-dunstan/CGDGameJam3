@@ -4,9 +4,17 @@ using UnityEngine;
 
 public class Torchlight : MonoBehaviour
 {
-    [SerializeField] private bool initialised;
-    public bool _active;
+    private bool initialised;
+    [SerializeField] private Light lightSource;
+
+    [SerializeField] private Color torchColour;
+    [SerializeField] private Color lightColour;
+    [SerializeField] bool bothHaveSameColour;
+
+    [SerializeField] private bool disable;
+    //Shutdown is for optimisation
     bool shutDown;
+    private bool _active;
 
     // Start is called before the first frame update
     void Start()
@@ -14,6 +22,7 @@ public class Torchlight : MonoBehaviour
         initialised = false;
         _active = true;
         shutDown = false;
+        torchColour.a = 1;
 
     }
     private void OnEnable()
@@ -24,44 +33,72 @@ public class Torchlight : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Add an instance of the torch particle systems to the pool
-        if (!initialised)
-        {
-            VFXManager.Instance().CreateParticleSystemForObject(
-                VFXManager.Instance().torchPS,
-                VFXManager.Instance().torchPSList);
-
-            VFXManager.Instance().CreateParticleSystemForObject(
-                VFXManager.Instance().torchDeathPS,
-                VFXManager.Instance().torchDeathPSList);
-
-            initialised = true;
-        }
-        else
-        {
-            if (_active)
-            {
-                PlayEffect(VFXManager.Instance().torchPSList);
-            }
-        }
-
-        if (DistanceManager.Instance().PlayerDistance(15, transform.position))
+        if(lightSource.intensity == 0)
         {
             KillTorch();
-            shutDown = true;
+            return;
         }
-        else
+
+
+        if (!disable)
         {
-            ReviveTorch();
-            shutDown = false;
-        }
-        for (int i = 0; i < DistanceManager.Instance().enemies.Count; i++)
-        {
-            if (DistanceManager.Instance().EnemyDistance(7, i, transform.position)
-                && !shutDown)
+            shutDown = DistanceManager.Instance().PlayerDistance(15, transform.position);
+            //Add an instance of the torch particle systems to the pool
+            if (!initialised)
+            {
+                VFXManager.Instance().CreateParticleSystemForObject(
+                    VFXManager.Instance().torchPS,
+                    VFXManager.Instance().torchPSList);
+
+                VFXManager.Instance().CreateParticleSystemForObject(
+                    VFXManager.Instance().torchDeathPS,
+                    VFXManager.Instance().torchDeathPSList);
+
+                initialised = true;
+            }
+            else
+            {
+                if (_active)
+                {
+
+                    PlayEffect(VFXManager.Instance().torchPSList);
+
+                    ParticleSystem.MainModule flameColour = VFXManager.Instance().GetAssignedParticleSystem(
+                        gameObject, VFXManager.Instance().torchPSList).main;
+                    flameColour.startColor = torchColour;
+                    ParticleSystem.ColorOverLifetimeModule flameColourOL = VFXManager.Instance().GetAssignedParticleSystem(
+                        gameObject, VFXManager.Instance().torchPSList).colorOverLifetime;
+                    flameColourOL.color = torchColour;
+
+                    if (bothHaveSameColour)
+                        lightSource.color = torchColour;
+                    else
+                        lightSource.color = lightColour;
+                }
+            }
+
+            if (shutDown)
             {
                 KillTorch();
             }
+            else
+            {
+                ReviveTorch();
+            }
+            for (int i = 0; i < DistanceManager.Instance().enemies.Count; i++)
+            {
+                if (DistanceManager.Instance().EnemyDistance(7, i, transform.position)
+                    && !shutDown)
+                {
+                    KillTorch();
+                }
+            }
+
+        }
+        else
+        {
+            shutDown = true;
+            KillTorch();
         }
     }
 
@@ -71,11 +108,16 @@ public class Torchlight : MonoBehaviour
         if (_active)
         {
             StopEffect(VFXManager.Instance().torchPSList);
+            StopEffect(VFXManager.Instance().torchDeathPSList);
 
-            PlayEffect(VFXManager.Instance().torchDeathPSList, new Vector3(
-                0, 0.25f, 0));
+            if (!shutDown)
+            {
+                PlayEffect(VFXManager.Instance().torchDeathPSList, new Vector3(
+                    0, -0.25f, 0));
+            }
         }
         _active = false;
+        lightSource.enabled = false;
     }
 
     public void ReviveTorch()
@@ -84,9 +126,10 @@ public class Torchlight : MonoBehaviour
         {
             if (!_active)
             {
-                //PlayEffect(VFXManager.Instance().torchDeathPSList, new Vector3(
-                // 0, 0.25f, 0));
+                StopEffect(VFXManager.Instance().torchDeathPSList);
             }
+
+            lightSource.enabled = true;
             _active = true;
         }
     }

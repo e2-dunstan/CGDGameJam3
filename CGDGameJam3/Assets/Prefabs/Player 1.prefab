@@ -64,7 +64,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 279
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -177,9 +177,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55f4b11b34de7284887a4b84150c5683, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  disableInput: 0
   model: {fileID: 4266978317375453023}
-  speedMultiplier: 5
-  sprintMultiplier: 1.35
+  speedMultiplier: 3.25
+  sprintMultiplier: 1.55
   rotationDampening: 10
   horizontalInputAxis: 0
   verticalInputAxis: 1

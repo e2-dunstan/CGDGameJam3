@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LightTrigger : MonoBehaviour
 {
+    public GameObject particleSystemObj;
     public ParticleSystem particleSystem;
     private ParticleSystem.EmissionModule emission;
 
@@ -37,9 +38,11 @@ public class LightTrigger : MonoBehaviour
                 emission.rateOverTime = currentIntensity;
             }
         }
+
+        emission.rateOverTime = 0.0f;
     }
 
-    public void LightIsFixatedUpon(float lightIntensity)
+    public void LightIsFixatedUpon(float lightIntensity, GameObject incomingTargetPos)
     {
         if (particleSystem != null)
         {
@@ -52,8 +55,25 @@ public class LightTrigger : MonoBehaviour
             {
                 hasBeenCompleted = true;
 
-
             }
+
+            GameObject targetPosition = incomingTargetPos.GetComponent<TorchInteraction>().GetTorchSpawnPoint();
+
+            //particleSystem.transform.position = transform.position;
+
+            //Vector3 relativePos = particleSystem.transform.position - incomingTargetPos.transform.position;
+
+            //// the second argument, upwards, defaults to Vector3.up
+            //Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.up);
+            //particleSystem.transform.rotation = rotation;
+
+            particleSystem.transform.position = targetPosition.transform.position;
+
+            Vector3 relativePos = particleSystem.transform.position - transform.position;
+
+            // the second argument, upwards, defaults to Vector3.up
+            Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.down);
+            particleSystem.transform.rotation = rotation;
         }
     }
 }
