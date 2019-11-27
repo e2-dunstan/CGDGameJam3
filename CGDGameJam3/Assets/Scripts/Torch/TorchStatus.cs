@@ -31,7 +31,7 @@ public class TorchStatus : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        flashLight.intensity = minLightIntensity;
+        flashLight.intensity = maxLightIntensity;
         flashLight.range = minLightRange;
         flashLight.spotAngle = minLightAngle;
     }
