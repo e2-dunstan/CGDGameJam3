@@ -37,4 +37,23 @@ public class KeysUI : MonoBehaviour
         if (key4Held)
             keyImages[3].enabled = true;
     }
+
+    public void ShowKeyUI(KeyPickup keyPickup)
+    {
+        switch(keyPickup.keyLocation)
+        {
+            case KeyPickup.KeyLocation.TOPLEFT:
+                keyImages[0].enabled = true;
+                break;
+            case KeyPickup.KeyLocation.TOPRIGHT:
+                keyImages[1].enabled = true;
+                break;
+            case KeyPickup.KeyLocation.BOTTOMLEFT:
+                keyImages[2].enabled = true;
+                break;
+            case KeyPickup.KeyLocation.BOTTOMRIGHT:
+                keyImages[3].enabled = true;
+                break;
+        }
+    }
 }
