@@ -520,8 +520,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   options: {fileID: 404204667}
-  nextScene: LewisScene
-  title: {fileID: 0}
+  nextScene: MainMenu
+  title: {fileID: 1592012021}
 --- !u!4 &377270961
 Transform:
   m_ObjectHideFlags: 0
@@ -1348,11 +1348,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 837699370504850697, guid: f0963dca2395a9a4cb17bdd759ba7f92,
-        type: 3}
-      propertyPath: m_Name
-      value: WallSconce (2)
-      objectReference: {fileID: 0}
     - target: {fileID: 1385516900264368214, guid: f0963dca2395a9a4cb17bdd759ba7f92,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1407,6 +1402,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 837699370504850697, guid: f0963dca2395a9a4cb17bdd759ba7f92,
+        type: 3}
+      propertyPath: m_Name
+      value: WallSconce (2)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0963dca2395a9a4cb17bdd759ba7f92, type: 3}
@@ -2160,8 +2160,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
+  m_HorizontalAxis: Player1LeftStickX
+  m_VerticalAxis: Player1LeftStickY
   m_SubmitButton: Submit
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
@@ -2953,11 +2953,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 837699370504850697, guid: f0963dca2395a9a4cb17bdd759ba7f92,
-        type: 3}
-      propertyPath: m_Name
-      value: WallSconce (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 1385516900264368214, guid: f0963dca2395a9a4cb17bdd759ba7f92,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3013,6 +3008,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 837699370504850697, guid: f0963dca2395a9a4cb17bdd759ba7f92,
+        type: 3}
+      propertyPath: m_Name
+      value: WallSconce (1)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0963dca2395a9a4cb17bdd759ba7f92, type: 3}
 --- !u!1001 &5116478898199468285
@@ -3022,11 +3022,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 837699370504850697, guid: f0963dca2395a9a4cb17bdd759ba7f92,
-        type: 3}
-      propertyPath: m_Name
-      value: WallSconce
-      objectReference: {fileID: 0}
     - target: {fileID: 1385516900264368214, guid: f0963dca2395a9a4cb17bdd759ba7f92,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3081,6 +3076,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 837699370504850697, guid: f0963dca2395a9a4cb17bdd759ba7f92,
+        type: 3}
+      propertyPath: m_Name
+      value: WallSconce
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0963dca2395a9a4cb17bdd759ba7f92, type: 3}

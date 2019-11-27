@@ -138,7 +138,7 @@ public class EndCutscene : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player" && keyManager.AllKeysCollected())
+        if(other.tag == "Player")// && keyManager.AllKeysCollected())
         {
             StartCoroutine(FadeOut());
         }
