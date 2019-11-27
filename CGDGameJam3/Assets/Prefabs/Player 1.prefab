@@ -176,8 +176,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   model: {fileID: 4266978317375453023}
-  speedMultiplier: 5
-  sprintMultiplier: 1.35
+  speedMultiplier: 3.25
+  sprintMultiplier: 1.55
   rotationDampening: 10
   horizontalInputAxis: 0
   verticalInputAxis: 1
@@ -195,6 +195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0589ae545337a470fb6b5df1db8adec9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  torchEffectSpawnPos: {fileID: 0}
 --- !u!1001 &2591909868979596344
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -202,11 +203,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1141828390968716064}
     m_Modifications:
-    - target: {fileID: 1787659014607117159, guid: f07d8d9cfb392974e88e1dada4241179,
-        type: 3}
-      propertyPath: m_Name
-      value: Megan
-      objectReference: {fileID: 0}
     - target: {fileID: 3356399706106784116, guid: f07d8d9cfb392974e88e1dada4241179,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -276,6 +272,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1787659014607117159, guid: f07d8d9cfb392974e88e1dada4241179,
+        type: 3}
+      propertyPath: m_Name
+      value: Megan
       objectReference: {fileID: 0}
     - target: {fileID: 1827431934, guid: f07d8d9cfb392974e88e1dada4241179, type: 3}
       propertyPath: m_IsActive

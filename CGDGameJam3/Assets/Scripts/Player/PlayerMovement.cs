@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [HideInInspector] public bool disableInput = false;
 
     enum MovementAxis
     {
@@ -46,6 +47,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        if (disableInput) return;
+
         horizontalInput = InputHandler.Instance().GetLeftStickX(playerNum);
         verticalInput = InputHandler.Instance().GetLeftStickY(playerNum);
         sprintActive = InputHandler.Instance().GetSprintHold();
@@ -76,6 +79,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (disableInput) return;
+
         if ((horizontalInput != 0 || verticalInput != 0) && AnimatorCanMove())
         {
             Vector3 newPos = transform.position;
