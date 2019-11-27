@@ -124,4 +124,16 @@ public class VFXManager : MonoBehaviour
         }
         return false;
     }
+
+    public ParticleSystem GetAssignedParticleSystem(GameObject _target, List<PartSys> _list)
+    {
+        for (int i = 0; i < _list.Count; i++)
+        {
+            if (_list[i].target == _target)
+            {
+                return _list[i].effect;
+            }
+        }
+        return _list[0].effect;
+    }
 }

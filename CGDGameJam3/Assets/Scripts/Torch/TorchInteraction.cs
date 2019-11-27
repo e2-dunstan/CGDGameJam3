@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TorchInteraction : MonoBehaviour
 {
+    public GameObject torchEffectSpawnPos;
     TorchStatus torchStatus;
 
     // Start is called before the first frame update
@@ -17,13 +18,13 @@ public class TorchInteraction : MonoBehaviour
     {
         RaycastHit hit;
 
-        if (Physics.Raycast(new Vector3(transform.position.x, transform.position.y + 1.0f, transform.position.z), transform.TransformDirection(Vector3.forward), out hit))
+        if (Physics.Raycast(new Vector3(transform.position.x, transform.position.y + 1.0f, transform.position.z), transform.TransformDirection(Vector3.forward), out hit, 4.0f))
         {
             Debug.DrawRay(new Vector3(transform.position.x, transform.position.y + 1.0f, transform.position.z), transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
 
             if(hit.transform.CompareTag("LightTrigger"))
             {
-                hit.transform.GetComponent<LightTrigger>().LightIsFixatedUpon(torchStatus.GetCurrentIntensity());
+                hit.transform.GetComponent<LightTrigger>().LightIsFixatedUpon(torchStatus.GetCurrentIntensity(), gameObject);
             }
         }
 
@@ -58,5 +59,10 @@ public class TorchInteraction : MonoBehaviour
         }
 
         return false;
+    }
+
+    public GameObject GetTorchSpawnPoint()
+    {
+        return torchEffectSpawnPos;
     }
 }
