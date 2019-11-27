@@ -35,32 +35,8 @@ public class DistanceManager : MonoBehaviour
     private void LateUpdate()
     {
         
-        DisableLightsBasedOnDistance();
     }
-    private void DisableLightsBasedOnDistance()
-    {
-        for (int i = 0; i < lights.Count; i++)
-        {
-            if (PlayerDistance(15, lights[i].transform.position))
-            {
-                lights[i].SetActive(false);
-            }
-            else
-            {
-                lights[i].SetActive(true);
-            }
-        }
-        for (int i = 0; i < enemies.Count; i++)
-        {
-            for (int j = 0; j < lights.Count; j++)
-            {
-                if (EnemyDistance(7, i, lights[j].transform.position))
-                {
-                    lights[j].SetActive(false);
-                }
-            }
-        }
-    }
+   
     public bool PlayerDistance(int _dist, Vector3 _pos)
     {
         return (Vector3.Distance(PlayerManager.Instance().players[0].gameObject.transform.position,
