@@ -6,7 +6,8 @@ public class CameraFollow : MonoBehaviour
 {
 
     GameObject player;
-    [SerializeField] Vector3 offset = new Vector3(0.0f, 7.5f, 0.0f);
+    [HideInInspector] public Vector3 offset = new Vector3(0.0f, 7.5f, 0.0f);
+    [HideInInspector] public Vector3 lookAtPosOffset = new Vector3(0.0f, 0.0f, 0.0f);
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +22,7 @@ public class CameraFollow : MonoBehaviour
 
         transform.position = new Vector3(pos.x + offset.x, pos.y + offset.y, pos.z + offset.z);
         pos = new Vector3(pos.x + offset.x, pos.y, pos.z + offset.z);
+        //pos = new Vector3(pos.x + lookAtPosOffset.x, pos.y + lookAtPosOffset.y, pos.z + lookAtPosOffset.z);
         transform.LookAt(pos, transform.up);
     }
 }
