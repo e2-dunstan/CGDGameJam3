@@ -30,24 +30,24 @@ public class OpeningCutscene : MonoBehaviour
         cutsceneCamera.transform.localPosition = cutscenePositions[currentPosition].position;
         cutsceneCamera.transform.localEulerAngles = cutscenePositions[currentPosition].rotation;
 
-        //StartCoroutine(Coroutine());
+        StartCoroutine(Coroutine());
     }
 
-    //private IEnumerator Coroutine()
-    //{
-    //    float timeElapsed = 0;
-    //    while(playerAnim.GetCurrentAnimatorStateInfo(0).IsName("StandUp"))
-    //    {
-    //        timeElapsed += Time.deltaTime;
-    //        UpdateCamera(timeElapsed);
-    //        yield return null;
-    //    }
-    //    yield return new WaitForSeconds(1);
-    //    cutsceneCamera.enabled = false;
-    //    defaultCamera.enabled = true;
+    private IEnumerator Coroutine()
+    {
+        float timeElapsed = 0;
+        while (playerAnim.GetCurrentAnimatorStateInfo(0).IsName("StandUp"))
+        {
+            timeElapsed += Time.deltaTime;
+            UpdateCamera(timeElapsed);
+            yield return null;
+        }
+        yield return new WaitForSeconds(1);
+        cutsceneCamera.enabled = false;
+        defaultCamera.enabled = true;
 
-    //    Destroy(gameObject, 1.0f);
-    //}
+        Destroy(gameObject, 1.0f);
+    }
 
     private void UpdateCamera(float timeElapsed)
     {
