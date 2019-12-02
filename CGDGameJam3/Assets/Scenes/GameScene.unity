@@ -348,6 +348,11 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8653470958828587116, guid: 722659b052ec8ca43b8fde6b3891cc55,
+        type: 3}
+      propertyPath: m_Name
+      value: CyanLight
+      objectReference: {fileID: 0}
     - target: {fileID: 4545873162278639361, guid: 722659b052ec8ca43b8fde6b3891cc55,
         type: 3}
       propertyPath: torchColour.r
@@ -382,11 +387,6 @@ PrefabInstance:
         type: 3}
       propertyPath: bothHaveSameColour
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8653470958828587116, guid: 722659b052ec8ca43b8fde6b3891cc55,
-        type: 3}
-      propertyPath: m_Name
-      value: CyanLight
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 722659b052ec8ca43b8fde6b3891cc55, type: 3}
@@ -1583,15 +1583,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8653470958828587119, guid: 722659b052ec8ca43b8fde6b3891cc55,
-        type: 3}
-      propertyPath: m_Lightmapping
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8653470958828587105, guid: 722659b052ec8ca43b8fde6b3891cc55,
         type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8653470958828587119, guid: 722659b052ec8ca43b8fde6b3891cc55,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 722659b052ec8ca43b8fde6b3891cc55, type: 3}
@@ -2515,6 +2515,11 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 0.98039216
       objectReference: {fileID: 0}
+    - target: {fileID: 8653470958828587116, guid: 722659b052ec8ca43b8fde6b3891cc55,
+        type: 3}
+      propertyPath: m_Name
+      value: PurpleLight
+      objectReference: {fileID: 0}
     - target: {fileID: 4545873162278639361, guid: 722659b052ec8ca43b8fde6b3891cc55,
         type: 3}
       propertyPath: torchColour.r
@@ -2544,11 +2549,6 @@ PrefabInstance:
         type: 3}
       propertyPath: bothHaveSameColour
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8653470958828587116, guid: 722659b052ec8ca43b8fde6b3891cc55,
-        type: 3}
-      propertyPath: m_Name
-      value: PurpleLight
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 722659b052ec8ca43b8fde6b3891cc55, type: 3}
@@ -3121,6 +3121,11 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8653470958828587116, guid: 722659b052ec8ca43b8fde6b3891cc55,
+        type: 3}
+      propertyPath: m_Name
+      value: NavyLight
+      objectReference: {fileID: 0}
     - target: {fileID: 4545873162278639361, guid: 722659b052ec8ca43b8fde6b3891cc55,
         type: 3}
       propertyPath: torchColour.r
@@ -3155,11 +3160,6 @@ PrefabInstance:
         type: 3}
       propertyPath: bothHaveSameColour
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8653470958828587116, guid: 722659b052ec8ca43b8fde6b3891cc55,
-        type: 3}
-      propertyPath: m_Name
-      value: NavyLight
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 722659b052ec8ca43b8fde6b3891cc55, type: 3}
@@ -3874,6 +3874,11 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 0.97939247
       objectReference: {fileID: 0}
+    - target: {fileID: 8653470958828587116, guid: 722659b052ec8ca43b8fde6b3891cc55,
+        type: 3}
+      propertyPath: m_Name
+      value: PurpleLight
+      objectReference: {fileID: 0}
     - target: {fileID: 4545873162278639361, guid: 722659b052ec8ca43b8fde6b3891cc55,
         type: 3}
       propertyPath: torchColour.r
@@ -3903,11 +3908,6 @@ PrefabInstance:
         type: 3}
       propertyPath: bothHaveSameColour
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8653470958828587116, guid: 722659b052ec8ca43b8fde6b3891cc55,
-        type: 3}
-      propertyPath: m_Name
-      value: PurpleLight
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 722659b052ec8ca43b8fde6b3891cc55, type: 3}
@@ -5501,6 +5501,11 @@ PrefabInstance:
       propertyPath: bothHaveSameColour
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 841659885472803081, guid: e3649ff8db7f6d147aefed561854eba2,
+        type: 3}
+      propertyPath: ignoreForceOn
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7200363007252612273, guid: e3649ff8db7f6d147aefed561854eba2,
         type: 3}
       propertyPath: lightSource
@@ -5539,6 +5544,11 @@ PrefabInstance:
     - target: {fileID: 7200363007252612273, guid: e3649ff8db7f6d147aefed561854eba2,
         type: 3}
       propertyPath: bothHaveSameColour
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7200363007252612273, guid: e3649ff8db7f6d147aefed561854eba2,
+        type: 3}
+      propertyPath: ignoreForceOn
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7141761479085662767, guid: e3649ff8db7f6d147aefed561854eba2,
@@ -5581,6 +5591,11 @@ PrefabInstance:
       propertyPath: bothHaveSameColour
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7141761479085662767, guid: e3649ff8db7f6d147aefed561854eba2,
+        type: 3}
+      propertyPath: ignoreForceOn
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8371943075781961999, guid: e3649ff8db7f6d147aefed561854eba2,
         type: 3}
       propertyPath: torchColour.r
@@ -5621,6 +5636,11 @@ PrefabInstance:
       propertyPath: lightSource
       value: 
       objectReference: {fileID: 372674631}
+    - target: {fileID: 8371943075781961999, guid: e3649ff8db7f6d147aefed561854eba2,
+        type: 3}
+      propertyPath: ignoreForceOn
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 726238055494413389, guid: e3649ff8db7f6d147aefed561854eba2,
         type: 3}
       propertyPath: m_Name
@@ -9351,6 +9371,11 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 0.98039216
       objectReference: {fileID: 0}
+    - target: {fileID: 8653470958828587116, guid: 722659b052ec8ca43b8fde6b3891cc55,
+        type: 3}
+      propertyPath: m_Name
+      value: PurpleLight
+      objectReference: {fileID: 0}
     - target: {fileID: 4545873162278639361, guid: 722659b052ec8ca43b8fde6b3891cc55,
         type: 3}
       propertyPath: torchColour.r
@@ -9380,11 +9405,6 @@ PrefabInstance:
         type: 3}
       propertyPath: bothHaveSameColour
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8653470958828587116, guid: 722659b052ec8ca43b8fde6b3891cc55,
-        type: 3}
-      propertyPath: m_Name
-      value: PurpleLight
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 722659b052ec8ca43b8fde6b3891cc55, type: 3}
@@ -10412,6 +10432,11 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8653470958828587116, guid: 722659b052ec8ca43b8fde6b3891cc55,
+        type: 3}
+      propertyPath: m_Name
+      value: CyanLight
+      objectReference: {fileID: 0}
     - target: {fileID: 4545873162278639361, guid: 722659b052ec8ca43b8fde6b3891cc55,
         type: 3}
       propertyPath: torchColour.r
@@ -10446,11 +10471,6 @@ PrefabInstance:
         type: 3}
       propertyPath: bothHaveSameColour
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8653470958828587116, guid: 722659b052ec8ca43b8fde6b3891cc55,
-        type: 3}
-      propertyPath: m_Name
-      value: CyanLight
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 722659b052ec8ca43b8fde6b3891cc55, type: 3}
@@ -15326,6 +15346,11 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8653470958828587116, guid: 722659b052ec8ca43b8fde6b3891cc55,
+        type: 3}
+      propertyPath: m_Name
+      value: NavyLight
+      objectReference: {fileID: 0}
     - target: {fileID: 4545873162278639361, guid: 722659b052ec8ca43b8fde6b3891cc55,
         type: 3}
       propertyPath: torchColour.r
@@ -15360,11 +15385,6 @@ PrefabInstance:
         type: 3}
       propertyPath: bothHaveSameColour
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8653470958828587116, guid: 722659b052ec8ca43b8fde6b3891cc55,
-        type: 3}
-      propertyPath: m_Name
-      value: NavyLight
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 722659b052ec8ca43b8fde6b3891cc55, type: 3}
@@ -15960,6 +15980,11 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 0.49411765
       objectReference: {fileID: 0}
+    - target: {fileID: 8653470958828587116, guid: 722659b052ec8ca43b8fde6b3891cc55,
+        type: 3}
+      propertyPath: m_Name
+      value: GreenLight
+      objectReference: {fileID: 0}
     - target: {fileID: 4545873162278639361, guid: 722659b052ec8ca43b8fde6b3891cc55,
         type: 3}
       propertyPath: torchColour.r
@@ -15989,11 +16014,6 @@ PrefabInstance:
         type: 3}
       propertyPath: bothHaveSameColour
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8653470958828587116, guid: 722659b052ec8ca43b8fde6b3891cc55,
-        type: 3}
-      propertyPath: m_Name
-      value: GreenLight
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 722659b052ec8ca43b8fde6b3891cc55, type: 3}
@@ -17613,6 +17633,11 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 0.98039216
       objectReference: {fileID: 0}
+    - target: {fileID: 8653470958828587116, guid: 722659b052ec8ca43b8fde6b3891cc55,
+        type: 3}
+      propertyPath: m_Name
+      value: PurpleLight
+      objectReference: {fileID: 0}
     - target: {fileID: 4545873162278639361, guid: 722659b052ec8ca43b8fde6b3891cc55,
         type: 3}
       propertyPath: torchColour.r
@@ -17642,11 +17667,6 @@ PrefabInstance:
         type: 3}
       propertyPath: bothHaveSameColour
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8653470958828587116, guid: 722659b052ec8ca43b8fde6b3891cc55,
-        type: 3}
-      propertyPath: m_Name
-      value: PurpleLight
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 722659b052ec8ca43b8fde6b3891cc55, type: 3}
@@ -20377,6 +20397,11 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8653470958828587116, guid: 722659b052ec8ca43b8fde6b3891cc55,
+        type: 3}
+      propertyPath: m_Name
+      value: NavyLight
+      objectReference: {fileID: 0}
     - target: {fileID: 4545873162278639361, guid: 722659b052ec8ca43b8fde6b3891cc55,
         type: 3}
       propertyPath: torchColour.r
@@ -20411,11 +20436,6 @@ PrefabInstance:
         type: 3}
       propertyPath: bothHaveSameColour
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8653470958828587116, guid: 722659b052ec8ca43b8fde6b3891cc55,
-        type: 3}
-      propertyPath: m_Name
-      value: NavyLight
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 722659b052ec8ca43b8fde6b3891cc55, type: 3}
@@ -20520,6 +20540,11 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8653470958828587116, guid: 722659b052ec8ca43b8fde6b3891cc55,
+        type: 3}
+      propertyPath: m_Name
+      value: CyanLight
+      objectReference: {fileID: 0}
     - target: {fileID: 4545873162278639361, guid: 722659b052ec8ca43b8fde6b3891cc55,
         type: 3}
       propertyPath: bothHaveSameColour
@@ -20554,11 +20579,6 @@ PrefabInstance:
         type: 3}
       propertyPath: lightColour.b
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8653470958828587116, guid: 722659b052ec8ca43b8fde6b3891cc55,
-        type: 3}
-      propertyPath: m_Name
-      value: CyanLight
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 722659b052ec8ca43b8fde6b3891cc55, type: 3}
@@ -22245,6 +22265,11 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 0.49411765
       objectReference: {fileID: 0}
+    - target: {fileID: 8653470958828587116, guid: 722659b052ec8ca43b8fde6b3891cc55,
+        type: 3}
+      propertyPath: m_Name
+      value: GreenLight
+      objectReference: {fileID: 0}
     - target: {fileID: 4545873162278639361, guid: 722659b052ec8ca43b8fde6b3891cc55,
         type: 3}
       propertyPath: torchColour.r
@@ -22274,11 +22299,6 @@ PrefabInstance:
         type: 3}
       propertyPath: bothHaveSameColour
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8653470958828587116, guid: 722659b052ec8ca43b8fde6b3891cc55,
-        type: 3}
-      propertyPath: m_Name
-      value: GreenLight
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 722659b052ec8ca43b8fde6b3891cc55, type: 3}
@@ -23138,6 +23158,11 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 0.4919903
       objectReference: {fileID: 0}
+    - target: {fileID: 8653470958828587116, guid: 722659b052ec8ca43b8fde6b3891cc55,
+        type: 3}
+      propertyPath: m_Name
+      value: GreenLight
+      objectReference: {fileID: 0}
     - target: {fileID: 4545873162278639361, guid: 722659b052ec8ca43b8fde6b3891cc55,
         type: 3}
       propertyPath: torchColour.r
@@ -23167,11 +23192,6 @@ PrefabInstance:
         type: 3}
       propertyPath: bothHaveSameColour
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8653470958828587116, guid: 722659b052ec8ca43b8fde6b3891cc55,
-        type: 3}
-      propertyPath: m_Name
-      value: GreenLight
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 722659b052ec8ca43b8fde6b3891cc55, type: 3}

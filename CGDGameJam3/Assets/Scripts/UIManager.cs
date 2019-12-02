@@ -20,7 +20,7 @@ public class UIManager : MonoBehaviour
 
         for (int i = 0; i < DistanceManager.Instance().enemies.Count; i++)
         {
-            if (DistanceManager.Instance().EnemyDistance(10, i, PlayerManager.Instance().players[0].transform.position))
+            if (DistanceManager.Instance().IsEnemyThisClose(10, i, PlayerManager.Instance().players[0].transform.position))
             {
                 heartSpeed.rateOverTime = 3;
             }
