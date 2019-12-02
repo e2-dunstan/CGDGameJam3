@@ -7,12 +7,15 @@ using UnityEngine.UI;
 public class EndCutscene : MonoBehaviour
 {
     KeyManager keyManager;
+
     Camera[] camera;
     GameObject player;
     GameObject gate;
     List<Transform> gates = new List<Transform>();
-    public Image image;
+    public Image uiImage;
+    Image image;
     float speed = 2.0f;
+    float finalFadeOutSpeed = 1.0f;
     bool fadedOut = false;
     bool fadedIn = false;
     bool doorOpen = false;
@@ -23,6 +26,7 @@ public class EndCutscene : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name == "GameScene")
         {
+
             gate = GameObject.FindGameObjectWithTag("Gate");
             var g = gate.GetComponentsInChildren<Transform>();
             for (int i = 0; i < g.Length; i++)
@@ -36,6 +40,7 @@ public class EndCutscene : MonoBehaviour
 
             camera = FindObjectsOfType<Camera>();
             player = GameObject.FindGameObjectWithTag("Player");
+            image = player.GetComponentInChildren<Image>();
             keyManager = FindObjectOfType<KeyManager>();
         }
 
@@ -59,19 +64,13 @@ public class EndCutscene : MonoBehaviour
             player.GetComponent<PlayerMovement>().walkForward = true;
             StartCoroutine(Walk());
         }
-
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            player.transform.rotation = new Quaternion(0.0f, 0.0f, 0.0f, 1.0f);
-            StartCoroutine(FadeOut());
-        }
         
     }
 
     IEnumerator Walk()
     {
         float time = 0.0f;
-        while (time < 4.0f)
+        while (time < 2.0f)
         {
             time += Time.deltaTime;
             yield return null;
@@ -87,7 +86,7 @@ public class EndCutscene : MonoBehaviour
         while (image.color.a > 0.0f)
         {
             fadedOut = false;
-            Fade(-Time.deltaTime * speed);
+            Fade(ref image, -Time.deltaTime * speed);
             yield return null;
         }
 
@@ -95,20 +94,32 @@ public class EndCutscene : MonoBehaviour
         yield return 0;
     }
 
-    IEnumerator FadeOut()
+    IEnumerator FadeOutUI()
     {
-        while (image.color.a < 1.0f)
+        while (uiImage.color.a < 1.0f)
         {
-            Fade(Time.deltaTime * speed);
+            Fade(ref uiImage, Time.deltaTime * speed);
             yield return null;
         }
 
         fadedOut = true;
         camera[1].enabled = false;
         camera[0].enabled = true;
-        if(finalFadeOut)
+        yield return 0;
+    }
+
+    IEnumerator FadeOut()
+    {
+        while (image.color.a < 1.0f)
         {
-            SceneManager.LoadScene(3);
+            Fade(ref image, Time.deltaTime * finalFadeOutSpeed);
+            yield return null;
+        }
+
+        fadedOut = true;
+        if (finalFadeOut)
+        {
+            SceneManager.LoadScene(2);
         }
         yield return 0;
     }
@@ -129,19 +140,18 @@ public class EndCutscene : MonoBehaviour
         yield return 0;
     }
 
-    void Fade(float a)
+    void Fade(ref Image _image, float a)
     {
-        var colour = image.color;
+        var colour = _image.color;
         colour = new Color(colour.r, colour.b, colour.b, colour.a + a);
-        image.color = colour;
+        _image.color = colour;
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player") //&& keyManager.AllKeysCollected())
+        if(other.tag == "Player")// && keyManager.AllKeysCollected())
         {
-            player.GetComponent<PlayerMovement>().StopRunning();
-            StartCoroutine(FadeOut());
+            StartCoroutine(FadeOutUI());
         }
     }
 
