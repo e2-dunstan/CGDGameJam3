@@ -8,18 +8,18 @@
 
 ### GitHub
 
-Third time's a charm. GitHub was heavily utilised this time around, with good use of issues, projects and priorities. Milestones were not needed due to the core issues being completed in the first weekend.
+For the third jam, Github was used much better. From the beginning of the jam issues were created for the core systems and potential juice. These were tagged appropriately depending on priority and then assigned to members of the group. The utilisation of the issue number in commit messages was also much better with most commits being related to an existing issue. The projects board was also set up to automatically manage the movement of issues between column based on whether they were being worked on or if they were closed. Milestones weren't used in this jam mainly due to the core features being implemented within the first few days of the jam beginning.
 
 ### Communication
 
-Fantastic. Some instances where members were late or could not make it, but slack communication stayed consistent and coherent. Everybody knew what they were doing and just cracked on. Everyone pulled their weight.
+Communication for this jam was extremely good. There were scenarios in which people couldn't make it in but every time this was the case; the group was made aware via slack. Meeting times were decided in advance via slack and once the group met up, the jam was the focus for the day and everyone gave their full effort. At this point, the group understands where each others strengths lie and less time was wasted overall by playing to them.
 
 #
 ## The Game
 
 ### Code
 
-Not as heavy in this game. The gameplay was mostly created through the atmosphere from Unity's lighting and animations.
+For this jam, having complicated systems being part of the gameplay wasn't the key focus. For this jam the group wanted to focus on making the player feel uneasy in a dark maze, surrounded by monsters. So the group prioritised tweaking the lighting to give the intended atmosphere and spacial sound to add the tension of the monsters that surround you. This resulted in the core systems being simple and quick to implement, such as the top-down follow camera and player controller. Although this was the case, the enemy system was made with a fairly robust pathing/chasing system to ensure that the build of tension through sound had a good visual payoff.
 
 ### Design
 
@@ -32,17 +32,20 @@ UI - Sol
 Effects (wall torches, footsteps, etc.) - Sol
 
 Keys - Alex, Ben, Sol (emphasise communication on this issue, plus use of colours)
+The key system at is base is very simple. Two arrays, one of the keys themselves and one of the lights relating to those keys. Once a key is collected the key calls back to its manager to disable that key in the scene and turn on the appropriate light. Once all keys have been collected a function is then called which the other systems can hook into to play cutscenes, end the game, etc.
 
 Enemies - Dan
 
-Torch - Ben
+Flashlight - Ben
 
 #
 ## Improvements
 
 Level - more variety, static objects like clutter
 
-Clearer visual cues? I.e. keys needed
+Whilst the level that the group created was good, it needed to be handcrafted from the result of the maze generator. This was due to the purpose of the generator being revolved around just making a complex maze with one entrance and one exit. To give extra variety to the game without requiring a lot of extra time handcrafting levels; tweaking the generator so that it also automatically placed a predefined set of rooms would add more variety to the game. Also fleshing out rooms and corridors in the game with clutter objects will add a bit more life to the level. Physics enabled objects could also add another dimension to the game, allowing the player to block corridors with a bookcase for example.
+
+Another improvement would involve hinting the player about key locations and potentially having a key counter to see how many you need to collect. The group wanted to avoid just putting lots of UI elements for these because it would ruin/belittle the atmosphere we tried to create via the lighting and sounds.
 
 #
 ## Gameplay
