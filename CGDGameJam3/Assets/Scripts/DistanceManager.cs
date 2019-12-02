@@ -39,8 +39,15 @@ public class DistanceManager : MonoBehaviour
    
     public bool PlayerDistance(int _dist, Vector3 _pos)
     {
-        return (Vector3.Distance(PlayerManager.Instance().players[0].gameObject.transform.position,
-                _pos) > _dist);
+        if (PlayerManager.Instance().players.Count < 0)
+        {
+            return (Vector3.Distance(PlayerManager.Instance().players[0].gameObject.transform.position,
+            _pos) > _dist);
+        }
+        else
+        {
+            return (false);
+        }
     }
 
     public bool EnemyDistance(int _dist, int _enemy, Vector3 _pos)

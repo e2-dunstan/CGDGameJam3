@@ -75,6 +75,19 @@ public class EnemyManager : MonoBehaviour
         return true;
     }
 
+    public bool IsEnemyChasingPlayer()
+    {
+        foreach (EnemyBehaviour enemy in enemies)
+        {
+            if(enemy.IsChasing())
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     public void AddEnemyToScene(EnemyBehaviour enemy)
     {
         enemies.Add(enemy);

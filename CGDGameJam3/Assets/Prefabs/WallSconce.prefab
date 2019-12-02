@@ -245,9 +245,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 184ef9ef2a61cb84ebe9212fda680d2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lightSource: {fileID: 0}
-  torchColour: {r: 0, g: 0, b: 0, a: 0}
-  lightColour: {r: 0, g: 0, b: 0, a: 0}
+  lightSource: {fileID: 5116478898904402843}
+  torchColour: {r: 0.9339623, g: 0.38833928, b: 0.118948035, a: 0}
+  lightColour: {r: 1, g: 0.707973, b: 0.495283, a: 0}
   bothHaveSameColour: 0
   disable: 0
 --- !u!1 &7150052129855781820

@@ -324,5 +324,10 @@ public class EnemyBehaviour : MonoBehaviour
     {
         stuckTimer = 0;
     }
+
+    public bool IsChasing()
+    {
+        return currentState == EnemyState.Chase;
+    }
 }
 
