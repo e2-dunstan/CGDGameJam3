@@ -186,6 +186,7 @@ MonoBehaviour:
   verticalInputAxis: 1
   velocity: {x: 0, y: 0, z: 0}
   playerNum: 1
+  walkForward: 0
 --- !u!114 &405784272837804516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,6 +199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0589ae545337a470fb6b5df1db8adec9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  torchEffectSpawnPos: {fileID: 0}
 --- !u!1 &5144203847815795293
 GameObject:
   m_ObjectHideFlags: 0
@@ -356,7 +358,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1827431934, guid: f07d8d9cfb392974e88e1dada4241179, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1585575981297697522, guid: f07d8d9cfb392974e88e1dada4241179,
         type: 3}
@@ -448,6 +450,14 @@ PrefabInstance:
       propertyPath: m_ReceiveShadows
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1827431935, guid: f07d8d9cfb392974e88e1dada4241179, type: 3}
+      propertyPath: playerAnim
+      value: 
+      objectReference: {fileID: 7198441283490637878}
+    - target: {fileID: 1827431935, guid: f07d8d9cfb392974e88e1dada4241179, type: 3}
+      propertyPath: torch
+      value: 
+      objectReference: {fileID: 4917462914702539358}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f07d8d9cfb392974e88e1dada4241179, type: 3}
 --- !u!1 &4266978317375453023 stripped
@@ -459,6 +469,12 @@ GameObject:
 --- !u!4 &967152370660394316 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3356399706106784116, guid: f07d8d9cfb392974e88e1dada4241179,
+    type: 3}
+  m_PrefabInstance: {fileID: 2591909868979596344}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &7198441283490637878 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4620218770909873166, guid: f07d8d9cfb392974e88e1dada4241179,
     type: 3}
   m_PrefabInstance: {fileID: 2591909868979596344}
   m_PrefabAsset: {fileID: 0}
