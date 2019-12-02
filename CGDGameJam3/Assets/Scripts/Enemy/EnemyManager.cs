@@ -21,7 +21,6 @@ public class EnemyManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        DontDestroyOnLoad(gameObject);
 
         GameObject[] gameObjectNodes = GameObject.FindGameObjectsWithTag("EnemyNode");
         allNodes = new EnemyNode[gameObjectNodes.Length];
@@ -73,6 +72,19 @@ public class EnemyManager : MonoBehaviour
         }
 
         return true;
+    }
+
+    public bool IsEnemyChasingPlayer()
+    {
+        foreach (EnemyBehaviour enemy in enemies)
+        {
+            if(enemy.IsChasing())
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     public void AddEnemyToScene(EnemyBehaviour enemy)

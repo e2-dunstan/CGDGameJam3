@@ -18,7 +18,6 @@ public class PlayerManager : MonoBehaviour
     private void Awake()
     {
         if (instance == null) instance = this;
-        DontDestroyOnLoad(this);
         InitialisePlayer();
     }
 

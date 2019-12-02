@@ -177,4 +177,12 @@ public class PlayerMovement : MonoBehaviour
     {
         sprintActive = false;
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            SceneTransitionManager.instance.ChangeScene("GameOver");
+        }
+    }
 }
