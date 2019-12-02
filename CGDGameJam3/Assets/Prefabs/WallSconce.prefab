@@ -76,7 +76,7 @@ Light:
   serializedVersion: 9
   m_Type: 2
   m_Color: {r: 1, g: 0.74190104, b: 0.4528302, a: 1}
-  m_Intensity: 2
+  m_Intensity: 1.5
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -245,8 +245,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 184ef9ef2a61cb84ebe9212fda680d2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialised: 0
-  _active: 0
+  lightSource: {fileID: 0}
+  torchColour: {r: 0, g: 0, b: 0, a: 0}
+  lightColour: {r: 0, g: 0, b: 0, a: 0}
+  bothHaveSameColour: 0
+  disable: 0
 --- !u!1 &7150052129855781820
 GameObject:
   m_ObjectHideFlags: 0
