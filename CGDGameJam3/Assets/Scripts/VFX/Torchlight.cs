@@ -15,12 +15,13 @@ public class Torchlight : MonoBehaviour
     //Shutdown is for optimisation
     bool shutDown;
     private bool _active;
+    [SerializeField] bool ignoreForceOn;
 
     // Start is called before the first frame update
     void Start()
     {
         initialised = false;
-        _active = true;
+        _active = false;
         shutDown = false;
         torchColour.a = 1;
 
@@ -122,15 +123,18 @@ public class Torchlight : MonoBehaviour
 
     public void ReviveTorch()
     {
-        if (!DistanceManager.Instance().EnemyDistance(7, 2, transform.position))
+        if (!ignoreForceOn)
         {
-            if (!_active)
+            if (!DistanceManager.Instance().EnemyDistance(7, 2, transform.position))
             {
-                StopEffect(VFXManager.Instance().torchDeathPSList);
-            }
+                if (!_active)
+                {
+                    StopEffect(VFXManager.Instance().torchDeathPSList);
+                }
 
-            lightSource.enabled = true;
-            _active = true;
+                lightSource.enabled = true;
+                _active = true;
+            }
         }
     }
 
