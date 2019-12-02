@@ -50,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if (disableInput) return;
+        if (disableInput && !walkForward) return;
 
         //horizontalInput = InputHandler.Instance().GetLeftStickX(playerNum);
         //verticalInput = InputHandler.Instance().GetLeftStickY(playerNum);
@@ -81,19 +81,19 @@ public class PlayerMovement : MonoBehaviour
             anim.SetFloat("Speed", animSpeed);
             anim.SetBool("Naruto", sprintActive && isMoving);
         }
-            if (InputHandler.Instance().GetSprintHold())
-            {
-                PlayEffect(VFXManager.Instance().sprintingPSList);
-            }
-            else
-            {
-                PlayEffect(VFXManager.Instance().runningPSList);
-            }
+        if (InputHandler.Instance().GetSprintHold())
+        {
+            PlayEffect(VFXManager.Instance().sprintingPSList);
+        }
+        else
+        {
+            PlayEffect(VFXManager.Instance().runningPSList);
+        }
     }
 
     private void FixedUpdate()
     {
-        if (disableInput) return;
+        if (disableInput && !walkForward) return;
 
         if ((horizontalInput != 0 || verticalInput != 0) && AnimatorCanMove())
         {
@@ -147,5 +147,10 @@ public class PlayerMovement : MonoBehaviour
     public void PlayEffect(List<VFXManager.PartSys> _particleSystemList, Vector3 offset)
     {
         VFXManager.Instance().PlayParticleSystemOnGameObject(gameObject, _particleSystemList, offset);
+    }
+
+    public void StopRunning()
+    {
+        sprintActive = false;
     }
 }
