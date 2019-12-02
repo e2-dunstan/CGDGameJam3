@@ -108,7 +108,7 @@ public class EndCutscene : MonoBehaviour
         camera[0].enabled = true;
         if(finalFadeOut)
         {
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(3);
         }
         yield return 0;
     }
@@ -138,8 +138,9 @@ public class EndCutscene : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player" && keyManager.AllKeysCollected())
+        if(other.tag == "Player") //&& keyManager.AllKeysCollected())
         {
+            player.GetComponent<PlayerMovement>().StopRunning();
             StartCoroutine(FadeOut());
         }
     }
