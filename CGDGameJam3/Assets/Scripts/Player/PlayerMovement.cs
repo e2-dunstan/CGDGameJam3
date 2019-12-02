@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [HideInInspector] public bool disableInput = false;
 
     enum MovementAxis
     {
@@ -11,8 +12,8 @@ public class PlayerMovement : MonoBehaviour
         Z
     }
 
-    [Header("References")]
-    [SerializeField] private GameObject model;
+    [Header("References")] //Made public for footsteps FX
+    /*[SerializeField]*/ public GameObject model;
 
     [Header("Settings")]
     [SerializeField] private float speedMultiplier = 5.0f;
@@ -22,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private MovementAxis verticalInputAxis = MovementAxis.Z;
     [SerializeField] private Vector3 velocity = new Vector3(0.0f, 0.0f, 0.0f);
     [HideInInspector] public int playerNum = 1;
+    [HideInInspector] public bool walkForward = false;
 
     private Rigidbody rb;
     private CapsuleCollider col;
@@ -30,8 +32,10 @@ public class PlayerMovement : MonoBehaviour
     private float horizontalInput = 0.0f;
     private float verticalInput = 0.0f;
     private bool sprintActive = false;
+    private bool isMoving = false;
     private float animSpeed = 0.0f;
     private Vector3 previousPosition;
+
 
 
     private void Start()
@@ -46,11 +50,25 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        horizontalInput = InputHandler.Instance().GetLeftStickX(playerNum);
-        verticalInput = InputHandler.Instance().GetLeftStickY(playerNum);
-        sprintActive = InputHandler.Instance().GetSprintHold();
+        if (disableInput && !walkForward) return;
 
-        if ((horizontalInput != 0 || verticalInput != 0) && AnimatorCanMove()){
+        //horizontalInput = InputHandler.Instance().GetLeftStickX(playerNum);
+        //verticalInput = InputHandler.Instance().GetLeftStickY(playerNum);
+        //sprintActive = InputHandler.Instance().GetSprintHold();
+        isMoving = (horizontalInput != 0 || verticalInput != 0);
+        if (!walkForward)
+        {
+            horizontalInput = InputHandler.Instance().GetLeftStickX(playerNum);
+            verticalInput = InputHandler.Instance().GetLeftStickY(playerNum);
+            sprintActive = InputHandler.Instance().GetSprintHold();
+        }
+        else
+        {
+            verticalInput = 1.0f;
+            horizontalInput = 0.0f;
+        }
+
+        if (isMoving && AnimatorCanMove()){
             SetAnimatorSpeed();
         }
         else
@@ -61,21 +79,22 @@ public class PlayerMovement : MonoBehaviour
                 animSpeed = animSpeed < 0 ? 0 : animSpeed;
             }
             anim.SetFloat("Speed", animSpeed);
+            anim.SetBool("Naruto", sprintActive && isMoving);
         }
-            if (InputHandler.Instance().GetSprintHold())
-            {
-                //StopEffect(VFXManager.Instance().runningPSList);
-                PlayEffect(VFXManager.Instance().sprintingPSList);
-            }
-            else
-            {
-               // StopEffect(VFXManager.Instance().sprintingPSList);
-                PlayEffect(VFXManager.Instance().runningPSList);
-            }
+        if (InputHandler.Instance().GetSprintHold())
+        {
+            PlayEffect(VFXManager.Instance().sprintingPSList);
+        }
+        else
+        {
+            PlayEffect(VFXManager.Instance().runningPSList);
+        }
     }
 
     private void FixedUpdate()
     {
+        if (disableInput && !walkForward) return;
+
         if ((horizontalInput != 0 || verticalInput != 0) && AnimatorCanMove())
         {
             Vector3 newPos = transform.position;
@@ -90,12 +109,13 @@ public class PlayerMovement : MonoBehaviour
             rb.MovePosition(newPos);
             RotateToMovement();
         }
+
     }
 
     private void SetAnimatorSpeed()
     {
         animSpeed += Time.deltaTime * 4;
-        animSpeed = Mathf.Clamp(animSpeed, 0.0f, 1.0f);
+        animSpeed = Mathf.Clamp(animSpeed, 0.0f, sprintActive ? 1.0f : 0.5f);
         anim.SetBool("Naruto", sprintActive);
         anim.SetFloat("Speed", animSpeed);
     }
@@ -127,5 +147,10 @@ public class PlayerMovement : MonoBehaviour
     public void PlayEffect(List<VFXManager.PartSys> _particleSystemList, Vector3 offset)
     {
         VFXManager.Instance().PlayParticleSystemOnGameObject(gameObject, _particleSystemList, offset);
+    }
+
+    public void StopRunning()
+    {
+        sprintActive = false;
     }
 }

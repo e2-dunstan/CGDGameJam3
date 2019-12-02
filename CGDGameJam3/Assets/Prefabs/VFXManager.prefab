@@ -44,9 +44,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   torchPS: {fileID: 290173660001467911, guid: b2808653230b66342a03332457feedd2, type: 3}
-  torchDeathPS: {fileID: 6207389919504203360, guid: e712bf48a95bc87478dbc0dd09709ce6,
+  torchDeathPS: {fileID: 7697833094012673801, guid: e712bf48a95bc87478dbc0dd09709ce6,
     type: 3}
   runningPS: {fileID: 3370849144291517768, guid: e6441dd81ae8f0f4cba3fa6e5128bd1b,
     type: 3}
   sprintingPS: {fileID: 3370849144291517768, guid: 1b550ceaa3ec51843ba8b61974f8d380,
+    type: 3}
+  enemyWalkPS: {fileID: 3370849144291517768, guid: 0e64439c0da37924889c0cbd032ad219,
     type: 3}

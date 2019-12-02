@@ -8,14 +8,18 @@ public class PlayerManager : MonoBehaviour
 
     [HideInInspector] int numberOfPlayers = 1;
     public GameObject playerPrefab;
-    /*Made public for sol's script! */public List<GameObject> players = new List<GameObject>();
+
+    public List<GameObject> players = new List<GameObject>(); //Made public for sol's script!
+
     public GameObject spawnPosParent;
+
     static PlayerManager instance;
 
     private void Awake()
     {
         if (instance == null) instance = this;
         DontDestroyOnLoad(this);
+        InitialisePlayer();
     }
 
     public static PlayerManager Instance()
@@ -25,7 +29,7 @@ public class PlayerManager : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
+    void InitialisePlayer()
     {
         List<Transform> spawnPoints = new List<Transform>(spawnPosParent.GetComponentsInChildren<Transform>());
 
@@ -33,6 +37,7 @@ public class PlayerManager : MonoBehaviour
         for (int i = 0; i < numberOfPlayers; ++i)
         {
             var player = Instantiate(playerPrefab, spawnPoints[i].position, Quaternion.identity);
+
             players.Add(player);
             players[i].GetComponent<PlayerMovement>().playerNum = i + 1;
             players[i].gameObject.name = "Player" + (i + 1).ToString();
