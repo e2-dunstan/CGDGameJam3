@@ -21,7 +21,6 @@ public class EnemyManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        DontDestroyOnLoad(gameObject);
 
         GameObject[] gameObjectNodes = GameObject.FindGameObjectsWithTag("EnemyNode");
         allNodes = new EnemyNode[gameObjectNodes.Length];
