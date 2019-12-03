@@ -46,8 +46,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   system: {fileID: 3370849144291517768}
-  selectSound: event:/Megan/MeganFootsteps
-  delta: 1.85
+  selectSound: event:/Megan/FootStepStone
+  delta: 2.15
   gap: 0.2
 --- !u!198 &3370849144291517768
 ParticleSystem:

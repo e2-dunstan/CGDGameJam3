@@ -15,7 +15,7 @@ public class Footsteps : MonoBehaviour
     public float delta = 1;
     public float gap = -0.5f;
     int dir = 1;
-
+    int footstepVal;
     private void Start()
     {
     }
@@ -28,9 +28,12 @@ public class Footsteps : MonoBehaviour
 
     // Update is called once per frame
     void FixedUpdate()
-    {
+    { 
         if (!InputHandler.Instance().GetSprintHold())
         {
+            footstepVal = Random.Range(1, 4);
+            footstepEvent.setParameterValue("Surface", footstepVal);
+
             if (Vector3.Distance(lastEmit, player.transform.position) > delta)
             {
                 var pos = transform.position + (playerModel.transform.right * gap * dir);
@@ -52,4 +55,5 @@ public class Footsteps : MonoBehaviour
             lastEmit = player.transform.position;
         }
     }
+
 }
