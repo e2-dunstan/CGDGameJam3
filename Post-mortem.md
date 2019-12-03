@@ -59,4 +59,8 @@ Enemy improvements like more complex behaviours and variety
 #
 ## Gameplay
 
-Video and pictures here
+<p float="left">
+  <img src="/Jam 3 post mortem/main menu.PNG" width="400" />
+  <img src="/Jam 3 post mortem/game over.PNG" width="400" />
+  <img src="/Jam 3 post mortem/winner.PNG" width="400" />
+</p>
