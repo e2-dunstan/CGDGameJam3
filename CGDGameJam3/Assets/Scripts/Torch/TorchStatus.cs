@@ -27,6 +27,13 @@ public class TorchStatus : MonoBehaviour
     public GameObject lightEnd;
 
     private bool isFlickering = false;
+    private bool isFlickeringDue = true;
+
+    public float minTimeBetweenFlickers = 9.0f;
+    public float maxTimeBetweenFlickers = 20.0f;
+
+    [FMODUnity.EventRef]
+    public string flashLightFlickerSound = "";
 
     // Start is called before the first frame update
     void Start()
@@ -66,6 +73,17 @@ public class TorchStatus : MonoBehaviour
                 promptLightFlicker();
             }
         }
+
+        if (isFlickeringDue)
+        {
+            float randomTime = Random.Range(minTimeBetweenFlickers, maxTimeBetweenFlickers);
+            StartCoroutine(randomTimer(randomTime));
+
+            if (!isFlickering)
+            {
+                promptLightFlicker();
+            }
+        }
     }
 
     public void promptLightFlicker()
@@ -75,6 +93,13 @@ public class TorchStatus : MonoBehaviour
             isFlickering = true;
             StartCoroutine(flickerLight());
         }
+    }
+
+    IEnumerator randomTimer(float time)
+    {
+        isFlickeringDue = false;
+        yield return new WaitForSeconds(time);
+        isFlickeringDue = true;
     }
 
     IEnumerator flickerLight()
@@ -96,14 +121,14 @@ public class TorchStatus : MonoBehaviour
                 {
                     isLightOn = false;
                     flashLight.enabled = false;
-                    Debug.Log("turning light off");
+                    FMODUnity.RuntimeManager.PlayOneShot(flashLightFlickerSound, this.transform.position);
                     dt2 = 0.0f;
                 }
                 else
                 {
                     isLightOn = true;
                     flashLight.enabled = true;
-                    Debug.Log("turning light on");
+                    FMODUnity.RuntimeManager.PlayOneShot(flashLightFlickerSound, this.transform.position);
                     dt2 = 0.0f;
                 }
 
@@ -113,12 +138,12 @@ public class TorchStatus : MonoBehaviour
             }
 
             if(dt3 > flashDuration || timeBetweenFlashes.Count <= 0)
-            {
-                Debug.Log("Flash over");
+            { 
                 isFlickering = false;
                 isFlashing = false;
                 isLightOn = true;
                 flashLight.enabled = true;
+                FMODUnity.RuntimeManager.PlayOneShot(flashLightFlickerSound, this.transform.position);
                 flashingIsOver = true;
             }
 

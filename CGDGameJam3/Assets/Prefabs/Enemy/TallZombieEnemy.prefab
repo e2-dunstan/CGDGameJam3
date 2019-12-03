@@ -50,11 +50,19 @@ MonoBehaviour:
   rotationDamping: 3
   changeNodeIfStuck: 0
   idleTime: 2
+  lookingSound: event:/Skinny/SkinnyLooking
+  chasingSound: event:/Skinny/SkinnyChasing
+  footstepSound: event:/Skinny/SkinnyFootsteps
+  killingSound: event:/Skinny/SkinnyKilling
   speed: 1
   chaseSpeed: 2
   dectectionRange: 8
   chaseRange: 10
   nodeRange: 0.5
+  lineOfSightTime: 2
+  debug: 0
+  aggravateEnemy: 0
+  currentNode: {fileID: 0}
 --- !u!136 &2388478205342406349
 CapsuleCollider:
   m_ObjectHideFlags: 0
