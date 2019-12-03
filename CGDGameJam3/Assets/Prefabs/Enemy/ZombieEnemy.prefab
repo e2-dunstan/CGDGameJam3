@@ -50,10 +50,10 @@ MonoBehaviour:
   rotationDamping: 3
   changeNodeIfStuck: 0
   idleTime: 2
-  lookingSound: event:/Teethy/SkinnyLooking
-  chasingSound: event:/Teethy/SkinnyChasing
-  footstepSound: event:/Teethy/SkinnyFootsteps
-  killingSound: event:/Teethy/SkinnyLooking
+  lookingSound: event:/Teethy/TeethyLooking
+  chasingSound: event:/Teethy/TeethyChasing
+  footstepSound: event:/Teethy/TeethyKilling
+  killingSound: event:/Teethy/TeethyLooking
   speed: 2
   chaseSpeed: 4
   dectectionRange: 6
