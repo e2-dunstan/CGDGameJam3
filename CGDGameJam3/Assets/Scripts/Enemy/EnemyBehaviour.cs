@@ -356,6 +356,15 @@ public class EnemyBehaviour : MonoBehaviour
         Quaternion dersiredRotation = Quaternion.LookRotation(new Vector3(localDirection.x, 0f, localDirection.z));
         model.localRotation = Quaternion.Lerp(model.localRotation, dersiredRotation, Time.deltaTime * rotationDamping);
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.transform.CompareTag("Player"))
+        {
+            FMODUnity.RuntimeManager.PlayOneShot(killingSound, this.transform.position);
+        }
+    }
+
     private void OnCollisionStay(Collision collision)
     {
         if(changeNodeIfStuck)
