@@ -111,7 +111,6 @@ public class PlayerMovement : MonoBehaviour
             if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, 2.0f))
             {
                 Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
-                Debug.Log("Hit");
                 var mat = hit.collider.GetComponent<MeshRenderer>().material;
                 for (int i = 0; i < materials.Count; ++i)
                 {

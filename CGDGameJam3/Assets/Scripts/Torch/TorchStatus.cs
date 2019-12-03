@@ -71,10 +71,9 @@ public class TorchStatus : MonoBehaviour
             }
         }
 
-        float randomTime = Random.Range(minTimeBetweenFlickers, maxTimeBetweenFlickers);
-
         if (isFlickeringDue)
         {
+            float randomTime = Random.Range(minTimeBetweenFlickers, maxTimeBetweenFlickers);
             StartCoroutine(randomTimer(randomTime));
 
             if (!isFlickering)
@@ -119,14 +118,12 @@ public class TorchStatus : MonoBehaviour
                 {
                     isLightOn = false;
                     flashLight.enabled = false;
-                    Debug.Log("turning light off");
                     dt2 = 0.0f;
                 }
                 else
                 {
                     isLightOn = true;
                     flashLight.enabled = true;
-                    Debug.Log("turning light on");
                     dt2 = 0.0f;
                 }
 
@@ -136,8 +133,7 @@ public class TorchStatus : MonoBehaviour
             }
 
             if(dt3 > flashDuration || timeBetweenFlashes.Count <= 0)
-            {
-                Debug.Log("Flash over");
+            { 
                 isFlickering = false;
                 isFlashing = false;
                 isLightOn = true;

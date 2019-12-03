@@ -19,6 +19,8 @@ public class Torchlight : MonoBehaviour
     [SerializeField] bool ignoreForceOn; //Lights will not turn on when the player is close
     [SerializeField] bool justPlay; //Play completely independently from the rest of the script
 
+    public bool dontChange = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,32 +38,36 @@ public class Torchlight : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!justPlay)
+        if (!dontChange)
         {
-            if (lightSource.intensity == 0)
+            if (!justPlay)
             {
-                KillTorch();
-                return;
-            }
+                if (lightSource.intensity == 0)
+                {
+                    KillTorch();
+                    return;
+                }
 
-            if (!disable)
-            {
-                shutDown = DistanceManager.Instance().IsPlayerThisClose(15, transform.position);
-                Initialise();
-                DieIfFarFromPlayer();
-                DieIfCloseToEnemy();
+                if (!disable)
+                {
+                    shutDown = DistanceManager.Instance().IsPlayerThisClose(15, transform.position);
+                    Initialise();
+                    DieIfFarFromPlayer();
+                    DieIfCloseToEnemy();
+                }
+                else
+                {
+                    shutDown = true;
+                    KillTorch();
+                }
             }
             else
             {
-                shutDown = true;
-                KillTorch();
+                _active = true;
+                Initialise();
             }
         }
-        else
-        {
-            _active = true;
-            Initialise();
-        }
+        
     }
 
     private void DieIfCloseToEnemy()
@@ -157,6 +163,12 @@ public class Torchlight : MonoBehaviour
                 _active = true;
             }
         }
+    }
+
+    public void ManuallyStart()
+    {
+        _active = true;
+        Initialise();
     }
 
     public void StopEffect(List<VFXManager.PartSys> _particleSystemList)

@@ -36,6 +36,7 @@ public class KeyManager : MonoBehaviour
             {
                 keysUI.ShowKeyUI(_key);
                 _key.KeyActive(false);
+                Debug.Log("YOU GOT A KEY" +  "ACTIVATING LIGHT POST " + i);
                 lightPosts[i].SetLightActive(true);
                 keysUncollected--;
                 float percentage = (float)keysUncollected / (float)startKeys;
