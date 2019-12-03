@@ -16438,14 +16438,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-<<<<<<< HEAD
-=======
     - target: {fileID: 1698516165021542549, guid: 722659b052ec8ca43b8fde6b3891cc55,
         type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
->>>>>>> origin/develop
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 722659b052ec8ca43b8fde6b3891cc55, type: 3}
 --- !u!1001 &1196506210
