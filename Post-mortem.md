@@ -1,7 +1,7 @@
 # Faster Than You
 
 #### The Boomers: Ellie, Alex, Dan, Ben, Lewis, Sol
-#### Audio: George Dyuddridge, Hugo Rickaby, Jack Grint, Joe Cooper, Alex Paxman
+#### Audio: George Duddridge, Hugo Rickaby, Jack Grint, Joe Cooper, Alex Paxman, Brett Townley, Jack Grint
 
 #
 ## Teamwork and Project Development
