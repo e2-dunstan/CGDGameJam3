@@ -27,6 +27,10 @@ public class TorchStatus : MonoBehaviour
     public GameObject lightEnd;
 
     private bool isFlickering = false;
+    private bool isFlickeringDue = true;
+
+    public float minTimeBetweenFlickers = 9.0f;
+    public float maxTimeBetweenFlickers = 20.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -66,6 +70,18 @@ public class TorchStatus : MonoBehaviour
                 promptLightFlicker();
             }
         }
+
+        float randomTime = Random.Range(minTimeBetweenFlickers, maxTimeBetweenFlickers);
+
+        if (isFlickeringDue)
+        {
+            StartCoroutine(randomTimer(randomTime));
+
+            if (!isFlickering)
+            {
+                promptLightFlicker();
+            }
+        }
     }
 
     public void promptLightFlicker()
@@ -75,6 +91,13 @@ public class TorchStatus : MonoBehaviour
             isFlickering = true;
             StartCoroutine(flickerLight());
         }
+    }
+
+    IEnumerator randomTimer(float time)
+    {
+        isFlickeringDue = false;
+        yield return new WaitForSeconds(time);
+        isFlickeringDue = true;
     }
 
     IEnumerator flickerLight()

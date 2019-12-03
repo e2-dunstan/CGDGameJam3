@@ -177,6 +177,8 @@ public class PlayerMovement : MonoBehaviour
     public void StopRunning()
     {
         sprintActive = false;
+        anim.SetBool("Naruto", false);
+        anim.SetFloat("Speed", 0.0f);
     }
 
     private void OnCollisionEnter(Collision collision)

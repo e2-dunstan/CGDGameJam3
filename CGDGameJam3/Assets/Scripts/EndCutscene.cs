@@ -96,9 +96,9 @@ public class EndCutscene : MonoBehaviour
 
     IEnumerator FadeOutUI()
     {
-        while (uiImage.color.a < 1.0f)
+        while (image.color.a < 1.0f)
         {
-            Fade(ref uiImage, Time.deltaTime * speed);
+            Fade(ref image, Time.deltaTime * speed);
             yield return null;
         }
 
@@ -149,8 +149,10 @@ public class EndCutscene : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player")// && keyManager.AllKeysCollected())
+        if(other.tag == "Player" && keyManager.AllKeysCollected())
         {
+            player.GetComponent<PlayerMovement>().disableInput = true;
+            player.GetComponent<PlayerMovement>().StopRunning();
             StartCoroutine(FadeOutUI());
         }
     }
