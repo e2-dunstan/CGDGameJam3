@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3519970538947756111}
   - component: {fileID: 1773596541279172760}
+  - component: {fileID: 6545917457501752735}
   m_Layer: 0
   m_Name: WallTorch
   m_TagString: Untagged
@@ -46,6 +47,29 @@ CapsuleCollider:
   m_Height: 2.5729916
   m_Direction: 1
   m_Center: {x: 0, y: 0.7864958, z: -0.13}
+--- !u!114 &6545917457501752735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8251429152856710225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: event:/Ambience/Torchblow
+  PlayEvent: 1
+  StopEvent: 2
+  CollisionTag: 
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &4545873162601595892
 PrefabInstance:
   m_ObjectHideFlags: 0
