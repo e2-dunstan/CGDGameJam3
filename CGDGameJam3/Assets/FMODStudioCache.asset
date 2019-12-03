@@ -1,5 +1,21 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9212733260986079273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Surface
+  Min: 0
+  Max: 4
+  Default: 0
 --- !u!114 &-9207081279387331065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -691,6 +707,22 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 26000
+--- !u!114 &-6881399697575972435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: VelocitySkinny
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &-6870503196333530778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -782,11 +814,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: D:\Uni Work\CGDGameJam3\IFTY fMod\IFTY fMod\Build\Desktop\Master Bank.bank
-  lastModified: 637109951962567250
+  lastModified: 637109994769770764
   LoadResult: 0
   FileSizes:
   - Name: 
-    Value: 1307072
+    Value: 1315168
   Exists: 1
 --- !u!114 &-6607174037842969887
 MonoBehaviour:
@@ -1204,6 +1236,22 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-5725532919898105369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Surface
+  Min: 0
+  Max: 4
+  Default: 0
 --- !u!114 &-5662356715240141615
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1729,11 +1777,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: D:\Uni Work\CGDGameJam3\IFTY fMod\IFTY fMod\Build\Desktop\Master Bank.strings.bank
-  lastModified: 637109951962596829
+  lastModified: 637109994769810654
   LoadResult: 0
   FileSizes:
   - Name: 
-    Value: 1512
+    Value: 1554
   Exists: 1
 --- !u!114 &-4364978840522335130
 MonoBehaviour:
@@ -2557,6 +2605,22 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 2000
+--- !u!114 &-2453993437307793761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Surface
+  Min: 0
+  Max: 4
+  Default: 0
 --- !u!114 &-2400486118245962975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2666,6 +2730,22 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 5000
+--- !u!114 &-2276097306741281378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Surface
+  Min: 0
+  Max: 4
+  Default: 0
 --- !u!114 &-2195384487017302584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2756,8 +2836,8 @@ MonoBehaviour:
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: -7097193960850459612}
-  - {fileID: 4771336237512558414}
+  - {fileID: 3763013118078893211}
+  - {fileID: 5949495334501394246}
   MinDistance: 1
   MaxDistance: 20
   Length: 26750
@@ -3195,6 +3275,22 @@ MonoBehaviour:
   Min: 0
   Max: 4
   Default: 0
+--- !u!114 &-711600054788013491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Speed
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &-698591985623862606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3389,6 +3485,29 @@ MonoBehaviour:
   Min: 0
   Max: 4
   Default: 0
+--- !u!114 &-239768862122744673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Megan/FootStepStoneR
+  guid: e2a995d94f1bc741936cd32c07db7e85
+  Banks:
+  - {fileID: -6610605396071038085}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 574
 --- !u!114 &-190091996375375684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3602,10 +3721,27 @@ MonoBehaviour:
   - {fileID: -2469215744245361588}
   - {fileID: 7401508597767901627}
   - {fileID: -4056610300861313758}
+  - {fileID: -239768862122744673}
   MasterBankRef: {fileID: -6610605396071038085}
   StringsBankRef: {fileID: -4368835422844626212}
-  stringsBankWriteTime: 637109951962596829
+  stringsBankWriteTime: 637109994769810654
   cacheVersion: 2
+--- !u!114 &78942986088776926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: VelocitySkinny
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &101665034568348520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3875,6 +4011,22 @@ MonoBehaviour:
   Name: Surface
   Min: 0
   Max: 4
+  Default: 0
+--- !u!114 &652404054994712386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: VelocitySkinny
+  Min: 0
+  Max: 1
   Default: 0
 --- !u!114 &681579843787347347
 MonoBehaviour:
@@ -4928,6 +5080,22 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &3763013118078893211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Speed
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &3769025820736636662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5099,8 +5267,8 @@ MonoBehaviour:
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 8787041334672069547}
-  - {fileID: -7934274479406491026}
+  - {fileID: 78942986088776926}
+  - {fileID: -2276097306741281378}
   MinDistance: 1
   MaxDistance: 20
   Length: 26000
@@ -5255,6 +5423,22 @@ MonoBehaviour:
   Name: Surface
   Min: 0
   Max: 4
+  Default: 0
+--- !u!114 &4541933268235649310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: VelocitySkinny
+  Min: 0
+  Max: 1
   Default: 0
 --- !u!114 &4619531778327760353
 MonoBehaviour:
@@ -5656,11 +5840,27 @@ MonoBehaviour:
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 6511207080341923940}
-  - {fileID: -328279955959856084}
+  - {fileID: 652404054994712386}
+  - {fileID: 7978490619760586466}
   MinDistance: 1
   MaxDistance: 20
   Length: 26074
+--- !u!114 &5949495334501394246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Surface
+  Min: 0
+  Max: 4
+  Default: 0
 --- !u!114 &5978407290894101648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6460,6 +6660,22 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &7978490619760586466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Surface
+  Min: 0
+  Max: 4
+  Default: 0
 --- !u!114 &8018956864968287898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7069,7 +7285,7 @@ MonoBehaviour:
   - {fileID: -6610605396071038085}
   IsStream: 0
   Is3D: 1
-  IsOneShot: 1
+  IsOneShot: 0
   Parameters: []
   MinDistance: 1
   MaxDistance: 20

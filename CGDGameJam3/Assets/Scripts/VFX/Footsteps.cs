@@ -47,7 +47,6 @@ public class Footsteps : MonoBehaviour
                 footstepEvent = FMODUnity.RuntimeManager.CreateInstance(selectSound);
                 footstepEvent.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(player.gameObject));
                 footstepEvent.start();
-                print(footstepEvent + ", " + selectSound);
             }
         }
         else
