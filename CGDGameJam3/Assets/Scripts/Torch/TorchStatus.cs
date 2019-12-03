@@ -32,6 +32,9 @@ public class TorchStatus : MonoBehaviour
     public float minTimeBetweenFlickers = 9.0f;
     public float maxTimeBetweenFlickers = 20.0f;
 
+    [FMODUnity.EventRef]
+    public string flashLightFlickerSound = "";
+
     // Start is called before the first frame update
     void Start()
     {
@@ -118,12 +121,14 @@ public class TorchStatus : MonoBehaviour
                 {
                     isLightOn = false;
                     flashLight.enabled = false;
+                    FMODUnity.RuntimeManager.PlayOneShot(flashLightFlickerSound, this.transform.position);
                     dt2 = 0.0f;
                 }
                 else
                 {
                     isLightOn = true;
                     flashLight.enabled = true;
+                    FMODUnity.RuntimeManager.PlayOneShot(flashLightFlickerSound, this.transform.position);
                     dt2 = 0.0f;
                 }
 
@@ -138,6 +143,7 @@ public class TorchStatus : MonoBehaviour
                 isFlashing = false;
                 isLightOn = true;
                 flashLight.enabled = true;
+                FMODUnity.RuntimeManager.PlayOneShot(flashLightFlickerSound, this.transform.position);
                 flashingIsOver = true;
             }
 
