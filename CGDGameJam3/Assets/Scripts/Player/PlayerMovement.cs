@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [HideInInspector] public bool disableInput = false;
 
+    Dictionary<int, string> materials = new Dictionary<int, string>();
     enum MovementAxis
     {
         X,
@@ -40,6 +41,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
+
+        materials.Add(0, "MossyStoneSlabs");
+        materials.Add(1, "Wood");
+        materials.Add(2, "Cobblestone");
+        materials.Add(3, "FracturedStone");
+        materials.Add(4, "Tile");
+
         rb = GetComponent<Rigidbody>();
         col = GetComponent<CapsuleCollider>();
         anim = model.GetComponent<Animator>();
@@ -89,6 +97,7 @@ public class PlayerMovement : MonoBehaviour
         {
             PlayEffect(VFXManager.Instance().runningPSList);
         }
+
     }
 
     private void FixedUpdate()
@@ -97,6 +106,21 @@ public class PlayerMovement : MonoBehaviour
 
         if ((horizontalInput != 0 || verticalInput != 0) && AnimatorCanMove())
         {
+
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, 2.0f))
+            {
+                Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
+                var mat = hit.collider.GetComponent<MeshRenderer>().material;
+                for (int i = 0; i < materials.Count; ++i)
+                {
+                    if (mat.name == materials[i])
+                    {
+                        // play audio music here
+                    }
+                }
+            }
+
             Vector3 newPos = transform.position;
             float xOffset = horizontalInputAxis == MovementAxis.X ? horizontalInput : verticalInput;
             float xAddition = xOffset * Time.deltaTime * speedMultiplier;
@@ -152,6 +176,8 @@ public class PlayerMovement : MonoBehaviour
     public void StopRunning()
     {
         sprintActive = false;
+        anim.SetBool("Naruto", false);
+        anim.SetFloat("Speed", 0.0f);
     }
 
     private void OnCollisionEnter(Collision collision)

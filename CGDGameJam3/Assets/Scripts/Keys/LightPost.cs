@@ -6,6 +6,7 @@ public class LightPost : MonoBehaviour
 {
     [Header("Object References")]
     [SerializeField] private Light pointLight;
+    [SerializeField] private Torchlight torchlight;
 
     void Start()
     {
@@ -13,6 +14,8 @@ public class LightPost : MonoBehaviour
 
     public void SetLightActive(bool isActive)
     {
+        Debug.Log("TURNING ON A LIGHT" + isActive);
         pointLight.gameObject.SetActive(isActive);
+        torchlight.ManuallyStart();
     }
 }
