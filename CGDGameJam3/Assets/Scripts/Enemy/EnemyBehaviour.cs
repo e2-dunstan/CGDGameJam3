@@ -12,6 +12,7 @@ public class EnemyBehaviour : MonoBehaviour
     };
 
     EnemyState currentState = EnemyState.FollowNodes;
+    EnemyState previousState = EnemyState.FollowNodes;
 
     [Header("Model Attributes")]
     public Transform model;
@@ -20,6 +21,16 @@ public class EnemyBehaviour : MonoBehaviour
     public float idleTime;
 
     [Header("Enemy Attributes")]
+
+    [FMODUnity.EventRef]
+    public string lookingSound = "";
+    [FMODUnity.EventRef]
+    public string chasingSound = "";
+    [FMODUnity.EventRef]
+    public string footstepSound = "";
+    [FMODUnity.EventRef]
+    public string killingSound = "";
+
     public float speed = 2;
     public float chaseSpeed = 4;
     public float dectectionRange = 3;
@@ -50,6 +61,9 @@ public class EnemyBehaviour : MonoBehaviour
     bool freezeModelRotation = false;
     bool followPlayer = false;
 
+    bool canGrowl = true;
+    float minTimeBetweenGrowl = 5f;
+    float maxTimeBetweenGrowl = 10f;
 
     public EnemyNode currentNode;
 
@@ -74,6 +88,18 @@ public class EnemyBehaviour : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if(previousState != currentState)
+        {
+            switch (currentState)
+            {
+                case EnemyState.Chase:
+                    FMODUnity.RuntimeManager.PlayOneShot(chasingSound, this.transform.position);
+                    break;
+            }
+
+            previousState = currentState;
+        }
+
         enemyRigidbody.velocity = Vector3.zero;
 
         enemyPosition.Set(transform.position.x, transform.position.z);
@@ -102,6 +128,37 @@ public class EnemyBehaviour : MonoBehaviour
         }
 
         RotateToMovement();
+
+        if(canGrowl)
+        {
+            PlayGrowl();
+        }
+    }
+    private void PlayGrowl()
+    {
+        float growlTime = Random.Range(minTimeBetweenGrowl, maxTimeBetweenGrowl);
+
+        switch (currentState)
+        {
+            case EnemyState.FollowNodes:
+            case EnemyState.LookAround:
+                FMODUnity.RuntimeManager.PlayOneShot(lookingSound, this.transform.position);
+                break;
+
+            case EnemyState.Chase:
+                FMODUnity.RuntimeManager.PlayOneShot(chasingSound, this.transform.position);
+                growlTime *= 0.5f;
+                break;
+        }
+
+        StartCoroutine(randomTime(growlTime));
+    }
+
+    IEnumerator randomTime(float time)
+    {
+        canGrowl = false;
+        yield return new WaitForSeconds(time);
+        canGrowl = true;
     }
 
     private void FollowNodesState()
@@ -193,8 +250,6 @@ public class EnemyBehaviour : MonoBehaviour
         float range = currentState == EnemyState.Chase ? chaseRange : dectectionRange;
 
         bool inRange = distance < range * (playerSprinting ? scaleRange : 1.0f);
-
-        
 
         if (inRange)
         {
