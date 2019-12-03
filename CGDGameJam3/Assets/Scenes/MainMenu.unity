@@ -2569,7 +2569,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Event: event:/Test
+  Event: event:/Ambience/Drips
   PlayEvent: 11
   StopEvent: 12
   CollisionTag: 
@@ -2578,8 +2578,8 @@ MonoBehaviour:
   Preload: 1
   Params: []
   OverrideAttenuation: 0
-  OverrideMinDistance: 0
-  OverrideMaxDistance: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!4 &1695001483
 Transform:
   m_ObjectHideFlags: 0
