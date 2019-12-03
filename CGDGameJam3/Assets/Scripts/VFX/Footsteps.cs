@@ -6,6 +6,9 @@ public class Footsteps : MonoBehaviour
 {
     public ParticleSystem system;
 
+    [FMODUnity.EventRef]
+    public string selectSound;
+    FMOD.Studio.EventInstance footstepEvent;
     Vector3 lastEmit;
     GameObject player;
     GameObject playerModel;
@@ -13,6 +16,9 @@ public class Footsteps : MonoBehaviour
     public float gap = -0.5f;
     int dir = 1;
 
+    private void Start()
+    {
+    }
     void OnEnable()
     {
         player = PlayerManager.Instance().players[0];
@@ -34,6 +40,11 @@ public class Footsteps : MonoBehaviour
                 ep.rotation = playerModel.transform.rotation.eulerAngles.y;
                 system.Emit(ep, 1);
                 lastEmit = player.transform.position;
+
+                footstepEvent = FMODUnity.RuntimeManager.CreateInstance(selectSound);
+                footstepEvent.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(player.gameObject));
+                footstepEvent.start();
+                print(footstepEvent + ", " + selectSound);
             }
         }
         else

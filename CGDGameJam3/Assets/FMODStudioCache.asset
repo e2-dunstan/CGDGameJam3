@@ -39,6 +39,31 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &-8773845244400886726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Megan/MeganFootsteps
+  guid: 70cc25c1b7d46d459c417425b0af152d
+  Banks:
+  - {fileID: -1053211060514948351}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -3361373728822426521}
+  - {fileID: -938082959053521945}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 28000
 --- !u!114 &-8737761851871012633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81,6 +106,45 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1350
+--- !u!114 &-8715688523618701222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Ambience/Drips
+  guid: 1b854d753723134c9d06b959a35450c8
+  Banks:
+  - {fileID: 3836019521056207399}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 305
+--- !u!114 &-8523526256893988916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: VelocitySkinny
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &-8456877379105088896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,6 +185,50 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 26000
+--- !u!114 &-8296284667811387943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: D:\CGDGameJam3\IFTY fMod\Build\Desktop\Master Bank.strings.bank
+  lastModified: 637108939510000000
+  LoadResult: 0
+  FileSizes:
+  - Name: 
+    Value: 1468
+  Exists: 1
+--- !u!114 &-8119405116164643371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Skinny/SkinnyFootsteps
+  guid: f0ed1c41dc33404da80fba22463beafb
+  Banks:
+  - {fileID: -1053211060514948351}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 1206050460396633482}
+  - {fileID: 8946175180529737447}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 26074
 --- !u!114 &-7994064364453415542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,6 +245,29 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &-7952713191696061336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Ambience/Wind1
+  guid: b6c49e800144264db08b19f59d0fc2eb
+  Banks:
+  - {fileID: -1053211060514948351}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 13000
 --- !u!114 &-7852507934078827620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,6 +327,29 @@ MonoBehaviour:
   - Name: Desktop
     Value: 40630
   Exists: 1
+--- !u!114 &-7285043933507249258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Teethy/SkinnyChasing
+  guid: 14bc1c115dfcb044969e29693670bf4b
+  Banks:
+  - {fileID: 3836019521056207399}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-7183509041039754278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -235,6 +389,54 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &-7005890101483692615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Teethy/SkinnyFootsteps
+  guid: 3051e45d16d53547bf16a7262a72fe2c
+  Banks:
+  - {fileID: 3836019521056207399}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -8523526256893988916}
+  - {fileID: 2372984148532264310}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 26000
+--- !u!114 &-6870503196333530778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Megan/Torch
+  guid: 00521f303e283a44ba84fa2f9cf4a95a
+  Banks:
+  - {fileID: 3836019521056207399}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1350
 --- !u!114 &-6853824798493255692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -274,6 +476,22 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 10750
+--- !u!114 &-6606164603128044667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Surface
+  Min: 0
+  Max: 4
+  Default: 0
 --- !u!114 &-6559151011926570869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -294,6 +512,29 @@ MonoBehaviour:
   - Name: Desktop
     Value: 40630
   Exists: 1
+--- !u!114 &-6528680034860769333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Ambience/Torchblow
+  guid: 46d1eec297392d4eb91ed710783266c5
+  Banks:
+  - {fileID: 3836019521056207399}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 5000
 --- !u!114 &-6501588702277659321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -309,6 +550,68 @@ MonoBehaviour:
   Name: HeartbeatSpeed
   Min: 0
   Max: 10
+  Default: 0
+--- !u!114 &-6476717460160874176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Skinny/SkinnyKilling
+  guid: 003e950e54f9ba459c78ca4bede238df
+  Banks:
+  - {fileID: -1053211060514948351}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-6445700287407241095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Teethy/SkinnyKilling
+  guid: e93dcde4c7dc4e4b80bc7a84f517273e
+  Banks:
+  - {fileID: -1053211060514948351}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-6268215085481390904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Surface
+  Min: 0
+  Max: 4
   Default: 0
 --- !u!114 &-6162567249968271291
 MonoBehaviour:
@@ -379,6 +682,29 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 2000
+--- !u!114 &-5738882150424814066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Megan/Voice
+  guid: cb81c1108affab4ab84d804a835c6174
+  Banks:
+  - {fileID: 3836019521056207399}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-5662356715240141615
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -415,6 +741,52 @@ MonoBehaviour:
   guid: 978e4f2a57ae9a44b632c9d337d91bfd
   Banks:
   - {fileID: -7648853539441122401}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-5313635951356000884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Ambience/Wind2
+  guid: 025cc7ed07542c4c941848f758a3f779
+  Banks:
+  - {fileID: -1053211060514948351}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 10750
+--- !u!114 &-5295618741909951856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Teethy/SkinnyChasing
+  guid: 14bc1c115dfcb044969e29693670bf4b
+  Banks:
+  - {fileID: -1053211060514948351}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -555,6 +927,30 @@ MonoBehaviour:
   Min: 0
   Max: 4
   Default: 0
+--- !u!114 &-4878515262884286907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Megan/Heartbeat
+  guid: b6e1a19fc49aeb43909d6419f0a1c2ce
+  Banks:
+  - {fileID: 3836019521056207399}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters:
+  - {fileID: -4433913626534184040}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-4862304848817724542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -571,6 +967,29 @@ MonoBehaviour:
   Min: 0
   Max: 4
   Default: 0
+--- !u!114 &-4777872775010661086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Megan/Die
+  guid: e529dd936c5dda468ae9667b3228b031
+  Banks:
+  - {fileID: 3836019521056207399}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-4656118536907066649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -602,6 +1021,38 @@ MonoBehaviour:
   Name: Speed
   Min: 0
   Max: 1
+  Default: 0
+--- !u!114 &-4545314040123369398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: VelocitySkinny
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &-4433913626534184040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: HeartbeatSpeed
+  Min: 0
+  Max: 10
   Default: 0
 --- !u!114 &-4419098259427100491
 MonoBehaviour:
@@ -769,6 +1220,29 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 5000
+--- !u!114 &-3695363029552041315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Skinny/SkinnyKilling
+  guid: 003e950e54f9ba459c78ca4bede238df
+  Banks:
+  - {fileID: 3836019521056207399}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-3622232507036273432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -838,6 +1312,29 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 5000
+--- !u!114 &-3449132375007293842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Ambience/Wind1
+  guid: b6c49e800144264db08b19f59d0fc2eb
+  Banks:
+  - {fileID: 3836019521056207399}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 13000
 --- !u!114 &-3440589877853030264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -886,6 +1383,22 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-3361373728822426521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Speed
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &-3307798130391695720
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -986,6 +1499,52 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 13000
+--- !u!114 &-2793718101105317258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Teethy/SkinnyLooking
+  guid: 978e4f2a57ae9a44b632c9d337d91bfd
+  Banks:
+  - {fileID: 3836019521056207399}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-2748506771024043045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Ambience/Wind3
+  guid: 4f0a5ed90ae83845990941c0e094f84a
+  Banks:
+  - {fileID: 3836019521056207399}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 5000
 --- !u!114 &-2721754421001762585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1009,6 +1568,29 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 13000
+--- !u!114 &-2493597558614934457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Megan/Torch
+  guid: 00521f303e283a44ba84fa2f9cf4a95a
+  Banks:
+  - {fileID: -1053211060514948351}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1350
 --- !u!114 &-2400486118245962975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1165,6 +1747,77 @@ MonoBehaviour:
   Min: 0
   Max: 10
   Default: 0
+--- !u!114 &-1707794606911513422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Skinny/SkinnyFootsteps
+  guid: f0ed1c41dc33404da80fba22463beafb
+  Banks:
+  - {fileID: 3836019521056207399}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -4545314040123369398}
+  - {fileID: 8401863414546324822}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 26074
+--- !u!114 &-1695964973731248629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Megan/Die
+  guid: e529dd936c5dda468ae9667b3228b031
+  Banks:
+  - {fileID: -1053211060514948351}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-1626354864561786798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Megan/Voice
+  guid: cb81c1108affab4ab84d804a835c6174
+  Banks:
+  - {fileID: -1053211060514948351}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-1510159315754040854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1220,6 +1873,25 @@ MonoBehaviour:
   Min: 0
   Max: 4
   Default: 0
+--- !u!114 &-1053211060514948351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: D:\CGDGameJam3\IFTY fMod\Build\Desktop\Master Bank.bank
+  lastModified: 637108939510000000
+  LoadResult: 0
+  FileSizes:
+  - Name: 
+    Value: 40630
+  Exists: 1
 --- !u!114 &-981035490875008346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1266,6 +1938,45 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 305
+--- !u!114 &-938082959053521945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Surface
+  Min: 0
+  Max: 4
+  Default: 0
+--- !u!114 &-759074159527191345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Teethy/SkinnyKilling
+  guid: e93dcde4c7dc4e4b80bc7a84f517273e
+  Banks:
+  - {fileID: 3836019521056207399}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-736077748416533277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1302,6 +2013,22 @@ MonoBehaviour:
   - Name: Desktop
     Value: 3426912
   Exists: 1
+--- !u!114 &-655035408598626103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Speed
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &-553590162471036656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1431,13 +2158,30 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: 4619531778327760353}
-  - {fileID: -190091996375375684}
+  - {fileID: -8296284667811387943}
+  - {fileID: 3836019521056207399}
   EditorEvents:
-  - {fileID: -2884897374239722431}
-  MasterBankRef: {fileID: -190091996375375684}
-  StringsBankRef: {fileID: 4619531778327760353}
-  stringsBankWriteTime: 637109038032295459
+  - {fileID: -3695363029552041315}
+  - {fileID: -6870503196333530778}
+  - {fileID: 6195437786660391005}
+  - {fileID: -7285043933507249258}
+  - {fileID: -8715688523618701222}
+  - {fileID: -7005890101483692615}
+  - {fileID: -6528680034860769333}
+  - {fileID: -2748506771024043045}
+  - {fileID: 3415006986971940489}
+  - {fileID: -2793718101105317258}
+  - {fileID: -3449132375007293842}
+  - {fileID: -4878515262884286907}
+  - {fileID: -5738882150424814066}
+  - {fileID: -4777872775010661086}
+  - {fileID: -759074159527191345}
+  - {fileID: -1707794606911513422}
+  - {fileID: 5108750845608488688}
+  - {fileID: 5687968728807909199}
+  MasterBankRef: {fileID: 3836019521056207399}
+  StringsBankRef: {fileID: -8296284667811387943}
+  stringsBankWriteTime: 637108939510000000
   cacheVersion: 2
 --- !u!114 &136401856929018435
 MonoBehaviour:
@@ -1496,6 +2240,29 @@ MonoBehaviour:
   Min: 0
   Max: 10
   Default: 0
+--- !u!114 &462448363972961926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Ambience/Torchblow
+  guid: 46d1eec297392d4eb91ed710783266c5
+  Banks:
+  - {fileID: -1053211060514948351}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 5000
 --- !u!114 &488367421234897909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1594,6 +2361,22 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 5000
+--- !u!114 &1206050460396633482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: VelocitySkinny
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &1257447422435927324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1769,6 +2552,22 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 10750
+--- !u!114 &2372984148532264310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Surface
+  Min: 0
+  Max: 4
+  Default: 0
 --- !u!114 &2552300998767077760
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1988,6 +2787,25 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &3073193258532322183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: D:\CGDGameJam3\IFTY fMod\Build\Desktop\Master Bank.strings.bank
+  lastModified: 637108939510000000
+  LoadResult: 0
+  FileSizes:
+  - Name: 
+    Value: 1468
+  Exists: 1
 --- !u!114 &3148447655403975139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2027,6 +2845,31 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 5000
+--- !u!114 &3415006986971940489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Megan/MeganFootsteps
+  guid: 70cc25c1b7d46d459c417425b0af152d
+  Banks:
+  - {fileID: 3836019521056207399}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -655035408598626103}
+  - {fileID: -6606164603128044667}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 28000
 --- !u!114 &3451566535624930138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2155,6 +2998,48 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 5000
+--- !u!114 &3821404590718057358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Ambience/Drips
+  guid: 1b854d753723134c9d06b959a35450c8
+  Banks:
+  - {fileID: -1053211060514948351}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 305
+--- !u!114 &3836019521056207399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: D:\CGDGameJam3\IFTY fMod\Build\Desktop\Master Bank.bank
+  lastModified: 637108939510000000
+  LoadResult: 0
+  FileSizes:
+  - Name: 
+    Value: 40630
+  Exists: 1
 --- !u!114 &3932069587481917737
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2307,6 +3192,22 @@ MonoBehaviour:
   Min: 0
   Max: 4
   Default: 0
+--- !u!114 &4317078859552093677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: HeartbeatSpeed
+  Min: 0
+  Max: 10
+  Default: 0
 --- !u!114 &4399308673973432556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2380,6 +3281,29 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &5108750845608488688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Skinny/SkinnyChasing
+  guid: fbb65e2da03e534ab6337e7e1722af8e
+  Banks:
+  - {fileID: 3836019521056207399}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2000
 --- !u!114 &5410735533603240564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2441,6 +3365,29 @@ MonoBehaviour:
   Min: 0
   Max: 4
   Default: 0
+--- !u!114 &5687968728807909199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Skinny/SkinnyLooking
+  guid: ff9bbaaf98c0824e88845926acfcca06
+  Banks:
+  - {fileID: 3836019521056207399}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 5000
 --- !u!114 &5717522571419335133
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2568,6 +3515,78 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 26074
+--- !u!114 &6138145277607554409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Megan/Heartbeat
+  guid: b6e1a19fc49aeb43909d6419f0a1c2ce
+  Banks:
+  - {fileID: -1053211060514948351}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 4317078859552093677}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &6140424535559079426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Teethy/SkinnyFootsteps
+  guid: 3051e45d16d53547bf16a7262a72fe2c
+  Banks:
+  - {fileID: -1053211060514948351}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 8518666411926276988}
+  - {fileID: -6268215085481390904}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 26000
+--- !u!114 &6195437786660391005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Ambience/Wind2
+  guid: 025cc7ed07542c4c941848f758a3f779
+  Banks:
+  - {fileID: 3836019521056207399}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 10750
 --- !u!114 &6240316609979939922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2644,6 +3663,29 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &6418387884463177687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Skinny/SkinnyChasing
+  guid: fbb65e2da03e534ab6337e7e1722af8e
+  Banks:
+  - {fileID: -1053211060514948351}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2000
 --- !u!114 &6635659229099314261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2793,6 +3835,29 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &7185977389759121601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Teethy/SkinnyLooking
+  guid: 978e4f2a57ae9a44b632c9d337d91bfd
+  Banks:
+  - {fileID: -1053211060514948351}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &7533727347361558144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2981,6 +4046,61 @@ MonoBehaviour:
   Min: 0
   Max: 4
   Default: 0
+--- !u!114 &8344542436092029431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Ambience/Wind3
+  guid: 4f0a5ed90ae83845990941c0e094f84a
+  Banks:
+  - {fileID: -1053211060514948351}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 5000
+--- !u!114 &8401863414546324822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Surface
+  Min: 0
+  Max: 4
+  Default: 0
+--- !u!114 &8518666411926276988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: VelocitySkinny
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &8561172424664282185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3093,6 +4213,45 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 26074
+--- !u!114 &8909061468285233566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Skinny/SkinnyLooking
+  guid: ff9bbaaf98c0824e88845926acfcca06
+  Banks:
+  - {fileID: -1053211060514948351}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 5000
+--- !u!114 &8946175180529737447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Surface
+  Min: 0
+  Max: 4
+  Default: 0
 --- !u!114 &9064529117378953816
 MonoBehaviour:
   m_ObjectHideFlags: 0
