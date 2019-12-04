@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="AudioFile" id="{c01e1c4e-174d-4e9c-ae7f-0e3a476ef832}">
+        <property name="assetPath">
+            <value>005Footsteps Master ExportShort Grass.wav</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>48</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>1.4867708333333334</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{bbf3cf9b-31f1-43ce-9198-0dd1496d626f}</destination>
+        </relationship>
+    </object>
+</objects>
