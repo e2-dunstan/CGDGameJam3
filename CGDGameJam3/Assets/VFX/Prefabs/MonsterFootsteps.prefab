@@ -4784,3 +4784,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78176ed7a61e4486f96cac4331469b20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dripPS: {fileID: 3370849144291517768}
+  dripSound: event:/Ambience/Drips
+  numberOfParticles: 0

@@ -5,12 +5,15 @@ using UnityEngine;
 public class SprintStep : MonoBehaviour
 {
     public ParticleSystem system;
-
+    [FMODUnity.EventRef]
+    public string selectSound;
+    FMOD.Studio.EventInstance footstepEvent;
     Vector3 lastEmit;
     GameObject player;
     GameObject playerModel;
     public float delta = 1;
     public float gap = 0.5f;
+    int footstepVal;
     int dir = 1;
 
     void OnEnable()
@@ -25,6 +28,8 @@ public class SprintStep : MonoBehaviour
     {
         if (InputHandler.Instance().GetSprintHold())
         {
+            footstepVal = Random.Range(1, 4);
+            footstepEvent.setParameterValue("Surface", footstepVal);
             if (Vector3.Distance(lastEmit, player.transform.position) > delta)
             {
                 var pos = transform.position + (playerModel.transform.right * gap * dir);
@@ -34,6 +39,10 @@ public class SprintStep : MonoBehaviour
                 ep.rotation = playerModel.transform.rotation.eulerAngles.y;
                 system.Emit(ep, 1);
                 lastEmit = player.transform.position;
+
+                footstepEvent = FMODUnity.RuntimeManager.CreateInstance(selectSound);
+                footstepEvent.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(player.gameObject));
+                footstepEvent.start();
             }
         }
         else

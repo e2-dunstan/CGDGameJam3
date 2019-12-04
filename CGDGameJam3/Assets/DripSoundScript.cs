@@ -2,35 +2,47 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(ParticleSystem))]
 public class DripSoundScript : MonoBehaviour
 {
-    private ParticleSystem dripPS;
+    public ParticleSystem dripPS;
 
     [FMODUnity.EventRef]
     public string dripSound = "";
 
     public int numberOfParticles = 0;
-    private ParticleSystem.Particle[] m_Particles;
+    public int lastNumOfParticles = 0;
 
+    ParticleSystem.Particle[] m_Particles;
     // Start is called before the first frame update
     void Start()
     {
-        dripPS = gameObject.GetComponent<ParticleSystem>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        dripPS.GetParticles(m_Particles);
+        Initialise();
+        numberOfParticles = dripPS.GetParticles(m_Particles);
+        Debug.Log(m_Particles.Length);
 
-        if(numberOfParticles != m_Particles.Length && numberOfParticles < m_Particles.Length)
+        if(lastNumOfParticles != numberOfParticles && lastNumOfParticles < numberOfParticles)
         {
-            numberOfParticles = m_Particles.Length;
+            lastNumOfParticles = numberOfParticles;
             FMODUnity.RuntimeManager.PlayOneShot(dripSound, this.transform.position);
         }
         else
         {
-            numberOfParticles = m_Particles.Length;
+            lastNumOfParticles = numberOfParticles;
+        }
+     
+    }
+
+    void Initialise()
+    {
+        if(m_Particles == null || m_Particles.Length < dripPS.main.maxParticles)
+        {
+            m_Particles = new ParticleSystem.Particle[dripPS.main.maxParticles];
         }
     }
 }

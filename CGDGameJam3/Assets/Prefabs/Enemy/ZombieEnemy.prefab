@@ -50,11 +50,19 @@ MonoBehaviour:
   rotationDamping: 3
   changeNodeIfStuck: 0
   idleTime: 2
+  lookingSound: event:/Teethy/TeethyLooking
+  chasingSound: event:/Teethy/TeethyChasing
+  footstepSound: event:/Teethy/TeethyKilling
+  killingSound: event:/Teethy/TeethyLooking
   speed: 2
   chaseSpeed: 4
   dectectionRange: 6
   chaseRange: 8
   nodeRange: 0.5
+  lineOfSightTime: 2
+  debug: 0
+  aggravateEnemy: 0
+  currentNode: {fileID: 0}
 --- !u!136 &6350956433899517413
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -97,11 +105,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ZombieModel
       objectReference: {fileID: 0}
-    - target: {fileID: -6057140222963153312, guid: 573a0857326d9464c942f64ce88ae40e,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 2ef9dc0c0038cc94a844062fa2b9c5c0, type: 2}
     - target: {fileID: -4216859302048453862, guid: 573a0857326d9464c942f64ce88ae40e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -172,6 +175,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: -6057140222963153312, guid: 573a0857326d9464c942f64ce88ae40e,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 2ef9dc0c0038cc94a844062fa2b9c5c0, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 573a0857326d9464c942f64ce88ae40e, type: 3}
 --- !u!4 &2114886378187312428 stripped
