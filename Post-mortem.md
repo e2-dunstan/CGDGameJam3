@@ -46,6 +46,7 @@ As this game was a sound based horror game, making the enemies have a pressence 
 * When a player comes into range of the enemy, the enemy range is extended causing the player to actively run away and prevents an unwanted loop of the enemy constantly changing states.
 * If the player increases there movement speed, the enemy range is increased to compensate and act as a consequence for the player being louder.
 * Shining the given flashlight at an enemy will reveal the enemy's location but will simultaneously notify the enemy of the player's location, even at a distance.
+
 Combine this with the random movements and it creates a system where the player doesn't know where the enemies are and have to be cautious when navigating around them. Two enemy types are used that have different speeds allowing for a variety of approaches to be taken from moving cautiously around them to running away upon contact.
 
 Flashlight - Ben
