@@ -42,6 +42,11 @@ Keys - Alex, Ben, Sol (emphasise communication on this issue, plus use of colour
 The key system at is base is very simple. Two arrays, one of the keys themselves and one of the lights relating to those keys. Once a key is collected the key calls back to its manager to disable that key in the scene and turn on the appropriate light. Once all keys have been collected a function is then called which the other systems can hook into to play cutscenes, end the game, etc.
 
 Enemies - Dan
+As this game was a sound based horror game, making the enemies have a pressence was key. The core enemy pathing is incredibly simple, just randomisation between multiple connecting nodes. This allowed for more effort to go into how they react to the player, for example:
+* When a player comes into range of the enemy, the enemy range is extended causing the player to actively run away and prevents an unwanted loop of the enemy constantly changing states.
+* If the player increases there movement speed, the enemy range is increased to compensate and act as a consequence for the player being louder.
+* Shining the given flashlight at an enemy will reveal the enemy's location but will simultaneously notify the enemy of the player's location, even at a distance.
+Combine this with the random movements and it creates a system where the player doesn't know where the enemies are and have to be cautious when navigating around them. Two enemy types are used that have different speeds allowing for a variety of approaches to be taken from moving cautiously around them to running away upon contact.
 
 Flashlight - Ben
 
@@ -60,6 +65,7 @@ Whilst the level that the group created was good, it needed to be handcrafted fr
 Another improvement would involve hinting the player about key locations and potentially having a key counter to see how many you need to collect. The group wanted to avoid just putting lots of UI elements for these because it would ruin/belittle the atmosphere we tried to create via the lighting and sounds.
 
 Enemy improvements like more complex behaviours and variety
+Enemy pathing can be improved a lot as currently the pathing between nodes completely randomised. Having enemies move towards last known locations or try to surround the player to lead to increased difficulty and provide tatical options to the player. Having an increased variety of enemy types with different speeds, ranges or effects on the player if caught could provide more replay value to the player as each encounter will be harder to predict. 
 
 #
 ## Gameplay
